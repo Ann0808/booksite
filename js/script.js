@@ -3,17 +3,23 @@ $( document ).ready(function() {
   $('#carouselPurchased').on('slide.bs.carousel', function (e) {
     var id = '#carouselPurchased';
     multipleCarousel(e, id);
-  });
+  }).carousel({
+         interval : false
+});
 
   $('#carouselRecommended').on('slide.bs.carousel', function (e) {
     var id = '#carouselRecommended';
     multipleCarousel(e, id);
-  });
+  }).carousel({
+         interval : false
+});
 
   $('#carouselInteresting').on('slide.bs.carousel', function (e) {
     var id = '#carouselInteresting';
     multipleCarousel(e, id);
-  });
+  }).carousel({
+         interval : false
+});
 
 });
 
