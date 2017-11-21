@@ -48,7 +48,8 @@ else clearInterval(scrollInterval);
 function multipleCarousel(e, id) {
   var $e = $(e.relatedTarget);
   var idx = $e.index();
-  var itemsPerSlide = 4;
+  var viewport =$(window).width();
+  var itemsPerSlide = (viewport>=992) ? 4 :3;
   var totalItems = $(id + ' .carousel-item').length;
 
   if (idx >= totalItems-(itemsPerSlide-1)) {
