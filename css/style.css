@@ -1,5 +1,8 @@
 .main-page {
    padding: 10px 0;
+   background-image: url(../img/books-bg.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
 }
 
 
@@ -8,6 +11,13 @@
   margin-bottom: 10px;
 }
 
+.purchased-books,
+.recommended-books,
+.interesting {
+  /*background-image: url(../img/books-bg1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;*/
+}
 
 .button-to-top {
 width:100px;
@@ -121,7 +131,7 @@ z-index: 10;
         position: absolute;
         top: 0;
         right: -33.3333%;
-        z-index: -1;
+        /*z-index: -1;*/
         display: block;
         visibility: visible;
     }
@@ -141,7 +151,7 @@ z-index: 10;
         position: absolute;
         top: 0;
         left: 0;
-        z-index: -1;
+        /*z-index: -1;*/
         display: block;
         visibility: visible;
     }
@@ -238,7 +248,7 @@ z-index: 10;
       position: absolute;
       top: 0;
       right: -25%;
-      z-index: -1;
+      /*z-index: -1;*/
       display: block;
       visibility: visible;
   }

@@ -25,7 +25,7 @@
           <h2 class="carousel-title">Приобретенные книги</h2>
         </div>
         <div class="row">
-          <div id="carouselPurchased" class="carousel slide" data-ride="carousel" data-interval="5000">
+          <div id="carouselPurchased" class="carousel slide" data-ride="carousel">
             <?php include( 'carousel-inner.php'); ?>
             <a class="carousel-control-prev" href="#carouselPurchased" role="button" data-slide="prev">
                 <i class="fa fa-chevron-left fa-lg text-muted"></i>
@@ -45,7 +45,7 @@
           <h2 class="carousel-title">Рекомендуемые книги автора</h2>
         </div>
         <div class="row">
-          <div id="carouselRecommended" class="carousel slide" data-ride="carousel" data-interval="5000">
+          <div id="carouselRecommended" class="carousel slide" data-ride="carousel" >
             <?php include( 'carousel-inner.php'); ?>
             <a class="carousel-control-prev" href="#carouselRecommended" role="button" data-slide="prev">
                 <i class="fa fa-chevron-left fa-lg text-muted"></i>
@@ -65,7 +65,7 @@
           <h2 class="carousel-title">Вам может быть интересно</h2>
         </div>
         <div class="row">
-          <div id="carouselInteresting" class="carousel slide" data-ride="carousel" data-interval="5000">
+          <div id="carouselInteresting" class="carousel slide" data-ride="carousel" >
             <?php include( 'carousel-inner.php'); ?>
             <a class="carousel-control-prev" href="#carouselInteresting" role="button" data-slide="prev">
                 <i class="fa fa-chevron-left fa-lg text-muted"></i>
