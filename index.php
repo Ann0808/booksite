@@ -28,13 +28,13 @@
           <div id="carouselPurchased" class="carousel slide" data-ride="carousel" data-interval="5000">
             <?php include( 'carousel-inner.php'); ?>
             <a class="carousel-control-prev" href="#carouselPurchased" role="button" data-slide="prev">
-                              <i class="fa fa-chevron-left fa-lg text-muted"></i>
-                              <span class="sr-only">Previous</span>
-                          </a>
+                <i class="fa fa-chevron-left fa-lg text-muted"></i>
+                <span class="sr-only">Previous</span>
+            </a>
             <a class="carousel-control-next text-faded" href="#carouselPurchased" role="button" data-slide="next">
-                              <i class="fa fa-chevron-right fa-lg text-muted"></i>
-                              <span class="sr-only">Next</span>
-                          </a>
+                <i class="fa fa-chevron-right fa-lg text-muted"></i>
+                <span class="sr-only">Next</span>
+            </a>
           </div>
         </div>
       </div>
@@ -48,13 +48,13 @@
           <div id="carouselRecommended" class="carousel slide" data-ride="carousel" data-interval="5000">
             <?php include( 'carousel-inner.php'); ?>
             <a class="carousel-control-prev" href="#carouselRecommended" role="button" data-slide="prev">
-                              <i class="fa fa-chevron-left fa-lg text-muted"></i>
-                              <span class="sr-only">Previous</span>
-                          </a>
+                <i class="fa fa-chevron-left fa-lg text-muted"></i>
+                <span class="sr-only">Previous</span>
+            </a>
             <a class="carousel-control-next text-faded" href="#carouselRecommended" role="button" data-slide="next">
-                              <i class="fa fa-chevron-right fa-lg text-muted"></i>
-                              <span class="sr-only">Next</span>
-                          </a>
+                 <i class="fa fa-chevron-right fa-lg text-muted"></i>
+                 <span class="sr-only">Next</span>
+            </a>
           </div>
         </div>
       </div>
@@ -68,18 +68,17 @@
           <div id="carouselInteresting" class="carousel slide" data-ride="carousel" data-interval="5000">
             <?php include( 'carousel-inner.php'); ?>
             <a class="carousel-control-prev" href="#carouselInteresting" role="button" data-slide="prev">
-                              <i class="fa fa-chevron-left fa-lg text-muted"></i>
-                              <span class="sr-only">Previous</span>
-                          </a>
+                <i class="fa fa-chevron-left fa-lg text-muted"></i>
+                <span class="sr-only">Previous</span>
+            </a>
             <a class="carousel-control-next text-faded" href="#carouselInteresting" role="button" data-slide="next">
-                              <i class="fa fa-chevron-right fa-lg text-muted"></i>
-                              <span class="sr-only">Next</span>
-                          </a>
+                <i class="fa fa-chevron-right fa-lg text-muted"></i>
+                <span class="sr-only">Next</span>
+            </a>
           </div>
         </div>
       </div>
     </section>
   </main>
 </body>
-
 </html>

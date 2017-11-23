@@ -30,11 +30,11 @@ z-index: 10;
   text-align: center;
 }
 .second-page {
-  background: #315434;
+  background-image: url(../img/bg_contentblock.png);
 }
 
 .page-header {
-  margin-bottom: 10px;
+  /*margin-bottom: 10px;*/
 }
 
 .page-header__logo {
@@ -62,10 +62,30 @@ z-index: 10;
   text-align: center;
   border: 1px solid grey;
   background: white;
+  color: #5b5350;
+  text-transform: uppercase;
+}
+
+.page-navbar__link:hover {
+  color: #080508;
 }
 
 .page-content {
   background: white;
+  padding-top: 20px;
+}
+
+.page-content__welcome,
+.page-content__congratulate {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.page-content__welcome {
+  color: red;
+  font-size: 18px;
+  font-weight: normal;
 }
 
 .page-content__image {
@@ -188,6 +208,15 @@ z-index: 10;
         display: none
     }
 
+    .page-content__text {
+      display: inline;
+    }
+
+    .page-content__image {
+      float: left;
+      margin-right: 10px;
+    }
+
 }
 
 @media (min-width: 992px) {
@@ -228,5 +257,9 @@ z-index: 10;
       visibility: visible;
       display: block;
       visibility: visible;
+  }
+
+  .page-content__image {
+    margin-right: 0px;
   }
 }
