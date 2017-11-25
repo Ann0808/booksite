@@ -54,9 +54,18 @@ function multipleCarousel(e, id) {
   var $e = $(e.relatedTarget);
   var idx = $e.index();
   var viewport = $(window).width();
-  var itemsPerSlide = (viewport >= 992) ? 4 : 3;
+  var itemsPerSlide=4;
+  // switch (true) {
+  //   case (viewport<768): itemsPerSlide=2;
+  //     break;
+  //     case ((viewport>=768)&&(viewport < 992)):
+  //     itemsPerSlide=2;
+  //       break;
+  //   default: itemsPerSlide=2;
+  //
+  // }
+  // var itemsPerSlide = (viewport >= 992) ? 4 : 3;
   var totalItems = $(id + ' .carousel-item').length;
-
   if (idx >= totalItems - (itemsPerSlide - 1)) {
     var it = itemsPerSlide - (totalItems - idx);
     for (var i = 0; i < it; i++) {

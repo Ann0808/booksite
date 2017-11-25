@@ -11,7 +11,7 @@ optimization: 2
 },
 
 files: {
-"css/style.css": ['less/*.less', 'less/blocks/*.less'],
+"css/style.css": ['less/*.less', 'less/blocks/*.less', 'less/carousel/*.less'],
 }
 }
 },
@@ -25,7 +25,7 @@ reload: true
 }
 },
 css: {
-files: ['less/*.less', 'less/blocks/*.less'],
+files: ['less/*.less', 'less/blocks/*.less', 'less/carousel/*.less'],
 tasks: ['less'],
 options: {
 spawn: false,
