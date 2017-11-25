@@ -132,6 +132,7 @@
   color: #080508;
 }
 @media (min-width:768px) {
+  /*navbar page.html*/
   .navbar-toggleable-md {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -153,7 +154,7 @@
     -ms-flex-direction: row;
     flex-direction: row;
   }
-  .navbar-toggleable-md .navbar-nav .nav-link {
+  .navbar-toggleable-sm .navbar-nav .nav-link {
     padding-right: .5rem;
     padding-left: 0.5rem;
   }

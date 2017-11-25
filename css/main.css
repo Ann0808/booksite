@@ -63,7 +63,6 @@ z-index: 10;
 }
 
 
-
 .page-content {
   background: white;
   padding-top: 20px;
@@ -93,9 +92,7 @@ z-index: 10;
 
 
 @media (min-width: 768px) {
-    /*navbar page.html*/
   
-
     .page-content__text {
       display: inline;
     }
