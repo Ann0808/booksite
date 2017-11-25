@@ -1,4 +1,73 @@
 
+.main-page {
+  padding: 10px 0;
+  /*background-image: url(../img/books-bg.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;*/
+  background: #d4b48b;
+}
+.purchased-books,
+.recommended-books {
+  margin-bottom: 10px;
+}
+.purchased-books,
+.recommended-books,
+.interesting {
+  background-image: url(../img/books-bg4.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding-bottom: 5vw;
+}
+.carousel-title {
+  font-size: 6vw;
+  padding-top: 3vw;
+  text-align: center;
+  margin-bottom: 12vw;
+}
+@media (min-width:540px) {
+  .carousel-title {
+    padding-top: 2vw;
+    font-size: 5vw;
+  }
+}
+@media (min-width:768px) {
+  .purchased-books,
+  .recommended-books,
+  .interesting {
+    padding-bottom: 3vw;
+  }
+  .carousel-title {
+    padding-top: 0.5vw;
+  }
+}
+@media (min-width:992px) {
+  .purchased-books,
+  .recommended-books,
+  .interesting {
+    padding-bottom: 2.5vw;
+  }
+  .carousel-title {
+    padding-top: 1vw;
+    font-size: 45px;
+  }
+}
+
+.button-to-top {
+  width: 100px;
+  text-align: center;
+  padding: 5px;
+  position: fixed;
+  bottom: 10px;
+  right: 0;
+  cursor: pointer;
+  display: none;
+  color: #333;
+  z-index: 10;
+}
+.button-to-top img {
+  opacity: 0.6;
+}
+
 /* show 2 items */
 .carousel-inner .active,
 .carousel-inner .active + .carousel-item {

@@ -1,47 +1,6 @@
-.main-page {
-   padding: 10px 0;
-   /*background-image: url(../img/books-bg.jpg);
-   background-repeat: no-repeat;
-   background-size: cover;*/
-   background: #d4b48b;
-}
 
 
-.purchased-books,
-.recommended-books {
-  margin-bottom: 10px;
-}
 
-.purchased-books,
-.recommended-books,
-.interesting {
-  background-image: url(../img/books-bg4.jpg);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  padding-bottom: 3.45em;
-}
-
-.button-to-top {
-width:100px;
-text-align:center;
-padding:5px;
-position:fixed;
-bottom:10px;
-right:0;
-cursor:pointer;
-display:none;
-color:#333;
-z-index: 10;
-}
-
-.button-to-top img {
-  opacity: 0.6;
-}
-
-.carousel-title  {
-  text-align: center;
-  margin-bottom: 3em;
-}
 
 .second-page {
   background-image: url(../img/bg_contentblock.png);
@@ -92,7 +51,7 @@ z-index: 10;
 
 
 @media (min-width: 768px) {
-  
+
     .page-content__text {
       display: inline;
     }

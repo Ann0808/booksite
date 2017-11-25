@@ -1,0 +1,62 @@
+@import "../var.less";
+.main-page {
+   padding: 10px 0;
+   /*background-image: url(../img/books-bg.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;*/
+   background: #d4b48b;
+}
+
+.purchased-books,
+.recommended-books {
+  margin-bottom: 10px;
+}
+
+.purchased-books,
+.recommended-books,
+.interesting {
+  background-image: url(../img/books-bg4.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding-bottom: 5vw;
+}
+
+.carousel-title  {
+  font-size: 6vw;
+  padding-top: 3vw;
+  text-align: center;
+  margin-bottom: 12vw;
+}
+
+@media @sm-width {
+  .carousel-title  {
+    padding-top: 2vw;
+      font-size: 5vw;
+  }
+}
+
+  @media @md-width {
+    .purchased-books,
+    .recommended-books,
+    .interesting {
+      padding-bottom: 3vw;
+    }
+
+    .carousel-title  {
+      padding-top: 0.5vw;
+
+    }
+}
+
+@media @lg-width {
+  .purchased-books,
+  .recommended-books,
+  .interesting {
+    padding-bottom: 2.5vw;
+  }
+
+  .carousel-title  {
+    padding-top: 1vw;
+    font-size: 45px;
+  }
+}
