@@ -251,3 +251,52 @@
     display: none;
   }
 }
+
+.second-page {
+  background-image: url(../img/bg_contentblock.png);
+}
+.page-header {
+  /*margin-bottom: 10px;*/
+}
+.page-header__logo {
+  background: #1578;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+.page-content {
+  background: white;
+  padding-top: 20px;
+}
+.page-content__welcome,
+.page-content__congratulate {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+.page-content__welcome {
+  color: red;
+  font-size: 18px;
+  font-weight: normal;
+}
+.page-content__image {
+  background-image: url(../img/vasil-lednev.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  min-height: 320px;
+  margin-bottom: 10px;
+}
+@media (min-width:768px) {
+  .page-content__text {
+    display: inline;
+  }
+  .page-content__image {
+    float: left;
+    margin-right: 10px;
+  }
+}
+@media (min-width:992px) {
+  .page-content__image {
+    margin-right: 0px;
+  }
+}
