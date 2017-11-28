@@ -54,20 +54,45 @@ $(window).scroll(function() {
 
 
 function carousel(id) {
+  var items = document.querySelectorAll(id+' .carousel__item');      // массив перелистывающихся элементов
+  var len = items.length;                                       // количество элементов
+  var Next = document.querySelector(id+' .next');                   // кнопка вперед
+  var Prev = document.querySelector(id+' .prev');                   // кнопка назад
+  var i = 0;                                                    // 0 соответсвует первому элементу, при перелистывании меняется
+  var el = 0;                                                   // количество отображающихся элементов, будет переопределена ниже
+  var new_el = 2;                                               // для отслеживания изменений ширины вьюпорта
+  var click = 0;                                                // для обработки кликов
+  var j = 0;                                                    // для замыкания круга
 
-  var items = document.querySelectorAll(id+' .carousel__item'); // массив перелистывающихся элементов
-  var len = items.length; // количество элементов
-  var parent = document.querySelector(id+'.carousel'); // родитель карусели
-  var Next = parent.querySelector('.next'); // кнопка вперед
-  var Prev = parent.querySelector('.prev'); // кнопка назад
-  var i = 0; // 0 соответсвует первому элементу, при перелистывании меняется
-  var el = 0; // количество отображающихся элементов, будет переопределена ниже в интервальной функции
-  var new_el = 2;
-  var click = 0; // переменная для обработки кликов
+  function get_vision_element(arg) {                            // делает карусель круговой (принимает кол-во дополнительных элементов)
+      for(var k = 0; k<len; k++) {                              // пробегаемся по всем элементам
+          if (k+i>=len) {
+              j=k+i-len;                                        // замыкаем круг (не даем вызваться элементам, превышающим размер массива)
+          } else {
+              j=k+i;
+          }
+          if (k<el+arg) {                                       // выводим необходимые элементы и прописываем им свойство order (порядок отображения)
+              get_item(j).style.order = k;
+              get_item(j).style.display = "block";
+          } else {                                              // скрываем ненужные элементы и сбрасываем их order
+              get_item(j).style.order = "0";
+              get_item(j).style.display = "none";
+          }
+      }
+  }
 
-  var timerId = setInterval(function() { // здесь будем переопределять el
+  function get_item(m) {                                        // возвращает элемент массива
+      switch(m) {
+          case -1: return items[len-1];                         // если нужен элемент на 1 меньше первого, то возвращаем последний
+              break;
+          default: return items[m];
+              break;
+      }
+  }
+
+  var timerId = setInterval(function() {                                              // здесь будем переопределять el
       var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0); // узнали ширину вьюпорта
-      switch(true) { // в завимости от ширины определяем el
+      switch(true) {                                                                  // в завимости от ширины определяем new_el
         case w<=768:  new_el = 2;
                       break;
         case w<=1200: new_el = 3;
@@ -75,112 +100,59 @@ function carousel(id) {
         case w>1200: new_el = 4;
                       break;
       }
-      if(el!=new_el) {
+      if(el!=new_el) {                                            // если вьюпорт изменился или перезагрузка страницы
           el = new_el;
-           for(var k = 0; k < len; k++) {                  // пробегаем по всем элементам
-              if(k<el) {                                  // присваеваем элементам нужный порядок и отображаем их
-                  get_item(k+i).style.order = k;
-                  get_item(k+i).style.display = "block";
-              } else {                                    // остальные элементы стираем и сбрасываем order
-                  get_item(k+i).style.order = "auto";
-                  get_item(k+i).style.display = "none";
+           get_vision_element(0);
+      }
+  }, 10);                                                         // интервал проверки ширины вьюпорта
+
+  Next.addEventListener('click', function(event) {                // обрабатываем клик вперед
+      event.preventDefault();
+      if(len > el){                                               // если массив больше кол-ва отображаемых элементов
+          if (click == 0) {
+              click = 1;                                          // убираем возможность кликнуть повторно
+              get_vision_element(1);                              //отображаем на 1 аргумент справа больше (а уже потом повышаем значение i)
+              get_item(i).classList.add("carousel--move-left");    // крутим карусель влево
+              i = i + 1;                                          // изменяем значение i
+              if (i==len) {                                       // если привысили размер массива, возвращаемся к первому элементу
+                  i=0;
               }
+              setTimeout(function() {                               // выполнится через 300 миллисекунд (равно времени анимации)
+                  get_vision_element(0);
+                  for(var k = 0; k<len; k++) {                       // удаляем анимации у всех (на всякий)
+                      get_item(k-1).classList.remove("carousel--move-left");
+                      get_item(k-1).classList.remove("carousel--move-right");
+                  }
+              }, 300);
           }
       }
-  }, 10); // интервал проверки
-
-  function get_item(m) { // возвращает элемент массива, отвечает за прокрутку при выходе из массива
-      switch(m) {
-          case -1: return items[len-1]; // если нужен элемент на 1 меньше первого, то возвращаем последний
-              break;
-          case -2: return items[len-2];
-              break;
-          case -3: return items[len-3];
-              break;
-          case -4: return items[len-4];
-              break;
-          case len: return items[0];  // если нужен элемент на 1 больше последнего, то возвращаем первый
-              break;
-          case len+1: return items[1];
-              break;
-          case len+2: return items[2];
-              break;
-          case len+3: return items[3];
-              break;
-          default: return items[m];
-              break;
-      }
-  }
-
-  Next.addEventListener('click', function(event) {            // обрабатываем клик вправо
+      setTimeout(function() {                                     // чтобы повторный клик не произошел слишком рано
+          click=0;
+      },500);
+  });
+  Prev.addEventListener('click', function(event) {                     // обрабатываем клик назад
       event.preventDefault();
-      if (click == 0) {
-          click = 1;                                          // сразу убираем возможность кликнуть повторно и все сломать
-          for(var k = 0; k < el+1; k++) {                     // добавляем элемент справа и прописываем всем новые order
-              get_item(k+i).style.order = k;
-              get_item(k+i).style.display = "block";
-          }
-          get_item(i).classList.add("carousel--move-left");    //добавляем анимацию
-          i = i + 1;                                          // изменяем значение i
-          if (i==len) {
-              i=0;
-          }
-          setTimeout(function() {                             // выполнится через 300 миллисекунд (равно времени анимации)
-              get_item(i-1).style.order = "auto";             // скрываем элемент слева и сбрасываем его order
-              get_item(i-1).style.display = "none";
-              for(var k = 0; k<len; k++) {
-                  get_item(k).classList.remove("carousel--move-left"); // удаляем анимацию у всех (на всякий)
+      if(len > el) {                                                   // если массив больше кол-ва отображаемых элементов
+          if(click==0) {
+              click = 1;                                               // убираем возможность кликнуть повторно
+              i = i - 1;                                               // изменяем значение i
+              if (i == -1) {                                           // если ушли в минус, то возвращаемся к последнему элементу
+                  i = len - 1;
               }
-          }, 300);
-      }
-      setTimeout(function() {                                      // чтобы повторный клик не произошел слишком рано
-          click=0;
-      },1000);
-  });
-
-
-  Prev.addEventListener('click', function(event) {                   // обрабатываем клик влево
-      event.preventDefault();
-      if(click==0) {
-          click = 1;                                               // сразу убираем возможность кликнуть повторно и все сломать
-          for(var k = 0; k < el+1; k++) {                          // добавляем элемент слева и прописываем всем новые order
-              get_item(k+i-1).style.order = k;
-              get_item(k+i-1).style.display = "block";
+              get_vision_element(1);                                   // покажем на 1 аргумент справа больше (но сначала понизили значение i)
+              get_item(i).classList.add("carousel--move-right");        // крутим карусель вправо
+              setTimeout(function() {                                  // выполнится через 300 миллисекунд (равно времени анимации)
+                  get_vision_element(0);
+                  for(var k = 0; k<len; k++) {                         // удаляем анимацию у всех (на всякий)
+                      get_item(k).classList.remove("carousel--move-left");
+                      get_item(k).classList.remove("carousel--move-right");
+                  }
+              }, 300);
           }
-          get_item(i-1).classList.add("carousel--move-right");       // добавляем анимацию
-          get_item(i+el-1).classList.add("carousel--opacity");      // добавляем анимацию
-          i = i - 1;            // изменяем значение i
-          if (i == -1) {
-              i = len - 1;
-          }
-          setTimeout(function() {                                  // выполнится через 300 миллисекунд (равно времени анимации)
-              get_item(i+el).style.order = "auto";                // скрываем элемент справа и сбрасываем его order
-              get_item(i+el).style.display = "none";
-              for(var k = 0; k<len; k++) {
-                  get_item(k).classList.remove("carousel--opacity");    // удаляем анимацию у всех (на всякий)
-                  get_item(k).classList.remove("carousel--move-right");
-              }
-          }, 300);
       }
-      setTimeout(function() {                                           // чтобы повторный клик не произошел слишком рано
+      setTimeout(function() {                                          // чтобы повторный клик не произошел слишком рано
           click=0;
-      },1000);
-  });
-
-  Next.addEventListener('dblclick', function(event) {            // двойной клик ничего не делает и блокирует клики еще на секунду
-      event.preventDefault();
-      click = 1;
-      setTimeout(function() {
-          click=0;
-      },1000);
-  });
-
-  Prev.addEventListener('dblclick', function(event) {            // двойной клик ничего не делает и блокирует клики еще на секунду
-      event.preventDefault();
-      click = 1;
-      setTimeout(function() {
-          click=0;
-      },1000);
+      },500);
   });
 }
 

@@ -11,7 +11,7 @@
   <!-- <script src="" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script> -->
   <script type="text/javascript" src="../js/script.js"></script>
-    <script type="text/javascript" src="../js/carousel.js"></script>
+    <!-- <script type="text/javascript" src="../js/carousel.js"></script> -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <!--// I am A!!!-->
