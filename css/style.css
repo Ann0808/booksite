@@ -217,6 +217,9 @@
   animation-fill-mode: both;
 }
 
+nav {
+  display: block;
+}
 .page-navbar {
   padding: 0 10px;
 }
