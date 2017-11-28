@@ -20,7 +20,7 @@
 </div> -->
 
 
-  <button class="arrow prev">Назад</button><button class="arrow next">Вперед</button>
+  <button class="prev">Назад</button><button class="next">Вперед</button>
        <div class="carousel__item">  <img src="/img/book.jpg" alt="slide 1"></div>
        <div class="carousel__item">  <img src="/img/book.jpg" alt="slide 1"></div>
        <div class="carousel__item">  <img src="/img/book.jpg" alt="slide 1"></div>
