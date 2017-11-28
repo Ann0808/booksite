@@ -4,13 +4,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/css/style.css">
+
   <!-- then add bootstrap to local -->
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/grid.min.css">
   <script src="/js/jquery-3.2.1.min.js"></script>
   <!-- <script src="" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script> -->
   <script type="text/javascript" src="/js/script.js"></script>
+    <script type="text/javascript" src="/js/carousel.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -24,9 +26,12 @@
         <div class="row justify-content-center">
           <h2 class="carousel-title">Приобретенные книги</h2>
         </div>
-        <div class="row">
-          <div id="carouselPurchased" class="carousel slide" data-ride="carousel" data-interval="false">
-            <?php include( 'carousel-inner.php'); ?>
+        <!-- <div class="row"> -->
+        <div id="carouselPurchased" class="carousel" >
+          <?php include( 'carousel-inner.php'); ?>
+        </div>
+          <!-- <div id="carouselPurchased" class="carousel slide" data-ride="carousel" data-interval="false">
+
             <a class="carousel-control-prev" href="#carouselPurchased" role="button" data-slide="prev">
                 <i class="fa fa-chevron-left fa-lg text-muted"></i>
                 <span class="sr-only">Previous</span>
@@ -35,8 +40,8 @@
                 <i class="fa fa-chevron-right fa-lg text-muted"></i>
                 <span class="sr-only">Next</span>
             </a>
-          </div>
-        </div>
+          </div> -->
+        <!-- </div> -->
       </div>
     </section>
     <section class="recommended-books">
@@ -80,5 +85,7 @@
       </div>
     </section>
   </main>
+  <script type="text/javascript" src="/js/script.js"></script>
+  <script type="text/javascript" src="/js/carousel.js"></script>
 </body>
 </html>

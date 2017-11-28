@@ -1,113 +1,270 @@
-/* show 2 items */
-.carousel-inner .active,
-.carousel-inner .active + .carousel-item {
-  display: block;
-}
-.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
-.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item {
-  transition: none;
-}
-.carousel-inner .carousel-item-next,
-.carousel-inner .carousel-item-prev {
+.carousel {
+  width: auto;
+  padding: 10px;
+  background: rgba(10, 180, 10, 0.3);
+  border: 3px solid green;
+  min-height: 300px;
+  display: flex;
+  overflow: hidden;
   position: relative;
-  transform: translate3d(0, 0, 0);
 }
-.carousel-inner .active.carousel-item + .carousel-item + .carousel-item {
+
+.next, .prev {
   position: absolute;
-  top: 0;
-  right: -50%;
-  /*z-index: -1;*/
-  display: block;
-  visibility: visible;
+  top: 50%;
 }
-/* left or forward direction */
-.active.carousel-item-left + .carousel-item-next.carousel-item-left,
-.carousel-item-next.carousel-item-left + .carousel-item,
-.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item {
-  position: relative;
-  transform: translate3d(-100%, 0, 0);
-  visibility: visible;
+.next {
+  right: 0;
 }
-/* farthest right hidden item must be abso position for animations */
-.carousel-inner .carousel-item-prev.carousel-item-right {
-  position: absolute;
-  top: 0;
-  left: 0;
-  /*z-index: -1;*/
-  display: block;
-  visibility: visible;
+
+.carousel__item img {
+  max-width:100%;
+  height:auto;
 }
-/* right or prev direction */
-.active.carousel-item-right + .carousel-item-prev.carousel-item-right,
-.carousel-item-prev.carousel-item-right + .carousel-item,
-.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item {
-  position: relative;
-  transform: translate3d(100%, 0, 0);
-  display: block;
-  visibility: visible;
-}
-@media (min-width:768px) {
-  .carousel-inner .active + .carousel-item + .carousel-item {
-    display: block;
-  }
-  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
-    transition: none;
-  }
-  .carousel-inner .active.carousel-item + .carousel-item + .carousel-item {
-    position: static;
-  }
-  .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item {
-    position: absolute;
-    top: 0;
-    right: -33.3333%;
-    /*z-index: -1;*/
-    display: block;
-    visibility: visible;
-  }
-  /* left or forward direction */
-  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
-    position: relative;
-    transform: translate3d(-100%, 0, 0);
-    visibility: visible;
-  }
-  /* right or prev direction */
-  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
-    position: relative;
-    transform: translate3d(100%, 0, 0);
-    display: block;
-    visibility: visible;
+
+@media (min-width: 768px) {
+  .carousel {
+    width: 84%;
+    /* 640px / 768px = 84% */
+    max-width: 1200px;
+    /* 960/0.84 =1142 центровка начнется чуть раньше 1200px */
+    margin: 0 auto;
   }
 }
-/*shows 4 items*/
-@media (min-width:992px) {
-  .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item {
-    display: block;
-  }
-  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
-    transition: none;
-  }
-  .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item {
-    position: static;
-  }
-  .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-    position: absolute;
-    top: 0;
-    right: -25%;
-    /*z-index: -1;*/
-    display: block;
-    visibility: visible;
-  }
-  /* left or forward direction */
-  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-    position: relative;
-    transform: translate3d(-100%, 0, 0);
-    visibility: visible;
-  }
-  /* right or prev direction */
-  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-    position: relative;
-    transform: translate3d(100%, 0, 0);
-    display: block;
-    visibility: visible;
+.carousel__item {
+  display: none;
+  flex-shrink: 0;
+  width: 50%;
+  margin: 0;
+  min-height: 260px;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  background: rgba(10, 10, 180, 0.3);
+  border: 3px solid blue;
+  padding: 0 1%;
+
+}
+@media (min-width: 768px) {
+  .carousel__item {
+    width: 33%;
   }
 }
+@media (min-width: 1200px) {
+  .carousel__item {
+    width: 25%;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+@keyframes left {
+  from {
+    margin-left: 0;
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    margin-left: -50%;
+    opacity: 0;
+  }
+}
+@keyframes right {
+  from {
+    margin-left: -50%;
+  }
+  to {
+    margin-right: 0;
+  }
+}
+@media (min-width: 768px) {
+  @keyframes left {
+    from {
+      margin-left: 0;
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    to {
+      margin-left: -33%;
+      opacity: 0;
+    }
+  }
+  @keyframes right {
+    from {
+      margin-left: -33%;
+    }
+    to {
+      margin-right: 0;
+    }
+  }
+}
+@media (min-width: 1200px) {
+  @keyframes left {
+    from {
+      margin-left: 0;
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    to {
+      margin-left: -25%;
+      opacity: 0;
+    }
+  }
+  @keyframes right {
+    from {
+      margin-left: -25%;
+    }
+    to {
+      margin-right: 0;
+    }
+  }
+}
+.carousel--move-left {
+  animation-name: left;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+.carousel--move-right {
+  animation-name: right;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+@keyframes opacity {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.carousel--opacity {
+  animation-name: opacity;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+
+
+
+
+// /* show 2 items */
+// .carousel-inner .active,
+// .carousel-inner .active + .carousel-item {
+//   display: block;
+// }
+// .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+// .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item {
+//   transition: none;
+// }
+// .carousel-inner .carousel-item-next,
+// .carousel-inner .carousel-item-prev {
+//   position: relative;
+//   transform: translate3d(0, 0, 0);
+// }
+// .carousel-inner .active.carousel-item + .carousel-item + .carousel-item {
+//   position: absolute;
+//   top: 0;
+//   right: -50%;
+//   /*z-index: -1;*/
+//   display: block;
+//   visibility: visible;
+// }
+// /* left or forward direction */
+// .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+// .carousel-item-next.carousel-item-left + .carousel-item,
+// .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item {
+//   position: relative;
+//   transform: translate3d(-100%, 0, 0);
+//   visibility: visible;
+// }
+// /* farthest right hidden item must be abso position for animations */
+// .carousel-inner .carousel-item-prev.carousel-item-right {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   /*z-index: -1;*/
+//   display: block;
+//   visibility: visible;
+// }
+// /* right or prev direction */
+// .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+// .carousel-item-prev.carousel-item-right + .carousel-item,
+// .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item {
+//   position: relative;
+//   transform: translate3d(100%, 0, 0);
+//   display: block;
+//   visibility: visible;
+// }
+// @media (min-width:768px) {
+//   .carousel-inner .active + .carousel-item + .carousel-item {
+//     display: block;
+//   }
+//   .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
+//     transition: none;
+//   }
+//   .carousel-inner .active.carousel-item + .carousel-item + .carousel-item {
+//     position: static;
+//   }
+//   .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item {
+//     position: absolute;
+//     top: 0;
+//     right: -33.3333%;
+//     /*z-index: -1;*/
+//     display: block;
+//     visibility: visible;
+//   }
+//   /* left or forward direction */
+//   .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
+//     position: relative;
+//     transform: translate3d(-100%, 0, 0);
+//     visibility: visible;
+//   }
+//   /* right or prev direction */
+//   .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
+//     position: relative;
+//     transform: translate3d(100%, 0, 0);
+//     display: block;
+//     visibility: visible;
+//   }
+// }
+// /*shows 4 items*/
+// @media (min-width:992px) {
+//   .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item {
+//     display: block;
+//   }
+//   .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
+//     transition: none;
+//   }
+//   .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item {
+//     position: static;
+//   }
+//   .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+//     position: absolute;
+//     top: 0;
+//     right: -25%;
+//     /*z-index: -1;*/
+//     display: block;
+//     visibility: visible;
+//   }
+//   /* left or forward direction */
+//   .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+//     position: relative;
+//     transform: translate3d(-100%, 0, 0);
+//     visibility: visible;
+//   }
+//   /* right or prev direction */
+//   .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+//     position: relative;
+//     transform: translate3d(100%, 0, 0);
+//     display: block;
+//     visibility: visible;
+//   }
+// }
