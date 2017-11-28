@@ -123,6 +123,7 @@
 * {
   box-sizing: border-box;
 }
+
 @keyframes left {
   from {
     margin-left: 0;
