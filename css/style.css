@@ -70,9 +70,6 @@
 
 .carousel {
   width: auto;
-  padding: 10px;
-  background: rgba(10, 180, 10, 0.3);
-  border: 3px solid green;
   min-height: 300px;
   display: flex;
   overflow: hidden;
@@ -89,6 +86,9 @@
 .carousel__item img {
   max-width: 100%;
   height: auto;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 @media (min-width: 768px) {
   .carousel {
@@ -108,8 +108,6 @@
   font-size: 50px;
   font-weight: bold;
   text-align: center;
-  background: rgba(10, 10, 180, 0.3);
-  border: 3px solid blue;
   padding: 0 1%;
 }
 @media (min-width: 768px) {
