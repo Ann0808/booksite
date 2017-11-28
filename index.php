@@ -49,9 +49,12 @@
         <div class="row justify-content-center">
           <h2 class="carousel-title">Рекомендуемые книги автора</h2>
         </div>
-        <div class="row">
+        <div id="carouselRecommended" class="carousel" >
+          <?php include( 'carousel-inner.php'); ?>
+        </div>
+        <!-- <div class="row">
           <div id="carouselRecommended" class="carousel slide" data-ride="carousel" >
-            <?php include( 'carousel-inner.php'); ?>
+            <?php //include( 'carousel-inner.php'); ?>
             <a class="carousel-control-prev" href="#carouselRecommended" role="button" data-slide="prev">
                 <i class="fa fa-chevron-left fa-lg text-muted"></i>
                 <span class="sr-only">Previous</span>
@@ -61,7 +64,7 @@
                  <span class="sr-only">Next</span>
             </a>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
     <section class="interesting">
@@ -69,9 +72,12 @@
         <div class="row justify-content-center">
           <h2 class="carousel-title">Вам может быть интересно</h2>
         </div>
-        <div class="row">
+        <div id="carouselInteresting" class="carousel" >
+          <?php include( 'carousel-inner.php'); ?>
+        </div>
+        <!-- <div class="row">
           <div id="carouselInteresting" class="carousel slide" data-ride="carousel" >
-            <?php include( 'carousel-inner.php'); ?>
+            <?php //include( 'carousel-inner.php'); ?>
             <a class="carousel-control-prev" href="#carouselInteresting" role="button" data-slide="prev">
                 <i class="fa fa-chevron-left fa-lg text-muted"></i>
                 <span class="sr-only">Previous</span>
@@ -81,7 +87,7 @@
                 <span class="sr-only">Next</span>
             </a>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
   </main>
