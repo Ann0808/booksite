@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- then add bootstrap to local -->
-  <link rel="stylesheet" href="/css/grid.min.css">
+  <link rel="stylesheet" href="../css/grid.min.css">
   <script src="/js/jquery-3.2.1.min.js"></script>
   <!-- <script src="" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script> -->
-  <script type="text/javascript" src="/js/script.js"></script>
-    <script type="text/javascript" src="/js/carousel.js"></script>
-    <link rel="stylesheet" href="/css/style.css">
+  <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/carousel.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <!--// I am Anya!!!-->
 <body>
