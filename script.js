@@ -3,6 +3,8 @@ $(document).ready(function() {
   $('#carouselPurchased').on('slide.bs.carousel', function(e) {
     var id = '#carouselPurchased';
     multipleCarousel(e, id);
+  }).carousel({
+    interval: false
   });
 
   $('#carouselRecommended').on('slide.bs.carousel', function(e) {

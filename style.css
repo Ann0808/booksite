@@ -116,7 +116,7 @@
   display: block;
   visibility: visible;
 }
-@media (min-width: 768px) {
+@media (min-width:768px) {
   .carousel-inner .active + .carousel-item + .carousel-item {
     display: block;
   }
@@ -149,7 +149,7 @@
   }
 }
 /*shows 4 items*/
-@media (min-width: 992px) {
+@media (min-width:992px) {
   .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item {
     display: block;
   }

@@ -25,7 +25,7 @@
           <h2 class="carousel-title">Приобретенные книги</h2>
         </div>
         <div class="row">
-          <div id="carouselPurchased" class="carousel slide" data-ride="carousel">
+          <div id="carouselPurchased" class="carousel slide" data-ride="carousel" data-interval="false">
             <?php include( 'carousel-inner.php'); ?>
             <a class="carousel-control-prev" href="#carouselPurchased" role="button" data-slide="prev">
                 <i class="fa fa-chevron-left fa-lg text-muted"></i>
