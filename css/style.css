@@ -144,6 +144,48 @@
     max-width: 1200px;
     margin: 0 auto;
   }
+  .next,
+  .prev {
+    margin-top: -25px;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+  }
+  .prev:hover,
+  .next:hover {
+    background: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+  }
+  .next {
+    right: 0;
+  }
+  .next:before,
+  .next:after,
+  .prev:before,
+  .prev:after {
+    height: 3px;
+    width: 20px;
+  }
+  .next:before,
+  .next:after {
+    left: 17px;
+  }
+  .prev:before,
+  .prev:after {
+    right: 17px;
+  }
+  .next:before {
+    top: 16px;
+  }
+  .next:after {
+    top: 28px;
+  }
+  .prev:after {
+    top: 16px;
+  }
+  .prev:before {
+    top: 28px;
+  }
 }
 .carousel__item {
   display: none;
