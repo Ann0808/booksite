@@ -9,12 +9,12 @@ define( "CLASS_PATH", "classes" );
 define( "ADMIN_USERNAME", "admin" );
 define( "ADMIN_PASSWORD", "mypass" );
 define( "ADMIN_NAME", "Вася" );
-// require( CLASS_PATH . "/Article.php" );
+require( CLASS_PATH . "/Book.php" );
 //then add try catch
-function handleException( $exception ) {
-  echo "Sorry, a problem occurred. Please try later.";
-  error_log( $exception->getMessage() );
-}
+// function handleException( $exception ) {
+//   echo "Sorry, a problem occurred. Please try later.";
+//   error_log( $exception->getMessage() );
+// }
 
-set_exception_handler( 'handleException' );
+//set_exception_handler( 'handleException' );
 ?>

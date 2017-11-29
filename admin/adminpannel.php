@@ -81,30 +81,30 @@
 						<input class="btn" type="submit" value="Отправить данные"  name="submit"/>
 						<p>
 							<?php
-								$path = '../img/';
+								//$path = '../img/';
 								$types = array('image/jpeg'); //only jpg
                 echo("");
 								if ($_SERVER['REQUEST_METHOD'] == 'POST')
 								{
-                  $name=$_POST['book-name'];
-                  $link=$_POST['book-link'];
+                  //$name=$_POST['book-name'];
+                  //$link=$_POST['book-link'];
 									$ext = array_pop(explode('.',$_FILES['picture-mobile']['name']));
 									// Проверяем тип файла
 								if ((!in_array($_FILES['picture-mobile']['type'], $types))||(!in_array($_FILES['picture-desktop']['type'], $types))||(!in_array($_FILES['picture-book']['type'], $types))) {
 									 die('Все файлы должны быть в формате jpg. <a href="?">Попробовать загрузить снова?</a>');
 								}
-                $new_mobile_logo_name = $path . 'mobile-logo-'. $link . '.' . $ext;
-                $new_desktop_logo_name = $path . 'desktop-logo-'. $link . '.' . $ext;
-                $new_book_logo_name = $path . 'book-logo-'. $link . '.' . $ext;
-                $logo1=$new_mobile_logo_name;
-                $logo2=$new_desktop_logo_name;
-                $img=$new_book_logo_name;
-                $author=$_POST['book-author'];
-								 if ((!@copy($_FILES['picture-mobile']['tmp_name'], $new_mobile_logo_name))||(!@copy($_FILES['picture-desktop']['tmp_name'], $new_desktop_logo_name))||(!@copy($_FILES['picture-book']['tmp_name'], $new_book_logo_name))) {
+                // $new_mobile_logo_name = $path . 'mobile-logo-'. $link . '.' . $ext;
+                // $new_desktop_logo_name = $path . 'desktop-logo-'. $link . '.' . $ext;
+                // $new_book_logo_name = $path . 'book-logo-'. $link . '.' . $ext;
+                //$author=$_POST['book-author'];
+                //$book = new Book($name,$new_mobile_logo_name,$new_desktop_logo_name,$new_book_logo_name,$author,$link);
+                $book = new Book($_POST,$_FILES);
+								 if ((!@copy($_FILES['picture-mobile']['tmp_name'], $book->logoMobile))||(!@copy($_FILES['picture-desktop']['tmp_name'], $book->logoDesktop))||(!@copy($_FILES['picture-book']['tmp_name'], $book->logoBook))) {
                    echo 'Что-то пошло не так';
                  }
 								 else {
-                   queryMysql("INSERT INTO `books`(`name`, `logo-mob`, `logo-desk`, `image`,`author_name`,`link`) VALUES ('$name','$logo1','$logo2','$img','$author','$link')");
+                   $book->insert();
+                   //queryMysql("INSERT INTO `books`(`name`, `logo-mob`, `logo-desk`, `image`,`author_name`,`link`) VALUES ('$name','$logo1','$logo2','$img','$author','$link')");
                    echo 'Загрузка удачна';
                  }
 
