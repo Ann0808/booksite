@@ -22,7 +22,7 @@ function queryMysql($query)
   }
   //images for slider
     $books_images_my = queryMysql("SELECT image FROM books WHERE author_name='$admin_name'");
-
+    $books_images_other =queryMysql("SELECT image FROM books WHERE author_name!='$admin_name'");
 
  ?>
 <head>
@@ -113,7 +113,16 @@ function queryMysql($query)
           <h2 class="carousel-title">Вам может быть интересно</h2>
         </div>
         <div id="carouselInteresting" class="carousel" >
-          <?php include( 'carousel-inner.php'); ?>
+          <?php //include( 'carousel-inner.php'); ?>
+          <button class="prev">Назад</button><button class="next">Вперед</button>
+          <?php
+          foreach ($books_images_other as $value) {
+           foreach ($value as $v) {
+          //  echo ($v), "\n";
+        echo ('<div class="carousel__item">  <img src='.$v.' alt="slide 1"></div>');
+          }
+        }
+           ?>
         </div>
         <!-- <div class="row">
           <div id="carouselInteresting" class="carousel slide" data-ride="carousel" >
