@@ -6,16 +6,17 @@
   </head>
   <body>
     <h1>you are admin!</h1>
-    <a href="../index.php">gg</a>
-    <a href="admin.php?action=logout"?>Log out</a></p>
+    <a href="../index.php">Go to index</a>
+    <a href="admin.php?action=logout"?>Log out</a>
     <form enctype="multipart/form-data" method="post">
-<input placeholder="mobile" name="picture-mobile" type="file" />
-<input type="submit" value="Загрузить" />
-</form>
-<form enctype="multipart/form-data" method="post">
+			<input placeholder="mobile" name="picture-mobile" type="file" />
+			<input name="picture-desktop" type="file" />
+			<input type="submit" value="Загрузить" />
+		</form>
+<!--<form enctype="multipart/form-data" method="post">
 <input name="picture-desktop" type="file" />
 <input type="submit" value="Загрузить" />
-</form>
+</form>-->
 <?php
 
 $path = '../img/';
