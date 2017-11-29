@@ -35,9 +35,11 @@
     <div class="admin-container">
     <input type="radio" name="menu-item" id="reviews-input-1" checked>
     <input type="radio" name="menu-item" id="reviews-input-2">
+    <input type="radio" name="menu-item" id="reviews-input-3">
     <div class="admin-menu">
         <label class="admin-menu__item btn" for="reviews-input-1">Добавить книгу</label>
         <label class="admin-menu__item btn" for="reviews-input-2">Изменить существующую книгу</label>
+        <label class="admin-menu__item btn" for="reviews-input-3">Изменить персональные данные</label>
     </div>
     <div class="admin-container__items">
     	<div class="admin-container__item">
@@ -123,6 +125,34 @@
 						<p>
 							<?php
 								/*search result*/
+							?>
+						</p>
+					</div>
+				</form>
+			</div>
+			<div class="admin-container__item">
+			<form enctype="multipart/form-data" method="post">
+				<div class="admin-container__row">
+						<p>Старый пароль</p>
+						<input class="admin-container__input-text" type="password" name="password" id="" placeholder="Старый пароль">
+					</div>
+					<div class="admin-container__row">
+						<p>Полное имя</p>
+						<input class="admin-container__input-text" type="text" name="admin-name" id="" placeholder="Аркадий Афанасьевич Фет">
+					</div>
+					<div class="admin-container__row">
+						<p>Новый пароль</p>
+						<input class="admin-container__input-text" type="password" name="password-new" id="" placeholder="Новый пароль">
+					</div>
+					<div class="admin-container__row">
+						<p>Повтор пароля</p>
+						<input class="admin-container__input-text" type="password" name="password-new-again" id="" placeholder="Повтор пароля">
+					</div>
+					<div class="admin-container__row">
+						<input class="btn" type="submit" value="Обновить" />
+						<p>
+							<?php
+								/*result*/
 							?>
 						</p>
 					</div>
