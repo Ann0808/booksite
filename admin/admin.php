@@ -38,5 +38,7 @@ function logout() {
   unset( $_SESSION['username'] );
   header( "Location: login.php" );
 }
+if ( $_SESSION['username'] == ADMIN_USERNAME):
 include('adminpannel.php');
+ endif;
 ?>
