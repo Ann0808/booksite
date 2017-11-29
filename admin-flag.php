@@ -1,3 +1,3 @@
 <a class="admin-flag" href="admin/admin.php">
-		<div class="flag">Go to adminka</div>
+		Go to adminka<div class="flag"></div>
 </a>
