@@ -1,3 +1,9 @@
+<?php
+require( "../config.php" );
+session_start();
+if ( $_SESSION['username'] == ADMIN_USERNAME):
+header( "Location: admin.php" );
+ endif; ?>
 <!DOCTYPE html>
 <html>
 
