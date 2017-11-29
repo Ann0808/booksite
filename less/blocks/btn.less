@@ -1,0 +1,62 @@
+.btn {
+  display: block;
+	width: auto;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px 33px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  font-family: "Arial", sans-serif;
+  vertical-align: top;
+  text-align: center;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: #000000;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #663d15;
+}
+
+.btn.disabled,
+.btn:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.btn.disabled:hover,
+.btn:disabled:hover {
+  background-color: #000000;
+}
+
+.file_upload {
+		display: block;
+    position: relative;
+    overflow: hidden;
+		width: 78%;
+		margin: 10px 2%;
+		max-width: 200px;
+		padding: 10px 20px;
+		padding-right: 40px;
+		font-size: 16px;
+		line-height: 24px;
+}
+.file_upload input[type=file] {
+    position: absolute;
+		padding: 0;
+    left: 0;
+    top: 0;
+		padding: 1px;
+    margin: 10px 0;
+    transform: scale(20);
+    letter-spacing: 10em;     /* IE 9 fix */
+    -ms-transform: scale(20); /* IE 9 fix */
+    opacity: 0;
+    cursor: pointer;
+}

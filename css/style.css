@@ -12,6 +12,71 @@
   vertical-align: middle;
 }
 
+.admin-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: auto;
+  padding: 30px;
+  justify-content: center;
+  border: 2px solid black;
+}
+.admin-title {
+  width: 100%;
+  text-align: center;
+}
+.admin-container__row {
+  display: flex;
+  width: 800px;
+  justify-content: space-between;
+}
+.admin-container__input-text {
+  display: block;
+  width: 78%;
+  max-width: 200px;
+  margin: 5px 2%;
+  padding: 10px 20px;
+  padding-right: 40px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: bold;
+  font-family: "Arial", sans-serif;
+  color: #000000;
+  background-color: #f9f6f3;
+  border: 2px solid #000000;
+  outline: none;
+}
+.admin-container__text:focus {
+  border-radius: #663d15;
+}
+.admin-container p {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+  font-family: "Arial", sans-serif;
+}
+.admin-container__item {
+  display: none;
+}
+.admin-container__item--active {
+  display: block;
+}
+.admin-menu {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.admin-menu__item--active a {
+  background: rgba(0, 0, 0, 0.8);
+}
+@media (min-width: 768px) {
+  .admin-container {
+    width: 70%;
+    max-width: 900px;
+    margin: 30px auto;
+  }
+}
+
 .main-page {
   padding: 10px 0;
   /*background-image: url(../img/books-bg.jpg);
@@ -64,6 +129,67 @@
     padding-top: 1vw;
     font-size: 45px;
   }
+}
+
+.btn {
+  display: block;
+  width: auto;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px 33px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  font-family: "Arial", sans-serif;
+  vertical-align: top;
+  text-align: center;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: #000000;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.btn:hover,
+.btn:active {
+  background-color: #663d15;
+}
+.btn.disabled,
+.btn:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+.btn.disabled:hover,
+.btn:disabled:hover {
+  background-color: #000000;
+}
+.file_upload {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 78%;
+  margin: 10px 2%;
+  max-width: 200px;
+  padding: 10px 20px;
+  padding-right: 40px;
+  font-size: 16px;
+  line-height: 24px;
+}
+.file_upload input[type=file] {
+  position: absolute;
+  padding: 0;
+  left: 0;
+  top: 0;
+  padding: 1px;
+  margin: 10px 0;
+  transform: scale(20);
+  letter-spacing: 10em;
+  /* IE 9 fix */
+  -ms-transform: scale(20);
+  /* IE 9 fix */
+  opacity: 0;
+  cursor: pointer;
 }
 
 .button-to-top {
