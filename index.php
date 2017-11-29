@@ -1,6 +1,9 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html ng-app="myApp">
-
+<?php require( "config.php" ); ?>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +19,9 @@
 </head>
 <!--// I am A!!!-->
 <body>
+  <?php if ( $_SESSION['username'] == ADMIN_USERNAME):
+    include ("admin-button.php");
+   endif; ?>
   <div class="button-to-top">
     <!-- <span class="glyphicon glyphico-arrow-up"></span> -->
     <img src="/img/up.png" alt="" width="50px" height="50px">
@@ -47,7 +53,10 @@
     <section class="recommended-books">
       <div class="container">
         <div class="row justify-content-center">
-          <h2 class="carousel-title">Рекомендуемые книги автора</h2>
+
+<h2 class="carousel-title">Рекомендуемые книги автора </h2>
+
+
         </div>
         <div id="carouselRecommended" class="carousel" >
           <?php include( 'carousel-inner.php'); ?>
