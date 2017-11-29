@@ -20,7 +20,7 @@ session_start();
 <!--// I am A!!!-->
 <body>
   <?php if ( $_SESSION['username'] == ADMIN_USERNAME):
-    include ("admin-button.php");
+    include ("admin-flag.php");
    endif; ?>
   <div class="button-to-top">
     <!-- <span class="glyphicon glyphico-arrow-up"></span> -->
