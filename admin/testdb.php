@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php require( "../config.php" );
-$dbhost  = 'localhost';
+ $dbhost  = 'localhost';
  $dbname  = 'cms';
  $dbuser  = DB_USERNAME;
  $dbpass  = DB_PASSWORD;

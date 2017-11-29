@@ -4,6 +4,30 @@ session_start();
 <!doctype html>
 <html ng-app="myApp">
 <?php require( "config.php" ); ?>
+<?php
+$dbhost  = 'localhost';
+$dbname  = 'cms';
+$dbuser  = DB_USERNAME;
+$dbpass  = DB_PASSWORD;
+$mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+if ($connection->connect_error) die($connection->connect_error);
+
+function queryMysql($query)
+  {
+    global $mysqli;
+    $result = $mysqli->query($query);
+    if (!$result) die($mysqli->error);
+    return $result;
+  }
+//images for slider
+  $books_images = queryMysql("SELECT image FROM books");
+  $t=gettype($books_images);
+  foreach ($books_images as $value) {
+    foreach ($value as $v) {
+      echo ($v), "\n";
+  }
+}
+ ?>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

@@ -18,8 +18,6 @@
         <img class="img-fluid mx-auto d-block" src="/img/book.jpg" alt="slide 1">
     </div>
 </div> -->
-
-
   <button class="prev">Назад</button><button class="next">Вперед</button>
        <div class="carousel__item">  <img src="/img/book.jpg" alt="slide 1"></div>
        <div class="carousel__item">  <img src="/img/book1.jpg" alt="slide 1"></div>
