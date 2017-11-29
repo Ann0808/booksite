@@ -13,7 +13,7 @@
 }
 
 .admin__body {
-  background: #8dc6e3;
+  background: #95a6ad;
 }
 .admin-container {
   display: flex;
@@ -22,7 +22,7 @@
   padding: 30px;
   color: black;
   justify-content: center;
-  border: 2px solid #95a6ad;
+  border: 2px solid #92aac4;
   background: #f8fdff;
 }
 .admin-title {
@@ -34,6 +34,7 @@
   width: 100%;
   max-width: 800px;
   justify-content: space-between;
+  vertical-align: middle;
 }
 .admin-container__items {
   width: 100%;
@@ -41,8 +42,8 @@
 .admin-container__input-text {
   display: block;
   width: 78%;
-  max-width: 200px;
-  margin: 5px 2%;
+  max-width: 300px;
+  margin: 5px 0;
   padding: 10px 20px;
   padding-right: 40px;
   font-size: 16px;
@@ -57,11 +58,14 @@
 .admin-container__text:focus {
   border-radius: #95a6ad;
 }
-.admin-container p {
+.admin-container__row p {
+  margin: 0;
+  padding: 15px 0 0 0;
   font-size: 18px;
   line-height: 24px;
   font-weight: bold;
   font-family: "Arial", sans-serif;
+  height: 30px;
 }
 .admin-container__item {
   display: none;
@@ -185,7 +189,7 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
   position: relative;
   overflow: hidden;
   width: 78%;
-  margin: 10px 2%;
+  margin: 10px 0;
   max-width: 200px;
   padding: 10px 20px;
   padding-right: 40px;
