@@ -26,7 +26,7 @@
     <title>Admin panel</title>
     <link rel="stylesheet" href="../css/style.css">
   </head>
-  <body>
+  <body class="admin__body">
     <div class="admin-container">
     	<h1 class="admin-title">Добро пожаловать, Администратор</h1>
 			<a class="btn" href="../index.php">Перейти на главную</a>
