@@ -9,6 +9,7 @@ $dbhost  = 'localhost';
 $dbname  = 'cms';
 $dbuser  = DB_USERNAME;
 $dbpass  = DB_PASSWORD;
+$admin_name = ADMIN_NAME;
 $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 if ($connection->connect_error) die($connection->connect_error);
 
@@ -19,14 +20,10 @@ function queryMysql($query)
     if (!$result) die($mysqli->error);
     return $result;
   }
-//images for slider
-  $books_images = queryMysql("SELECT image FROM books");
-  $t=gettype($books_images);
-  foreach ($books_images as $value) {
-    foreach ($value as $v) {
-      echo ($v), "\n";
-  }
-}
+  //images for slider
+    $books_images_my = queryMysql("SELECT image FROM books WHERE author_name='$admin_name'");
+
+
  ?>
 <head>
   <meta charset="utf-8">
@@ -83,7 +80,17 @@ function queryMysql($query)
 
         </div>
         <div id="carouselRecommended" class="carousel" >
-          <?php include( 'carousel-inner.php'); ?>
+          <?php //include( 'carousel-inner.php'); ?>
+            <button class="prev">Назад</button><button class="next">Вперед</button>
+            <?php
+            foreach ($books_images_my as $value) {
+             foreach ($value as $v) {
+            //  echo ($v), "\n";
+          echo ('<div class="carousel__item">  <img src='.$v.' alt="slide 1"></div>');
+            }
+          }
+             ?>
+
         </div>
         <!-- <div class="row">
           <div id="carouselRecommended" class="carousel slide" data-ride="carousel" >

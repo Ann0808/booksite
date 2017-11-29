@@ -14,14 +14,10 @@
      if (!$result) die($mysqli->error);
      return $result;
    }
-   if(isset($_POST['submit'])) {
-     $name=$_POST['book-name'];
-     $logo1=$_FILES['picture-mobile']['name'];
-     $logo2=$_FILES['picture-desktop']['name'];
-     $img=$_FILES['picture-book']['name'];
-     $author=$_POST['book-author'];
-     queryMysql("INSERT INTO `books`(`name`, `logo-mob`, `logo-desk`, `image`,`author_name`) VALUES ('$name','$logo1','$logo2','$img','$author')");
-   }
+   // if(isset($_POST['submit'])) {
+   //   $name=$_POST['book-name'];
+   //
+   // }
  ?>
 
 <html>
@@ -88,15 +84,28 @@
                 echo("");
 								if ($_SERVER['REQUEST_METHOD'] == 'POST')
 								{
+                  $name=$_POST['book-name'];
+                  $link=$_POST['book-link'];
 									$ext = array_pop(explode('.',$_FILES['picture-mobile']['name']));
 									// Проверяем тип файла
 								if ((!in_array($_FILES['picture-mobile']['type'], $types))||(!in_array($_FILES['picture-desktop']['type'], $types))||(!in_array($_FILES['picture-book']['type'], $types))) {
 									 die('Все файлы должны быть в формате jpg. <a href="?">Попробовать загрузить снова?</a>');
 								}
-								 if ((!@copy($_FILES['picture-mobile']['tmp_name'], $path . 'mobile-logo.' . $ext))||(!@copy($_FILES['picture-desktop']['tmp_name'], $path . 'desktop-logo.' . $ext))||(!@copy($_FILES['picture-book']['tmp_name'], $path . 'book-logo.' . $ext)))
-									echo 'Что-то пошло не так';
-								 else
-									echo 'Загрузка удачна';
+                $new_mobile_logo_name = $path . 'mobile-logo-'. $link . '.' . $ext;
+                $new_desktop_logo_name = $path . 'desktop-logo-'. $link . '.' . $ext;
+                $new_book_logo_name = $path . 'book-logo-'. $link . '.' . $ext;
+                $logo1=$new_mobile_logo_name;
+                $logo2=$new_desktop_logo_name;
+                $img=$new_book_logo_name;
+                $author=$_POST['book-author'];
+								 if ((!@copy($_FILES['picture-mobile']['tmp_name'], $new_mobile_logo_name))||(!@copy($_FILES['picture-desktop']['tmp_name'], $new_desktop_logo_name))||(!@copy($_FILES['picture-book']['tmp_name'], $new_book_logo_name))) {
+                   echo 'Что-то пошло не так';
+                 }
+								 else {
+                   queryMysql("INSERT INTO `books`(`name`, `logo-mob`, `logo-desk`, `image`,`author_name`,`link`) VALUES ('$name','$logo1','$logo2','$img','$author','$link')");
+                   echo 'Загрузка удачна';
+                 }
+
 								}
 							?>
 						</p>

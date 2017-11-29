@@ -8,6 +8,7 @@ define( "CLASS_PATH", "classes" );
 // define( "TEMPLATE_PATH", "/" );
 define( "ADMIN_USERNAME", "admin" );
 define( "ADMIN_PASSWORD", "mypass" );
+define( "ADMIN_NAME", "Вася" );
 // require( CLASS_PATH . "/Article.php" );
 //then add try catch
 function handleException( $exception ) {
