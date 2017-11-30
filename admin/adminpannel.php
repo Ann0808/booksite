@@ -195,7 +195,16 @@
 										}
 									});
 									return false;
+
+
 					});
+
+							function visible(e) {
+
+									$(e).siblings().toggleClass("visible");
+							}
+
+
 	</script>
   </body>
 </html>
