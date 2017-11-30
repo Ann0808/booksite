@@ -71,7 +71,7 @@ class Book
       $author_name=$ids['author_name'];
       $link=$ids['link'];
       $id=$ids['id'];
-      $chapterQuery = "SELECT `name`, `text` FROM `chapter` WHERE `book_id`=$id";
+      $chapterQuery = "SELECT `name`, `text`,`id` FROM `chapter` WHERE `book_id`=$id";
       $chapters = Book::queryMysql($chapterQuery);
       if(count($ids)>0) {
         echo("<div class='admin-container__row'>
@@ -94,6 +94,7 @@ $j=0;
     while($row=$chapters->fetch_array(MYSQLI_ASSOC))
 {
   $j++;
+	$idChapter=$row['id'];
   $nameChapter=$row['name'];
   $textChapter=$row['text'];
 			echo("<div class='admin_container__wrapper'>");
@@ -106,6 +107,7 @@ $j=0;
     <p>Редактировать текст главы №$j</p>
    <textarea class='admin-container__input-text admin-container__input-text--center' rows='8' cols='80' name='chapter-text' >$textChapter</textarea>
     </div>");
+			echo("<button onclick='update_chapter(this)' class='btn hidden' data-id='$idChapter' data-name='$nameChapter' data-text='$textChapter'>Обновить</button>");
 echo("</div>");
 //echo '<p>Запись id='..'. Текст: '.$row['text'].'</p>';// выводим данные
 

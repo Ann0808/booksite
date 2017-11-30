@@ -128,13 +128,14 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
   cursor: pointer;
   color: rgba(0, 0, 0, 0.7);
 }
-.hidden {
+.admin_container__wrapper .hidden {
   display: none;
 }
-.visible {
+.admin_container__wrapper .visible {
   display: block;
 }
 .admin_container__wrapper {
+  padding-top: 50px;
   width: 100%;
   text-align: center;
 }
