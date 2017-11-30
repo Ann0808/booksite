@@ -115,6 +115,22 @@
 						</p>
 					</div>
 				</form>
+
+                <form  method="post">
+                    <div class="admin-container__row">
+                      <p>Название главы</p>
+                      <input class="admin-container__input-text" type="text" name="chapter-name" placeholder="Война и мир">
+                    </div>
+                    <div class="admin-container__row">
+                      <p>TEXT главы</p>
+                      <textarea class="admin-container__input-text" name="chapter-text" rows="8" cols="80"></textarea>  
+                    </div>
+                    <div class="admin-container__row">
+                      <input type="submit" class="btn" value="OK" name="submitchapter" >
+
+                    </div>
+                  </form>
+
 			</div>
 			<div class="admin-container__item">
 			<form  method="post" id="search">
@@ -127,6 +143,7 @@
 						<p id="information_search"></p>
 					</div>
 				</form>
+
 			</div>
 			<div class="admin-container__item">
 			<form enctype="multipart/form-data" method="post">
@@ -156,6 +173,7 @@
 					</div>
 				</form>
 			</div>
+
     </div>
 
     </div>
