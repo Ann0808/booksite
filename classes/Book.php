@@ -106,7 +106,9 @@ $j=0;
     <p>Редактировать текст главы №$j</p>
    <textarea class='admin-container__input-text admin-container__input-text--center' rows='8' cols='80' name='chapter-text' >$textChapter</textarea>
     </div>");
+
 echo("</div>");
+
 //echo '<p>Запись id='..'. Текст: '.$row['text'].'</p>';// выводим данные
 
 }

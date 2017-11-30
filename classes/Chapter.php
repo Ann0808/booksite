@@ -11,11 +11,14 @@ class Chapter extends AnotherClass
 
   function __construct($post)
   {
+    $this->name = $post['chapter-шв'];
     $this->name = $post['chapter-name'];
     $this->text = $post['chapter-text'];
     $select = "SELECT LAST_INSERT_ID()";
     $this->bookId = Book::queryMysql($select);
   }
+
+  
 }
 
  ?>
