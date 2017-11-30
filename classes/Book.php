@@ -45,19 +45,82 @@ class Book
       global $mysqli;
       $result = $mysqli->query($query);
       if (!$result) die($mysqli->error);
+    //   if ($result->num_rows)
+    // {
+    //   $row = $result->fetch_array(MYSQLI_ASSOC);
+    //
+    // }
+
       return $result;
+
+
     }
+
+
 
     public static function findBook($postName) {
       $name=$postName['book-name'];
-      $findQuery = "SELECT `id` FROM `books` WHERE `name`='$name'";
+      $findQuery = "SELECT `id`,`link`,`author_name`,`name` FROM `books` WHERE `name`='$name'";
+      $i=0;
       $ids = Book::queryMysql($findQuery);
-      foreach ($ids as $value) {
-       foreach ($value as $v) {
-      //Book::queryMysql($findQuery);
-      echo($v);
+      if ($ids->num_rows)
+     {
+       $ids = $ids->fetch_array(MYSQLI_ASSOC);
+
      }
-   }
+      $author_name=$ids['author_name'];
+      $link=$ids['link'];
+      $id=$ids['id'];
+      $chapterQuery = "SELECT `name`, `text` FROM `chapter` WHERE `book_id`=$id";
+      $chapters = Book::queryMysql($chapterQuery);
+      if(count($ids)>0) {
+        echo("<div class='admin-container__row'>
+         <p>Редактировать имя</p>
+        <input class='admin-container__input-text' type='text' name='book-name' value='$name'>
+         </div>");
+
+         echo("<div class='admin-container__row'>
+          <p>Редактировать автора</p>
+         <input class='admin-container__input-text' type='text' name='author-name' value='$author_name'>
+          </div>");
+
+          echo("<div class='admin-container__row'>
+           <p>Редактировать ссылку</p>
+          <input class='admin-container__input-text' type='text' name='link' value='$link'>
+           </div>");
+      }
+
+$j=0;
+    while($row=$chapters->fetch_array(MYSQLI_ASSOC))
+{
+  $j++;
+  $nameChapter=$row['name'];
+  $textChapter=$row['text'];
+  echo("<div class='admin-container__row'>
+   <p>Редактировать название главы №$j</p>
+  <input class='admin-container__input-text' type='text' name='chapter-name' value='$nameChapter'>
+   </div>");
+   echo("<div class='admin-container__row'>
+    <p>Редактировать текст главы №$j</p>
+   <textarea class='admin-container__input-text' rows='8' cols='80' name='chapter-text' >$textChapter</textarea>
+    </div>");
+
+// echo '<p>Запись id='..'. Текст: '.$row['text'].'</p>';// выводим данные
+
+}
+
+
+//
+//    $chapters = Book::queryMysql($chapterQuery);
+//    foreach ($chapters as $value) {
+//
+//     foreach ($value as $v) {
+//      echo("<div class='admin-container__row'>
+//       <p>Редактировать главу</p>
+//      <input class='admin-container__input-text' type='text' name='book-name' value='$v'>
+//       </div>");
+//   }
+// }
   }
 }
 
