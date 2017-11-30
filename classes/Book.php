@@ -100,11 +100,11 @@ $j=0;
   echo("<a class='admin-container__chapter-link' onclick='visible(this)'>$nameChapter</a><br>");
   echo("<div class='hidden'>
    <p>Редактировать название главы №$j</p>
-  <input class='admin-container__input-text' type='text' name='chapter-name' value='$nameChapter'>
+  <input class='admin-container__input-text admin-container__input-text--center' type='text' name='chapter-name' value='$nameChapter'>
    </div>");
    echo("<div class='hidden'>
     <p>Редактировать текст главы №$j</p>
-   <textarea class='admin-container__input-text' rows='8' cols='80' name='chapter-text' >$textChapter</textarea>
+   <textarea class='admin-container__input-text admin-container__input-text--center' rows='8' cols='80' name='chapter-text' >$textChapter</textarea>
     </div>");
 echo("</div>");
 //echo '<p>Запись id='..'. Текст: '.$row['text'].'</p>';// выводим данные
