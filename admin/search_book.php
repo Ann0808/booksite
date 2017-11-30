@@ -48,5 +48,9 @@ $dbhost  = 'localhost';
 if(isset($_POST['book-name'])) {
     Book::findBook($_POST);
    }
+
+		if(isset($_POST['chapter-id'])) {
+    Chapter::update-chapter($_POST);
+   }
 endif;
 ?>

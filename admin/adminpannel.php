@@ -173,15 +173,12 @@
 					</div>
 				</form>
 			</div>
-
     </div>
-
     </div>
     <script>
 					$("#search").submit(function(event) {
 						event.preventDefault();
 									var book_name = $("#book-name").val();
-
 									$.ajax({
 											type: "POST",
 											url: "search_book.php",
@@ -195,8 +192,6 @@
 										}
 									});
 									return false;
-
-
 					});
 
 							function visible(e) {
@@ -204,6 +199,27 @@
 									$(e).siblings().toggleClass("visible");
 							}
 
+						function update_chapter(e) {
+							var chapter_id = $(e).data("id");
+							var chapter_name = $(e).data("name");
+							var chapter_text = $(e).data("text");
+							$.ajax({
+											type: "POST",
+											url: "search_book.php",
+											data: {"chapter-name": chapter_name,
+														"chapter-id": chapter_id,
+														 "chapter-text": chapter_text
+														},
+											cache: false,
+											success: function(response){
+													document.getElementById("information_search").innerHTML = response;
+										 },
+										error: function(response) {
+											 document.getElementById("information_search").innerHTML = "Возникла ошибка при отправке формы. Попробуйте еще раз";
+										}
+									});
+									return false;
+						}
 
 	</script>
   </body>
