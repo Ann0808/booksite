@@ -11,18 +11,18 @@ $dbuser  = DB_USERNAME;
 $dbpass  = DB_PASSWORD;
 $admin_name = ADMIN_NAME;
 $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-if ($connection->connect_error) die($connection->connect_error);
+if ($mysqli->connect_error) die($mysqli->connect_error);
 
-function queryMysql($query)
-  {
-    global $mysqli;
-    $result = $mysqli->query($query);
-    if (!$result) die($mysqli->error);
-    return $result;
-  }
+// function queryMysql($query)
+//   {
+//     global $mysqli;
+//     $result = $mysqli->query($query);
+//     if (!$result) die($mysqli->error);
+//     return $result;
+//   }
   //images for slider
-    $books_images_my = queryMysql("SELECT image FROM books WHERE author_name='$admin_name'");
-    $books_images_other =queryMysql("SELECT image FROM books WHERE author_name!='$admin_name'");
+    $books_images_my = Book::queryMysql("SELECT image FROM books WHERE author_name='$admin_name'");
+    $books_images_other = Book::queryMysql("SELECT image FROM books WHERE author_name!='$admin_name'");
 
  ?>
 <head>

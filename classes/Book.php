@@ -37,7 +37,27 @@ class Book
 
   public function insert() {
     $insertQuery = "INSERT INTO `books`(`name`, `logo-mob`, `logo-desk`, `image`,`author_name`,`link`) VALUES ('$this->name','$this->logoMobile','$this->logoDesktop','$this->logoBook','$this->author','$this->link')";
-     queryMysql($insertQuery);
+     Book::queryMysql($insertQuery);
+  }
+
+  public static function queryMysql($query)
+    {
+      global $mysqli;
+      $result = $mysqli->query($query);
+      if (!$result) die($mysqli->error);
+      return $result;
+    }
+
+    public static function findBook($postName) {
+      $name=$postName['book-name'];
+      $findQuery = "SELECT `id` FROM `books` WHERE `name`='$name'";
+      $ids = Book::queryMysql($findQuery);
+      foreach ($ids as $value) {
+       foreach ($value as $v) {
+      //Book::queryMysql($findQuery);
+      echo($v);
+     }
+   }
   }
 }
 

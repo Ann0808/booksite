@@ -7,13 +7,13 @@
  $dbpass  = DB_PASSWORD;
  $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
  if ($connection->connect_error) die($connection->connect_error);
- function queryMysql($query)
-   {
-     global $mysqli;
-     $result = $mysqli->query($query);
-     if (!$result) die($mysqli->error);
-     return $result;
-   }
+ // function queryMysql($query)
+ //   {
+ //     global $mysqli;
+ //     $result = $mysqli->query($query);
+ //     if (!$result) die($mysqli->error);
+ //     return $result;
+ //   }
    // if(isset($_POST['submit'])) {
    //   $name=$_POST['book-name'];
    //
@@ -84,7 +84,7 @@
 								//$path = '../img/';
 								$types = array('image/jpeg'); //only jpg
                 echo("");
-								if ($_SERVER['REQUEST_METHOD'] == 'POST')
+								if (($_SERVER['REQUEST_METHOD'] == 'POST')&&(isset($_POST['submit'])))
 								{
                   //$name=$_POST['book-name'];
                   //$link=$_POST['book-link'];
@@ -121,10 +121,12 @@
 						<input class="admin-container__input-text" type="text" name="book-name" id="" placeholder="Война и мир">
 					</div>
 					<div class="admin-container__row">
-						<input class="btn" type="submit" value="Найти" />
+						<input class="btn" type="submit" value="Найти" name="findBook"/>
 						<p>
 							<?php
-								/*search result*/
+								if(isset($_POST['findBook'])) {
+                  Book::findBook($_POST);
+                }
 							?>
 						</p>
 					</div>
