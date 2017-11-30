@@ -49,11 +49,4 @@ if(isset($_POST['book-name'])) {
     Book::findBook($_POST);
    }
 endif;
-
-
-
-
-
-
-
 ?>
