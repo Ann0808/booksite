@@ -25,6 +25,7 @@
     <meta charset="utf-8">
     <title>Admin panel</title>
     <link rel="stylesheet" href="../css/style.css">
+		<script src="../js/jquery-3.2.1.min.js"></script>
   </head>
   <body class="admin__body">
     <div class="admin-container">
@@ -115,14 +116,16 @@
 				</form>
 			</div>
 			<div class="admin-container__item">
-			<form enctype="multipart/form-data" method="post">
+			<form action="search_book.php" method="post" id="search">
 					<div class="admin-container__row">
 						<p>Название книги</p>
-						<input class="admin-container__input-text" type="text" name="book-name" id="" placeholder="Война и мир">
+						<input class="admin-container__input-text" type="text" name="book-name" id="book-name" placeholder="Война и мир">
 					</div>
 					<div class="admin-container__row">
-						<input class="btn" type="submit" value="Найти" name="findBook"/>
-						<p>
+						<input type="hidden" name="findbook" value="true" id="findbook">
+						<input type="submit" class="btn" value="Найти" name="findBook" >
+						<p id="information_search">
+
 							<?php
 								if(isset($_POST['findBook'])) {
                   Book::findBook($_POST);
@@ -163,5 +166,28 @@
     </div>
 
     </div>
+    <script>
+	/* прикрепить событие submit к форме */
+	$("#search").submit(function(event) {
+
+	  /* отключение стандартной отправки формы */
+	  event.preventDefault();
+	        var book_name = $("#book-name").val();
+
+	        $.ajax({
+	            type: "POST",
+	            url: "search_book.php",
+	            data: {"book-name": book_name},
+	            cache: false,
+	            success: function(response){
+	        											document.getElementById("information_search").innerHTML = response;
+	           },
+						error: function(response) {
+							 document.getElementById("information_search").innerHTML = "Возникла ошибка при отправке формы. Попробуйте еще раз";
+						}
+	        });
+	        return false;
+	});
+	</script>
   </body>
 </html>
