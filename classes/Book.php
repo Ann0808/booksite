@@ -96,16 +96,18 @@ $j=0;
   $j++;
   $nameChapter=$row['name'];
   $textChapter=$row['text'];
-  echo("<div class='admin-container__row'>
+
+  echo("<a class='chapter-List'>$nameChapter</a><br>");
+  echo("<div class='chapterdiv admin-container__row'>
    <p>Редактировать название главы №$j</p>
   <input class='admin-container__input-text' type='text' name='chapter-name' value='$nameChapter'>
    </div>");
-   echo("<div class='admin-container__row'>
+   echo("<div class='chapterdiv admin-container__row'>
     <p>Редактировать текст главы №$j</p>
    <textarea class='admin-container__input-text' rows='8' cols='80' name='chapter-text' >$textChapter</textarea>
     </div>");
 
-// echo '<p>Запись id='..'. Текст: '.$row['text'].'</p>';// выводим данные
+//echo '<p>Запись id='..'. Текст: '.$row['text'].'</p>';// выводим данные
 
 }
 
