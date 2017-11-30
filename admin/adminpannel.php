@@ -116,7 +116,7 @@
 					</div>
 				</form>
 
-                <form  method="post">
+                <!--<form  method="post">
                     <div class="admin-container__row">
                       <p>Название главы</p>
                       <input class="admin-container__input-text" type="text" name="chapter-name" placeholder="Война и мир">
@@ -129,7 +129,7 @@
                       <input type="submit" class="btn" value="OK" name="submitchapter" >
 
                     </div>
-                  </form>
+                  </form>-->
 
 			</div>
 			<div class="admin-container__item">
@@ -140,10 +140,10 @@
 					</div>
 					<div class="admin-container__row">
 						<input type="submit" class="btn" value="Найти" name="findBook" >
-						<p id="information_search"></p>
+
 					</div>
 				</form>
-
+				<div id="information_search"></div>
 			</div>
 			<div class="admin-container__item">
 			<form enctype="multipart/form-data" method="post">
