@@ -50,7 +50,7 @@ if(isset($_POST['book-name'])) {
    }
 
 		if(isset($_POST['chapter-id'])) {
-    Chapter::update-chapter($_POST);
+    Chapter::updateChapter($_POST);
    }
 endif;
 ?>

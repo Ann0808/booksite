@@ -97,7 +97,7 @@ $j=0;
 	$idChapter=$row['id'];
   $nameChapter=$row['name'];
   $textChapter=$row['text'];
-			echo("<div class='admin_container__wrapper'>");
+			echo("<div class='admin_container__wrapper' id='chp-$idChapter'>");
   echo("<a class='admin-container__chapter-link' onclick='visible(this)'>$nameChapter</a><br>");
   echo("<div class='hidden'>
    <p>Редактировать название главы №$j</p>
@@ -107,11 +107,7 @@ $j=0;
     <p>Редактировать текст главы №$j</p>
    <textarea class='admin-container__input-text admin-container__input-text--center' rows='8' cols='80' name='chapter-text' >$textChapter</textarea>
     </div>");
-<<<<<<< HEAD
-
-=======
-			echo("<button onclick='update_chapter(this)' class='btn hidden' data-id='$idChapter' data-name='$nameChapter' data-text='$textChapter'>Обновить</button>");
->>>>>>> 9dbc69e62a934698c84b3f1c7e8a3ded2a0b2411
+			echo("<button onclick='update_chapter(this)' class='btn hidden' data-id='$idChapter'>Обновить</button>");
 echo("</div>");
 
 //echo '<p>Запись id='..'. Текст: '.$row['text'].'</p>';// выводим данные

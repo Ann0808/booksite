@@ -123,7 +123,7 @@
                     </div>
                     <div class="admin-container__row">
                       <p>TEXT главы</p>
-                      <textarea class="admin-container__input-text" name="chapter-text" rows="8" cols="80"></textarea>  
+                      <textarea class="admin-container__input-text" name="chapter-text" rows="8" cols="80"></textarea>
                     </div>
                     <div class="admin-container__row">
                       <input type="submit" class="btn" value="OK" name="submitchapter" >
@@ -201,8 +201,8 @@
 
 						function update_chapter(e) {
 							var chapter_id = $(e).data("id");
-							var chapter_name = $(e).data("name");
-							var chapter_text = $(e).data("text");
+							 var chapter_name =$('#chp-'+chapter_id+' input').val();
+							 var chapter_text =$('#chp-'+chapter_id+' textarea').html();
 							$.ajax({
 											type: "POST",
 											url: "search_book.php",
