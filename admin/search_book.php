@@ -1,73 +1,59 @@
 <?php
- $dbhost  = 'localhost';
+require( "../config.php" );
+session_start();
+$action = isset( $_GET['action'] ) ? $_GET['action'] : "";
+$username = isset( $_SESSION['username'] ) ? $_SESSION['username'] : ""; ?>
+<? if ( $action != "login" && $action != "logout" && !$username ) {
+  login();
+  exit;
+}
+switch ( $action ) {
+  case 'login':
+    login();
+    break;
+  case 'logout':
+    logout();
+    break;
+}
+function login() {
+  $results = array();
+  $results['pageTitle'] = "Admin Login | Widget News";
+  if ( isset( $_POST['login'] ) ) {
+    // Пользователь получает форму входа: попытка авторизировать пользователя
+    if ( $_POST['username'] == ADMIN_USERNAME && $_POST['password'] == ADMIN_PASSWORD ) {
+      // Вход прошел успешно: создаем сессию и перенаправляем на страницу администратора
+      $_SESSION['username'] = ADMIN_USERNAME;
+      header( "Location: admin.php" );
+    } else {
+      // Ошибка входа: выводим сообщение об ошибке для пользователя
+      $results['errorMessage'] = "Incorrect username or password. Please try again.";
+      require( "login.php" );
+    }
+  } else {
+    // Пользователь еще не получил форму: выводим форму
+    require( "login.php" );
+  }
+}
+function logout() {
+  unset( $_SESSION['username'] );
+  header( "Location: login.php" );
+}
+if ( $_SESSION['username'] == ADMIN_USERNAME):
+$dbhost  = 'localhost';
  $dbname  = 'cms';
  $dbuser  = DB_USERNAME;
  $dbpass  = DB_PASSWORD;
  $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
  if ($connection->connect_error) die($connection->connect_error);
-
-	if(isset($_POST['book-name'])) {
-		echo $_POST['book-name'];
+if(isset($_POST['book-name'])) {
     Book::findBook($_POST);
    }
+endif;
 
 
-class Book
-{
-   public $id = null;
-   public $name = null;
-   public $logoMobile = null;
-   public $logoDesktop = null;
-   public $logoBook = null;
-   public $author = null;
-   public $link = null;
-  // public function __construct($name, $logoMobile, $logoDesktop, $logoBook, $author, $link)
-  // {
-  //   $this->name = $name;
-  //   $this->logoMobile = $logoMobile;
-  //   $this->logoDesktop = $logoDesktop;
-  //   $this->logoBook = $logoBook;
-  //   $this->author = $author;
-  //   $this->link = $link;
-  // }
-  public function __construct($data, $files)
-  {
-    $path = '../img/';
-    $ext = array_pop(explode('.',$files['picture-mobile']['name']));
-    $this->link = $data['book-link'];
-    // $new_mobile_logo_name = $path . 'mobile-logo-'. $link . '.' . $ext;
-    // $new_desktop_logo_name = $path . 'desktop-logo-'. $link . '.' . $ext;
-    // $new_book_logo_name = $path . 'book-logo-'. $link . '.' . $ext;
-    $this->name = $data['book-name'];
-    $this->logoMobile = $path . 'mobile-logo-'. $this->link . '.' . $ext;
-    $this->logoDesktop = $path . 'desktop-logo-'. $this->link . '.' . $ext;
-    $this->logoBook = $path . 'book-logo-'. $this->link . '.' . $ext;
-    $this->author = $data['book-author'];
-  }
 
-  public function insert() {
-    $insertQuery = "INSERT INTO `books`(`name`, `logo-mob`, `logo-desk`, `image`,`author_name`,`link`) VALUES ('$this->name','$this->logoMobile','$this->logoDesktop','$this->logoBook','$this->author','$this->link')";
-     Book::queryMysql($insertQuery);
-  }
 
-  public static function queryMysql($query)
-    {
-      global $mysqli;
-      $result = $mysqli->query($query);
-      if (!$result) die($mysqli->error);
-      return $result;
-    }
 
-    public static function findBook($postName) {
-      $name=$postName['book-name'];
-      $findQuery = "SELECT `id` FROM `books` WHERE `name`='$name'";
-      $ids = Book::queryMysql($findQuery);
-      foreach ($ids as $value) {
-       foreach ($value as $v) {
-      //Book::queryMysql($findQuery);
-      echo($v);
-     }
-   }
-  }
-}
+
+
 ?>

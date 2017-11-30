@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+
  //require( "../config.php" );
  $dbhost  = 'localhost';
  $dbname  = 'cms';
@@ -122,16 +123,8 @@
 						<input class="admin-container__input-text" type="text" name="book-name" id="book-name" placeholder="Война и мир">
 					</div>
 					<div class="admin-container__row">
-						<input type="hidden" name="findbook" value="true" id="findbook">
 						<input type="submit" class="btn" value="Найти" name="findBook" >
-						<p id="information_search">
-
-							<?php
-								if(isset($_POST['findBook'])) {
-                  Book::findBook($_POST);
-                }
-							?>
-						</p>
+						<p id="information_search"></p>
 					</div>
 				</form>
 			</div>
@@ -167,27 +160,24 @@
 
     </div>
     <script>
-	/* прикрепить событие submit к форме */
-	$("#search").submit(function(event) {
+					$("#search").submit(function(event) {
+						event.preventDefault();
+									var book_name = $("#book-name").val();
 
-	  /* отключение стандартной отправки формы */
-	  event.preventDefault();
-	        var book_name = $("#book-name").val();
-
-	        $.ajax({
-	            type: "POST",
-	            url: "search_book.php",
-	            data: {"book-name": book_name},
-	            cache: false,
-	            success: function(response){
-	        											document.getElementById("information_search").innerHTML = response;
-	           },
-						error: function(response) {
-							 document.getElementById("information_search").innerHTML = "Возникла ошибка при отправке формы. Попробуйте еще раз";
-						}
-	        });
-	        return false;
-	});
+									$.ajax({
+											type: "POST",
+											url: "search_book.php",
+											data: {"book-name": book_name},
+											cache: false,
+											success: function(response){
+													document.getElementById("information_search").innerHTML = response;
+										 },
+										error: function(response) {
+											 document.getElementById("information_search").innerHTML = "Возникла ошибка при отправке формы. Попробуйте еще раз";
+										}
+									});
+									return false;
+					});
 	</script>
   </body>
 </html>
