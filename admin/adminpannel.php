@@ -116,7 +116,7 @@
 				</form>
 			</div>
 			<div class="admin-container__item">
-			<form action="search_book.php" method="post" id="search">
+			<form  method="post" id="search">
 					<div class="admin-container__row">
 						<p>Название книги</p>
 						<input class="admin-container__input-text" type="text" name="book-name" id="book-name" placeholder="Война и мир">

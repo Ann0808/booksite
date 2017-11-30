@@ -1,4 +1,11 @@
 <?php
+ $dbhost  = 'localhost';
+ $dbname  = 'cms';
+ $dbuser  = DB_USERNAME;
+ $dbpass  = DB_PASSWORD;
+ $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+ if ($connection->connect_error) die($connection->connect_error);
+
 	if(isset($_POST['book-name'])) {
 		echo $_POST['book-name'];
     Book::findBook($_POST);
