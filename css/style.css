@@ -56,6 +56,14 @@
   justify-content: space-between;
   vertical-align: middle;
 }
+.admin-container__row--central {
+  max-width: none;
+  justify-content: center;
+  padding-top: 20px;
+}
+.admin-container__row--central .btn {
+  margin: 0;
+}
 .admin-container__items {
   width: 100%;
 }
@@ -128,10 +136,12 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
   cursor: pointer;
   color: rgba(0, 0, 0, 0.7);
 }
-.admin_container__wrapper .hidden {
+.admin_container__wrapper .hidden,
+.hidden {
   display: none;
 }
-.admin_container__wrapper .visible {
+.admin_container__wrapper .visible,
+.visible {
   display: block;
 }
 .admin_container__wrapper {

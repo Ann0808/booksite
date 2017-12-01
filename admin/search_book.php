@@ -52,5 +52,10 @@ if(isset($_POST['book-name'])) {
 		if(isset($_POST['chapter-id'])) {
     Chapter::updateChapter($_POST);
    }
+
+   if((isset($_POST['book-id']))&&(isset($_POST['chapter-name']))) {
+    $chapter = new Chapter($_POST);
+    $chapter->insert();
+  }
 endif;
 ?>
