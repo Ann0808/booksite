@@ -11,23 +11,13 @@ class Book
    public $logoBook = null;
    public $author = null;
    public $link = null;
-  // public function __construct($name, $logoMobile, $logoDesktop, $logoBook, $author, $link)
-  // {
-  //   $this->name = $name;
-  //   $this->logoMobile = $logoMobile;
-  //   $this->logoDesktop = $logoDesktop;
-  //   $this->logoBook = $logoBook;
-  //   $this->author = $author;
-  //   $this->link = $link;
-  // }
+
   public function __construct($data, $files)
   {
     $path = '../img/';
-    $ext = array_pop(explode('.',$files['picture-mobile']['name']));
+     //$ext = array_pop(explode('.',$files['picture-mobile']['name']));
+    $ext = "jpg";
     $this->link = $data['book-link'];
-    // $new_mobile_logo_name = $path . 'mobile-logo-'. $link . '.' . $ext;
-    // $new_desktop_logo_name = $path . 'desktop-logo-'. $link . '.' . $ext;
-    // $new_book_logo_name = $path . 'book-logo-'. $link . '.' . $ext;
     $this->name = $data['book-name'];
     $this->logoMobile = $path . 'mobile-logo-'. $this->link . '.' . $ext;
     $this->logoDesktop = $path . 'desktop-logo-'. $this->link . '.' . $ext;
@@ -40,23 +30,20 @@ class Book
      Book::queryMysql($insertQuery);
   }
 
+  public function update() {
+    $insertQuery = "UPDATE `books` SET `name`='$this->name', `logo-mob`='$this->logoMobile', `logo-desk`='$this->logoDesktop', `image`='$this->logoBook',`author_name`='$this->author',`link`='$this->link')";
+     Book::queryMysql($insertQuery);
+  }
+
+
+
   public static function queryMysql($query)
     {
       global $mysqli;
       $result = $mysqli->query($query);
       if (!$result) die($mysqli->error);
-    //   if ($result->num_rows)
-    // {
-    //   $row = $result->fetch_array(MYSQLI_ASSOC);
-    //
-    // }
-
       return $result;
-
-
     }
-
-
 
     public static function findBook($postName) {
       $name=$postName['book-name'];
@@ -73,23 +60,57 @@ class Book
       $idBook=$ids['id'];
       $chapterQuery = "SELECT `name`, `text`,`id` FROM `chapter` WHERE `book_id`=$idBook";
       $chapters = Book::queryMysql($chapterQuery);
+
+
+
+
+
+
+
+
+
+
       if(count($ids)>0) {
+        echo "<form action='admin.php' id='form-update-book' onsubmit='update_book(event,this)'>";
         echo("<div class='admin-container__row'>
          <p>Редактировать имя</p>
-        <input class='admin-container__input-text' type='text' name='book-name' value='$name'>
+        <input class='admin-container__input-text' type='text' name='book-name' id='book-name' value='$name'>
          </div>");
+         echo("<div class='admin-container__row'>
+         <p>Редактировать Логотип для mob версии</p>
+         <div class='file_upload btn'>
+           Выбрать
+           <input name='picture-mobile' type='file' />
+         </div>
+          </div>");
+          echo("<div class='admin-container__row'>
+          <p>Редактировать Логотип для desk версии</p>
+          <div class='file_upload btn'>
+            Выбрать
+            <input name='picture-desktop' type='file' />
+          </div>
+           </div>");
+           echo("<div class='admin-container__row'>
+           <p>Редактировать mini</p>
+           <div class='file_upload btn'>
+             Выбрать
+             <input name='picture-book' type='file' />
+           </div>
+            </div>");
+
 
          echo("<div class='admin-container__row'>
           <p>Редактировать автора</p>
-         <input class='admin-container__input-text' type='text' name='author-name' value='$author_name'>
+         <input id='author-name' class='admin-container__input-text' type='text' name='author-name' value='$author_name'>
           </div>");
 
           echo("<div class='admin-container__row'>
            <p>Редактировать ссылку</p>
-          <input class='admin-container__input-text' type='text' name='link' value='$link'>
+          <input id='book-link' class='admin-container__input-text' type='text' name='link' value='$link'>
            </div>");
-
-          	
+    	echo("<input type='submit'  class='btn hidden' data-id='$idBook' id='onUpdateBookButton' name='UpdateBookButton' value='Применить изменения'>");
+      echo "</form>";
+      //onclick='update_book(this,event)'
       }
 
 $j=0;
@@ -129,10 +150,6 @@ echo("<div>
  echo("<button  class='btn' onclick='add_chapter(this)' data-id='$idBook'>Добавить</button>");
 echo("</div>");
 
-
-
   }
 }
-
-
  ?>

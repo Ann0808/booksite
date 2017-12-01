@@ -95,11 +95,7 @@
 								if ((!in_array($_FILES['picture-mobile']['type'], $types))||(!in_array($_FILES['picture-desktop']['type'], $types))||(!in_array($_FILES['picture-book']['type'], $types))) {
 									 die('Все файлы должны быть в формате jpg. <a href="?">Попробовать загрузить снова?</a>');
 								}
-                // $new_mobile_logo_name = $path . 'mobile-logo-'. $link . '.' . $ext;
-                // $new_desktop_logo_name = $path . 'desktop-logo-'. $link . '.' . $ext;
-                // $new_book_logo_name = $path . 'book-logo-'. $link . '.' . $ext;
-                //$author=$_POST['book-author'];
-                //$book = new Book($name,$new_mobile_logo_name,$new_desktop_logo_name,$new_book_logo_name,$author,$link);
+
                 $book = new Book($_POST,$_FILES);
 								 if ((!@copy($_FILES['picture-mobile']['tmp_name'], $book->logoMobile))||(!@copy($_FILES['picture-desktop']['tmp_name'], $book->logoDesktop))||(!@copy($_FILES['picture-book']['tmp_name'], $book->logoBook))) {
                    echo 'Что-то пошло не так';
@@ -115,21 +111,6 @@
 						</p>
 					</div>
 				</form>
-
-                <!--<form  method="post">
-                    <div class="admin-container__row">
-                      <p>Название главы</p>
-                      <input class="admin-container__input-text" type="text" name="chapter-name" placeholder="Война и мир">
-                    </div>
-                    <div class="admin-container__row">
-                      <p>TEXT главы</p>
-                      <textarea class="admin-container__input-text" name="chapter-text" rows="8" cols="80"></textarea>
-                    </div>
-                    <div class="admin-container__row">
-                      <input type="submit" class="btn" value="OK" name="submitchapter" >
-
-                    </div>
-                  </form>-->
 
 			</div>
 			<div class="admin-container__item">
@@ -224,6 +205,38 @@
 									});
 									return false;
 						}
+
+            function update_book(e,el) {
+              e.preventDefault();
+              console.log(el);
+               var book_id = $('#onUpdateBookButton').data("id");
+               var book_name =$('#book-name').val();
+               var book_author =$('#author-name').val();
+               var book_link =$('#book-link').val();
+
+
+              $.ajax({
+                      type: "POST",
+                      url: "search_book.php",
+                      // data: {"book-name": book_name,
+                      //       "book-id": book_id,
+                      //        "book-author": book_author,
+                      //        "book-link": book_link,
+                      //        "update_book": "true"
+                      //       },
+                      data:  new FormData(el),
+                      contentType: false,
+                      cache: false,
+                      success: function(response){
+                          document.getElementById("information_search").innerHTML = response;
+                     },
+                    error: function(response) {
+                       document.getElementById("information_search").innerHTML = "Возникла ошибка при отправке формы. Попробуйте еще раз";
+                    }
+                  });
+
+                  return false;
+            }
 
             function add_chapter(e) {
 							var book_id = $(e).data("id");
