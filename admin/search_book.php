@@ -45,32 +45,37 @@ $dbhost  = 'localhost';
  $dbpass  = DB_PASSWORD;
  $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
  if ($connection->connect_error) die($connection->connect_error);
-if(isset($_POST['book-name'])) {
-    Book::findBook($_POST);
-   }
+
+
+						if(isset($_POST['book-author'])){
+
+								echo("ok");
+								var_dump($_FILES);
+
+								// $ext = array_pop(explode('.',$_FILES['picture-mobile']['name']));
+								// Проверяем тип файла
+								// if ((!in_array($_FILES['picture-mobile']['type'], $types))||(!in_array($_FILES['picture-desktop']['type'], $types))||(!in_array($_FILES['picture-book']['type'], $types))) {
+								//    die('Все файлы должны быть в формате jpg. <a href="?">Попробовать загрузить снова?</a>');
+								// }
+
+							 $book = new Book($_POST,$_FILES);
+							$book->update();
+								/*if ((!@copy($_FILES['picture-mobile']['tmp_name'], $book->logoMobile))||(!@copy($_FILES['picture-desktop']['tmp_name'], $book->logoDesktop))||(!@copy($_FILES['picture-book']['tmp_name'], $book->logoBook))) {
+									echo 'Что-то пошло не так(';
+								} else {
+									$book->update();
+									echo 'Загрузка удачна';
+								}*/
+						}
+
+
+			if(isset($_POST['book-name'])) { // Находим книгу по кнопке "Найти"
+					Book::findBook($_POST);
+			}
 
 
 
-   if(isset($_POST['UpdateBookButton'])){
 
-echo("ok");
-    var_dump($_FILES);
-    // $ext = array_pop(explode('.',$_FILES['picture-mobile']['name']));
-     // Проверяем тип файла
-   // if ((!in_array($_FILES['picture-mobile']['type'], $types))||(!in_array($_FILES['picture-desktop']['type'], $types))||(!in_array($_FILES['picture-book']['type'], $types))) {
-   //    die('Все файлы должны быть в формате jpg. <a href="?">Попробовать загрузить снова?</a>');
-   // }
-
-   $book = new Book($_POST,$_FILES);
-    if ((!@copy($_FILES['picture-mobile']['tmp_name'], $book->logoMobile))||(!@copy($_FILES['picture-desktop']['tmp_name'], $book->logoDesktop))||(!@copy($_FILES['picture-book']['tmp_name'], $book->logoBook))) {
-      echo 'Что-то пошло не так(';
-    }
-    else {
-      $book->update();
-
-      echo 'Загрузка удачна';
-    }
-      }
 
 
 
