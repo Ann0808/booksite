@@ -25,11 +25,11 @@
    <head>
      <meta charset="utf-8">
      <title></title>
-     <link rel="stylesheet" href="../css/style.css">
+
    </head>
    <body class="admin__body">
      <div class="admin-container__item">
-       <form enctype="multipart/form-data" method="post" action="admin.php">
+       <form enctype="multipart/form-data" method="post" action="addnewbook.php">
          <div class="admin-container__row">
          <p>Логотип для мобильной версии</p>
            <div class="file_upload btn">
