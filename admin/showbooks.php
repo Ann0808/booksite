@@ -2,6 +2,9 @@
 $everything = Book::queryMysql("SELECT * FROM books"); ?>
    <div class="admin-container">
    	<div class="admin-container__items">
+      <p>
+        
+      </p>
   <h2>Basic Table</h2>
   <table>
     <thead>

@@ -78,9 +78,16 @@ $book = new Book($_POST,$_FILES);
  if(!@copy($_FILES['picture-book']['tmp_name'], $book->logoBook)) {
    echo 'Миниатюра не обновлена'; ?> <br>
  <? }
- $book->update();
+ $book->update(); ?>
 
- echo 'Книга отредактирована';
+<script>
+    if(document.URL.indexOf("#")==-1){ //Check if the current URL contains '#'
+        url = document.URL+"#"; // use "#". Add hash to URL
+        location = "#";
+        location.reload(true); //Reload the page
+    }
+</script>
+ <?echo 'Книга отредактирована';
    }
 ?>
 
