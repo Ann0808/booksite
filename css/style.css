@@ -170,12 +170,6 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
 .admin-container__row--big {
   height: 100px;
 }
-.col img {
-  position: absolute;
-  left: -50px;
-  top: -80px;
-  transform: scale(0.35);
-}
 .showbook__btn {
   display: block;
   width: auto;
@@ -463,6 +457,7 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
   display: none;
   flex-shrink: 0;
   width: 50%;
+  overflow: hidden;
   margin: 0;
   text-align: center;
   padding: 0 1%;
