@@ -32,7 +32,6 @@
     	<h1 class="admin-title">Добро пожаловать, Администратор</h1>
 			<a class="btn" href="../index.php">Перейти на главную</a>
 			<a class="btn" href="admin.php?action=logout"?>Выйти</a>
-			<a class="btn" href="admin_pannel.php">Аналог панели администратора</a>
     </div>
     <div class="admin-container">
 			<div class="admin-menu">
