@@ -29,6 +29,8 @@
         <th>bookimg</th>
         <th>Author</th>
         <th>Link</th>
+        <th>Editbook</th>
+        <th>Editchapter</th>
       </tr>
     </thead>
     <tbody>
@@ -49,6 +51,8 @@
             ?>
           </td>
       <?  } ?>
+      <td><a href="editbook.php">edit book</a></td>
+      <td><a href="editchapters.php">edit chapters</a></td>
         </tr>
     <?  } ?>
 
