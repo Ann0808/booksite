@@ -213,7 +213,7 @@
                var book_name =$('#book-name').val();
                var book_author =$('#author-name').val();
                var book_link =$('#book-link').val();
-
+              //alert( new FormData(el));
 
               $.ajax({
                       type: "POST",
@@ -228,7 +228,7 @@
                       contentType: false,
                       cache: false,
                       success: function(response){
-                          document.getElementById("information_search").innerHTML = response;
+                          document.getElementById("information_search").innerHTML = 'response';
                      },
                     error: function(response) {
                        document.getElementById("information_search").innerHTML = "Возникла ошибка при отправке формы. Попробуйте еще раз";

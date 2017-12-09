@@ -71,7 +71,7 @@ class Book
 
 
       if(count($ids)>0) {
-        echo "<form action='admin.php' id='form-update-book' onsubmit='update_book(event,this)'>";
+        echo "<form action='admin.php' id='form-update-book' enctype='multipart/form-data' method='post' onsubmit='update_book(event,this)'>";
         echo("<div class='admin-container__row'>
          <p>Редактировать имя</p>
         <input class='admin-container__input-text' type='text' name='book-name' id='book-name' value='$name'>
