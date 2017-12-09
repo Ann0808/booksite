@@ -40,9 +40,9 @@
     <input type="radio" name="menu-item" id="reviews-input-2">
     <input type="radio" name="menu-item" id="reviews-input-3">
     <div class="admin-menu">
-        <li class="admin-menu__item btn"><a href="">Моя страница</a></li>
-        <li class="admin-menu__item btn"><a href="">Добавить книгу</a></li>
-        <li class="admin-menu__item btn"><a href="">Список всех книг</a></li>
+        <li class="admin-menu__item btn"><a href="admin.php">Моя страница</a></li>
+        <li class="admin-menu__item btn"><a href="addnewbook.php">Добавить книгу</a></li>
+        <li class="admin-menu__item btn"><a href="showbooks.php">Список всех книг</a></li>
         <li class="admin-menu__item btn"><a href="">Изменить данные администратора</a></li>
     </div>
     <div class="admin-container__items">
