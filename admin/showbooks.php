@@ -1,25 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>show books</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-  </head>
-  <?php require( "../config.php" ); ?>
-  <?php
-  $dbhost  = 'localhost';
-  $dbname  = 'cms';
-  $dbuser  = DB_USERNAME;
-  $dbpass  = DB_PASSWORD;
-  $admin_name = ADMIN_NAME;
-  $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-  if ($mysqli->connect_error) die($mysqli->connect_error);
-  $everything = Book::queryMysql("SELECT * FROM books");
-  ?>
-  <body>
-    <div class="container">
+<?php include("header_admin.php");
+$everything = Book::queryMysql("SELECT * FROM books"); ?>
+   <div class="admin-container">
+   	<div class="admin-container__items">
   <h2>Basic Table</h2>
-  <table class="table">
+  <table>
     <thead>
       <tr>
         <th>Id</th>
@@ -58,7 +42,6 @@
 
     </tbody>
   </table>
-</div>
-
-  </body>
-</html>
+   	</div>
+   </div>
+<?php include("footer_admin.php"); ?>
