@@ -163,7 +163,7 @@
 									var book_name = $("#book-name").val();
 									$.ajax({
 											type: "POST",
-											url: "search_book.php",
+											url: "ajax_posts.php",
 											data: {"book-name": book_name},
 											cache: false,
 											success: function(response){
@@ -183,7 +183,7 @@
 									var book_author =$('#author-name').val();
 									$.ajax({
 											type: "POST",
-											url: "search_book.php",
+											url: "ajax_posts.php",
 											data: {"book-author": book_author},
 											cache: false,
 											success: function(response){
@@ -198,14 +198,9 @@
 
 			////////////////////////////////////////////////////////////////////////////
 
-							function visible(e) {
 
-									$(e).siblings().toggleClass("visible");
-							}
 
-              function visibleAddChapter() {
-								$(".admin_container__wrapper.hidden").addClass("visible");
-							}
+
 
 						function update_chapter(e) {
 							var chapter_id = $(e).data("id");
@@ -213,7 +208,7 @@
 							 var chapter_text =$('#chp-'+chapter_id+' textarea').val();
 							$.ajax({
 											type: "POST",
-											url: "search_book.php",
+											url: "ajax_posts.php",
 											data: {"chapter-name": chapter_name,
 														"chapter-id": chapter_id,
 														 "chapter-text": chapter_text
@@ -262,7 +257,7 @@
 
               $.ajax({
                       type: "POST",
-                      url: "search_book.php",
+                      url: "ajax_posts.php",
                        data: {
 												 /*"book-name": book_new,
 
@@ -299,7 +294,7 @@
 							 var chapter_text =$('#addNewChapterWrapper textarea').val();
 							$.ajax({
 											type: "POST",
-											url: "search_book.php",
+											url: "ajax_posts.php",
 											data: {
                              "book-id": book_id,
                              "chapter-name": chapter_name,

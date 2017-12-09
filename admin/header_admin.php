@@ -26,6 +26,7 @@
     <title>Admin panel</title>
     <link rel="stylesheet" href="../css/style.css">
 		<script src="../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
   </head>
   <body class="admin__body">
     <div class="admin-container">
