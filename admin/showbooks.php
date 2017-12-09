@@ -21,7 +21,11 @@ $everything = Book::queryMysql("SELECT * FROM books"); ?>
       <?
       foreach ($everything as $value) { ?>
         <tr>
-        <?php foreach ($value as $v) { ?>
+          <?$id_redirect = 0;
+          $is_id = true; ?>
+        <?php foreach ($value as $v) {
+          if($is_id) $id_redirect = $v;
+           ?>
           <td>
             <?
             $search = ".jpg";
@@ -34,9 +38,9 @@ $everything = Book::queryMysql("SELECT * FROM books"); ?>
 
             ?>
           </td>
-      <?  } ?>
-      <td><a href="editbook.php">edit book</a></td>
-      <td><a href="editchapters.php">edit chapters</a></td>
+      <?    $is_id = false; } ?>
+      <td><a href="editbook.php?id=<?echo $id_redirect; ?>">edit book</a></td>
+      <td><a href="editchapters.php?id=<?echo $id_redirect; ?>">edit chapters</a></td>
         </tr>
     <?  } ?>
 
@@ -44,4 +48,5 @@ $everything = Book::queryMysql("SELECT * FROM books"); ?>
   </table>
    	</div>
    </div>
+
 <?php include("footer_admin.php"); ?>
