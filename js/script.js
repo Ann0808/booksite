@@ -161,7 +161,7 @@ function visible(e) {
     $(e).siblings().toggleClass("visible");
 }
 function visibleAddChapter() {
-  $(".admin_container__wrapper.hidden").addClass("visible");
+  $(".admin_container__wrapper.hidden").toggleClass("visible");
 }
 
 function update_chapter(e) {
