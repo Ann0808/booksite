@@ -25,7 +25,7 @@
    <head>
      <meta charset="utf-8">
      <title></title>
-
+<link rel="stylesheet" href="../css/style.css">
    </head>
    <body class="admin__body">
      <div class="admin-container__item">
