@@ -33,15 +33,17 @@
     	<h1 class="admin-title">Добро пожаловать, Администратор</h1>
 			<a class="btn" href="../index.php">Перейти на главную</a>
 			<a class="btn" href="admin.php?action=logout"?>Выйти</a>
+			<a class="btn" href="admin_pannel.php">Аналог панели администратора</a>
     </div>
     <div class="admin-container">
     <input type="radio" name="menu-item" id="reviews-input-1" checked>
     <input type="radio" name="menu-item" id="reviews-input-2">
     <input type="radio" name="menu-item" id="reviews-input-3">
     <div class="admin-menu">
-        <label class="admin-menu__item btn" for="reviews-input-1">Добавить книгу</label>
-        <label class="admin-menu__item btn" for="reviews-input-2">Изменить существующую книгу</label>
-        <label class="admin-menu__item btn" for="reviews-input-3">Изменить персональные данные</label>
+        <li class="admin-menu__item btn"><a href="">Моя страница</a></li>
+        <li class="admin-menu__item btn"><a href="">Добавить книгу</a></li>
+        <li class="admin-menu__item btn"><a href="">Список всех книг</a></li>
+        <li class="admin-menu__item btn"><a href="">Изменить данные администратора</a></li>
     </div>
     <div class="admin-container__items">
     	<div class="admin-container__item">
