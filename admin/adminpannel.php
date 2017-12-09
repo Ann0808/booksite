@@ -113,7 +113,6 @@
 						</p>
 					</div>
 				</form>
-
 			</div>
 			<div class="admin-container__item">
 			<form  method="post" id="search">
