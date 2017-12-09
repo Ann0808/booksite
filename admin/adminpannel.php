@@ -232,16 +232,8 @@
 
             function update_book(e) {
               e.preventDefault();
-<<<<<<< HEAD
-              console.log(el);
-               var book_id = $('#onUpdateBookButton').data("id");
-               var book_name =$('#book-name').val();
-               var book_author =$('#author-name').val();
-               var book_link =$('#book-link').val();
-              //alert( new FormData(el));
-=======
 
->>>>>>> f15e56cf75c870854b672a043e509e560fabc4c4
+              //alert( new FormData(el));
 
 
 							/*var $logomob = $("#logomob");
@@ -262,6 +254,8 @@
 
                var book_new =$('#book-name-new').val();
                var book_link =$('#book-link').val();*/
+               var book_new =$('#book-name-new').val();
+               var book_link =$('#book-link').val();
 							 var book_author =$('#author-name').val();
 							 var book_id = $('#onUpdateBookButton').data("id");
 
@@ -276,19 +270,19 @@
 												 lm,
 												 ld,
 												 lb,	*/
+                        "update_book": "true",
+                        "book-name": book_new,
+                         "book-link": book_link,
 												 "book-id": book_id,
 												 "book-author": book_author
+
 					             },
                       /*data:  new FormData(el),
                       contentType: false,
             					processData: false,*/
                       cache: false,
                       success: function(response){
-<<<<<<< HEAD
-                          document.getElementById("information_search").innerHTML = 'response';
-=======
-                          document.getElementById("information_search").innerHTML = response + book_author;
->>>>>>> f15e56cf75c870854b672a043e509e560fabc4c4
+                          document.getElementById("information_search").innerHTML = response;
                      },
                     error: function(response) {
                        document.getElementById("information_search").innerHTML = "Возникла ошибка при отправке формы. Попробуйте еще раз";

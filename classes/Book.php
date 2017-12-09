@@ -16,13 +16,14 @@ class Book
   {
     $path = '../img/';
      //$ext = array_pop(explode('.',$files['picture-mobile']['name']));
+    if ( isset( $data['book-id'] ) ) $this->id = $data['book-id'];
     $ext = "jpg";
-    $this->link = $data['book-link'];
-    $this->name = $data['book-name'];
-    $this->logoMobile = $path . 'mobile-logo-'. $this->link . '.' . $ext;
-    $this->logoDesktop = $path . 'desktop-logo-'. $this->link . '.' . $ext;
-    $this->logoBook = $path . 'book-logo-'. $this->link . '.' . $ext;
-    $this->author = $data['book-author'];
+    if ( isset( $data['book-link'] ) )$this->link = $data['book-link'];
+    if ( isset( $data['book-name'] ) )$this->name = $data['book-name'];
+    if ( isset( $data['book-link'] ) )$this->logoMobile = $path . 'mobile-logo-'. $this->link . '.' . $ext;
+    if ( isset( $data['book-link'] ) )$this->logoDesktop = $path . 'desktop-logo-'. $this->link . '.' . $ext;
+    if ( isset( $data['book-link'] ) )$this->logoBook = $path . 'book-logo-'. $this->link . '.' . $ext;
+    if ( isset( $data['book-author'] ) )$this->author = $data['book-author'];
   }
 
   public function insert() {
@@ -31,8 +32,38 @@ class Book
   }
 
   public function update() {
-    $insertQuery = "UPDATE `books` SET `name`='$this->name', `logo-mob`='$this->logoMobile', `logo-desk`='$this->logoDesktop', `image`='$this->logoBook',`author_name`='$this->author',`link`='$this->link' WHERE `id`='$this->id'";
-     Book::queryMysql($insertQuery);
+    if($this->name!=null){
+      $insertQuery = "UPDATE `books` SET `name`='$this->name' WHERE `id`='$this->id'";
+       Book::queryMysql($insertQuery);
+    }
+    if($this->logoMobile!=null){
+      $insertQuery = "UPDATE `books` SET `logo-mob`='$this->logoMobile' WHERE `id`='$this->id'";
+       Book::queryMysql($insertQuery);
+    }
+    if($this->logoDesktop!=null){
+      $insertQuery = "UPDATE `books` SET `logo-desk`='$this->logoDesktop' WHERE `id`='$this->id'";
+       Book::queryMysql($insertQuery);
+    }
+    if($this->logoBook!=null){
+      $insertQuery = "UPDATE `books` SET `image`='$this->logoBook' WHERE `id`='$this->id'";
+       Book::queryMysql($insertQuery);
+    }
+    if($this->author!=null){
+      $insertQuery = "UPDATE `books` SET `author_name`='$this->author' WHERE `id`='$this->id'";
+       Book::queryMysql($insertQuery);
+    }
+    if($this->link!=null){
+      $insertQuery = "UPDATE `books` SET `link`='$this->link' WHERE `id`='$this->id'";
+       Book::queryMysql($insertQuery);
+    }
+
+// if($this->author!=null) {
+//   echo $this->name;
+// $insertQuery = "UPDATE `books` SET `name`='$this->name', `logo-mob`='$this->logoMobile', `logo-desk`='$this->logoDesktop', `image`='$this->logoBook',`author_name`='$this->author',`link`='$this->link' WHERE `id`='$this->id'";
+//
+// }
+//
+//      Book::queryMysql($insertQuery);
   }
 
 
@@ -71,11 +102,7 @@ class Book
 
 
       if(count($ids)>0) {
-<<<<<<< HEAD
-        echo "<form action='admin.php' id='form-update-book' enctype='multipart/form-data' method='post' onsubmit='update_book(event,this)'>";
-=======
-        echo "<form action='admin.php' id='form-update-book' onsubmit='update_book(event)' enctype='multipart/form-data'>";
->>>>>>> f15e56cf75c870854b672a043e509e560fabc4c4
+        echo "<form action='admin.php' id='form-update-book' enctype='multipart/form-data' method='post' onsubmit='update_book(event)'>";
         echo("<div class='admin-container__row'>
          <p>Редактировать имя</p>
         <input class='admin-container__input-text' type='text' name='book-name' id='book-name-new' value='$name'>

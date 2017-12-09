@@ -51,9 +51,9 @@ if(isset($_POST['book-name'])) {
 
 
 
-   if(isset($_POST['UpdateBookButton'])){
+   if(isset($_POST['update_book'])){
 
-echo("ok");
+    echo("ok");
     var_dump($_FILES);
     // $ext = array_pop(explode('.',$_FILES['picture-mobile']['name']));
      // Проверяем тип файла
@@ -66,10 +66,11 @@ echo("ok");
       echo 'Что-то пошло не так(';
     }
     else {
-      $book->update();
 
-      echo 'Загрузка удачна';
     }
+    $book->update();
+
+    echo 'Загрузка удачна';
       }
 
 
