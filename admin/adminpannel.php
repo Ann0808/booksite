@@ -158,7 +158,7 @@
     </div>
     <script>
 					$("#search").submit(function(event) {
-						event.preventDefault();
+									event.preventDefault();
 									var book_name = $("#book-name").val();
 									$.ajax({
 											type: "POST",
@@ -174,6 +174,28 @@
 									});
 									return false;
 					});
+
+			//////////////////////////////////////////////////////////////
+
+			$("#form-update-book").submit(function(event) {
+									event.preventDefault();
+									var book_author =$('#author-name').val();
+									$.ajax({
+											type: "POST",
+											url: "search_book.php",
+											data: {"book-author": book_author},
+											cache: false,
+											success: function(response){
+													document.getElementById("information_search").innerHTML = response + book_author;
+										 },
+										error: function(response) {
+											 document.getElementById("information_search").innerHTML = "Возникла ошибка при отправке формы. Попробуйте еще раз";
+										}
+									});
+									return false;
+					});
+
+			////////////////////////////////////////////////////////////////////////////
 
 							function visible(e) {
 
@@ -206,29 +228,67 @@
 									return false;
 						}
 
-            function update_book(e,el) {
+
+
+            function update_book(e) {
               e.preventDefault();
+<<<<<<< HEAD
               console.log(el);
                var book_id = $('#onUpdateBookButton').data("id");
                var book_name =$('#book-name').val();
                var book_author =$('#author-name').val();
                var book_link =$('#book-link').val();
               //alert( new FormData(el));
+=======
+
+>>>>>>> f15e56cf75c870854b672a043e509e560fabc4c4
+
+
+							/*var $logomob = $("#logomob");
+							var lm = new FormData;
+    					lm.append('img', $logomob.prop('files')[0]);
+
+
+							var $logodesk = $("#logodesk");
+							var ld = new FormData;
+    					ld.append('img', $logodesk.prop('files')[0]);
+
+
+							var $imgbook = $("#imgbook");
+							var ib = new FormData;
+    					ib.append('img', $imgbook.prop('files')[0]);
+
+
+
+               var book_new =$('#book-name-new').val();
+               var book_link =$('#book-link').val();*/
+							 var book_author =$('#author-name').val();
+							 var book_id = $('#onUpdateBookButton').data("id");
 
               $.ajax({
                       type: "POST",
                       url: "search_book.php",
-                      // data: {"book-name": book_name,
-                      //       "book-id": book_id,
-                      //        "book-author": book_author,
-                      //        "book-link": book_link,
-                      //        "update_book": "true"
-                      //       },
-                      data:  new FormData(el),
+                       data: {
+												 /*"book-name": book_new,
+
+												 "book-link": book_link,
+												 "update_book": "true",
+												 lm,
+												 ld,
+												 lb,	*/
+												 "book-id": book_id,
+												 "book-author": book_author
+					             },
+                      /*data:  new FormData(el),
                       contentType: false,
+            					processData: false,*/
                       cache: false,
                       success: function(response){
+<<<<<<< HEAD
                           document.getElementById("information_search").innerHTML = 'response';
+=======
+                          document.getElementById("information_search").innerHTML = response + book_author;
+>>>>>>> f15e56cf75c870854b672a043e509e560fabc4c4
                      },
                     error: function(response) {
                        document.getElementById("information_search").innerHTML = "Возникла ошибка при отправке формы. Попробуйте еще раз";

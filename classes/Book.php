@@ -31,7 +31,7 @@ class Book
   }
 
   public function update() {
-    $insertQuery = "UPDATE `books` SET `name`='$this->name', `logo-mob`='$this->logoMobile', `logo-desk`='$this->logoDesktop', `image`='$this->logoBook',`author_name`='$this->author',`link`='$this->link')";
+    $insertQuery = "UPDATE `books` SET `name`='$this->name', `logo-mob`='$this->logoMobile', `logo-desk`='$this->logoDesktop', `image`='$this->logoBook',`author_name`='$this->author',`link`='$this->link' WHERE `id`='$this->id'";
      Book::queryMysql($insertQuery);
   }
 
@@ -71,30 +71,34 @@ class Book
 
 
       if(count($ids)>0) {
+<<<<<<< HEAD
         echo "<form action='admin.php' id='form-update-book' enctype='multipart/form-data' method='post' onsubmit='update_book(event,this)'>";
+=======
+        echo "<form action='admin.php' id='form-update-book' onsubmit='update_book(event)' enctype='multipart/form-data'>";
+>>>>>>> f15e56cf75c870854b672a043e509e560fabc4c4
         echo("<div class='admin-container__row'>
          <p>Редактировать имя</p>
-        <input class='admin-container__input-text' type='text' name='book-name' id='book-name' value='$name'>
+        <input class='admin-container__input-text' type='text' name='book-name' id='book-name-new' value='$name'>
          </div>");
          echo("<div class='admin-container__row'>
          <p>Редактировать Логотип для mob версии</p>
          <div class='file_upload btn'>
            Выбрать
-           <input name='picture-mobile' type='file' />
+           <input name='picture-mobile' type='file' id='logomob'/>
          </div>
           </div>");
           echo("<div class='admin-container__row'>
           <p>Редактировать Логотип для desk версии</p>
           <div class='file_upload btn'>
             Выбрать
-            <input name='picture-desktop' type='file' />
+            <input name='picture-desktop' type='file' id='logodesk'/>
           </div>
            </div>");
            echo("<div class='admin-container__row'>
            <p>Редактировать mini</p>
            <div class='file_upload btn'>
              Выбрать
-             <input name='picture-book' type='file' />
+             <input name='picture-book' type='file' id='imgbook'/>
            </div>
             </div>");
 
