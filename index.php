@@ -2,7 +2,7 @@
 session_start();
 ?>
 <!doctype html>
-<html ng-app="myApp">
+<html>
 <?php require( "config.php" ); ?>
 <?php
 $dbhost  = 'localhost';
