@@ -1,4 +1,6 @@
-<?php include("header_admin.php"); ?>
+<?php include("header_admin.php");
+			require_once"picture.php";
+?>
     <div class="admin-container">
     	<div class="admin-container__items">
     		<div class="admin-container__item">
@@ -60,6 +62,8 @@
 									else {
 										$book->insert();
 										//queryMysql("INSERT INTO `books`(`name`, `logo-mob`, `logo-desk`, `image`,`author_name`,`link`) VALUES ('$name','$logo1','$logo2','$img','$author','$link')");
+										picture_book($book->logoBook);
+
 										echo 'Загрузка удачна';
 									}
 
