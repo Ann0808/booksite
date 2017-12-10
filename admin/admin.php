@@ -1,5 +1,5 @@
 <?php
-require( "../config.php" );
+require_once( "../config.php" );
 session_start();
 $action = isset( $_GET['action'] ) ? $_GET['action'] : "";
 $username = isset( $_SESSION['username'] ) ? $_SESSION['username'] : ""; ?>
@@ -38,7 +38,7 @@ function logout() {
   unset( $_SESSION['username'] );
   header( "Location: login.php" );
 }
-if ( $_SESSION['username'] == ADMIN_USERNAME):
-include('adminpannel.php');
- endif;
+if ( $_SESSION['username'] == ADMIN_USERNAME) {
+  include('adminpannel.php');
+}
 ?>

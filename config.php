@@ -9,8 +9,8 @@ define( "CLASS_PATH", "classes" );
 define( "ADMIN_USERNAME", "admin" );
 define( "ADMIN_PASSWORD", "mypass" );
 define( "ADMIN_NAME", "Вася" );
-require( CLASS_PATH . "/Book.php" );
-require( CLASS_PATH . "/Chapter.php" );
+require_once( CLASS_PATH . "/Book.php" );
+require_once( CLASS_PATH . "/Chapter.php" );
 //then add try catch
 // function handleException( $exception ) {
 //   echo "Sorry, a problem occurred. Please try later.";
