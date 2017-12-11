@@ -2,7 +2,7 @@
 require_once( "../config.php" );
 session_start();
 $action = isset( $_GET['action'] ) ? $_GET['action'] : "";
-$username = isset( $_SESSION['username'] ) ? $_SESSION['username'] : ""; ?>
+$username = isset( $_SESSION['adminname'] ) ? $_SESSION['adminname'] : ""; ?>
 <? if ( $action != "login" && $action != "logout" && !$username ) {
   login();
   exit;
@@ -22,7 +22,7 @@ function login() {
     // Пользователь получает форму входа: попытка авторизировать пользователя
     if ( $_POST['username'] == ADMIN_USERNAME && $_POST['password'] == ADMIN_PASSWORD ) {
       // Вход прошел успешно: создаем сессию и перенаправляем на страницу администратора
-      $_SESSION['username'] = ADMIN_USERNAME;
+      $_SESSION['adminname'] = ADMIN_USERNAME;
       header( "Location: admin.php" );
     } else {
       // Ошибка входа: выводим сообщение об ошибке для пользователя
@@ -35,10 +35,10 @@ function login() {
   }
 }
 function logout() {
-  unset( $_SESSION['username'] );
+  unset( $_SESSION['adminname'] );
   header( "Location: login.php" );
 }
-if ( $_SESSION['username'] == ADMIN_USERNAME) {
+if ( $_SESSION['adminname'] == ADMIN_USERNAME) {
   include('adminpannel.php');
 }
 ?>

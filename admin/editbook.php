@@ -1,3 +1,6 @@
+<?php require_once( "../config.php" );
+session_start(); ?>
+<?php if ( $_SESSION['adminname'] == ADMIN_USERNAME) { ?>
 <?php include("header_admin.php"); ?>
 <?
 $id =  $_GET["id"];
@@ -99,3 +102,7 @@ $book = new Book($_POST,$_FILES);
 }
 
 <?php include("footer_admin.php"); ?>
+<?}
+else {
+    require( "login.php" );
+} ?>

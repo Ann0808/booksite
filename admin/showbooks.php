@@ -1,3 +1,6 @@
+<?php require_once( "../config.php" );
+session_start(); ?>
+<?php if ( $_SESSION['adminname'] == ADMIN_USERNAME) { ?>
 <?php include("header_admin.php");
 $everything = Book::queryMysql("SELECT * FROM books"); ?>
    <div class="admin-container">
@@ -78,3 +81,8 @@ $everything = Book::queryMysql("SELECT * FROM books"); ?>
 	</script>
 
 <?php include("footer_admin.php"); ?>
+
+<?}
+else {
+    require( "login.php" );
+} ?>

@@ -1,3 +1,6 @@
+<?php require_once( "../config.php" );
+session_start(); ?>
+<?php if ( $_SESSION['adminname'] == ADMIN_USERNAME) { ?>
 <?php include("header_admin.php");
 			require_once"picture.php";
 ?>
@@ -76,3 +79,7 @@
     	</div>
     </div>
 <?php include("footer_admin.php"); ?>
+<?}
+else {
+    require( "login.php" );
+} ?>
