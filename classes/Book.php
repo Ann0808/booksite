@@ -20,9 +20,9 @@ class Book
     $ext = "jpg";
     if ( isset( $data['book-link'] ) )$this->link = $data['book-link'];
     if ( isset( $data['book-name'] ) )$this->name = $data['book-name'];
-    if ( isset( $data['book-link'] ) )$this->logoMobile = $path . 'mobile-logo-'. $this->link . '.' . $ext;
-    if ( isset( $data['book-link'] ) )$this->logoDesktop = $path . 'desktop-logo-'. $this->link . '.' . $ext;
-    if ( isset( $data['book-link'] ) )$this->logoBook = $path . 'book-logo-'. $this->link . '.' . $ext;
+    if ( isset( $files['picture-mobile'] ) )$this->logoMobile = $path . 'mobile-logo-'. time() . '.' . $ext;
+    if ( isset( $files['picture-mobile'] ) )$this->logoDesktop = $path . 'desktop-logo-'. time() . '.' . $ext;
+    if ( isset( $files['picture-mobile'] ) )$this->logoBook = $path . 'book-logo-'. time() . '.' . $ext;
     if ( isset( $data['book-author'] ) )$this->author = $data['book-author'];
   }
 

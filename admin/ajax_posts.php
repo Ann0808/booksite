@@ -1,8 +1,9 @@
 <?php
 require( "../config.php" );
+
 session_start();
 $action = isset( $_GET['action'] ) ? $_GET['action'] : "";
-$username = isset( $_SESSION['username'] ) ? $_SESSION['username'] : ""; ?>
+$username = isset( $_SESSION['adminname'] ) ? $_SESSION['adminname'] : ""; ?>
 <? //if ( $action != "login" && $action != "logout" && !$username ) {
   //login();
   //exit;
@@ -38,7 +39,8 @@ $username = isset( $_SESSION['username'] ) ? $_SESSION['username'] : ""; ?>
 //   unset( $_SESSION['username'] );
 //   header( "Location: login.php" );
 // }
-if ( $_SESSION['username'] == ADMIN_USERNAME):
+if ( $_SESSION['adminname'] == ADMIN_USERNAME):
+
 $dbhost  = 'localhost';
  $dbname  = 'cms';
  $dbuser  = DB_USERNAME;
@@ -82,7 +84,6 @@ $dbhost  = 'localhost';
    }
 
    if((isset($_POST['book-id']))&&(isset($_POST['chapter-name']))) {
-      echo "string";
     $chapter = new Chapter($_POST);
     $chapter->insert();
   }
