@@ -1,7 +1,8 @@
 <?php require_once( "../config.php" );
 session_start(); ?>
 <?php if ( $_SESSION['adminname'] == ADMIN_USERNAME) { ?>
-<?php include("header_admin.php"); ?>
+<?php include("header_admin.php");
+	require_once"picture.php"; ?>
 <?
 $id =  $_GET["id"];
 $editQuery = "SELECT * FROM `books` WHERE `id`='$id'";
@@ -72,6 +73,7 @@ if(isset($_POST['UpdateBookButton'])){
 // }
 
 $book = new Book($_POST,$_FILES);
+echo($_FILES['picture-mobile']['tmp_name']);
  if (!@copy($_FILES['picture-mobile']['tmp_name'], $book->logoMobile)){
    echo 'Логотип для мобильной версии не обновлен '; ?> <br>
 <? }
@@ -81,7 +83,8 @@ $book = new Book($_POST,$_FILES);
  if(!@copy($_FILES['picture-book']['tmp_name'], $book->logoBook)) {
    echo 'Миниатюра не обновлена'; ?> <br>
  <? }
- $book->update(); ?>
+ $book->update();
+ picture_book($book->logoBook);?>
 
 <script>
     if(document.URL.indexOf("#")==-1){ //Check if the current URL contains '#'
