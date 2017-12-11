@@ -56,14 +56,6 @@ class Book
       $insertQuery = "UPDATE `books` SET `link`='$this->link' WHERE `id`='$this->id'";
        Book::queryMysql($insertQuery);
     }
-
-// if($this->author!=null) {
-//   echo $this->name;
-// $insertQuery = "UPDATE `books` SET `name`='$this->name', `logo-mob`='$this->logoMobile', `logo-desk`='$this->logoDesktop', `image`='$this->logoBook',`author_name`='$this->author',`link`='$this->link' WHERE `id`='$this->id'";
-//
-// }
-//
-//      Book::queryMysql($insertQuery);
   }
 
 
@@ -75,112 +67,5 @@ class Book
       if (!$result) die($mysqli->error);
       return $result;
     }
-
-    public static function findBook($postName) {
-      $name=$postName['book-name'];
-      $findQuery = "SELECT `id`,`link`,`author_name`,`name` FROM `books` WHERE `name`='$name'";
-      $i=0;
-      $ids = Book::queryMysql($findQuery);
-      if ($ids->num_rows)
-     {
-       $ids = $ids->fetch_array(MYSQLI_ASSOC);
-
-     }
-      $author_name=$ids['author_name'];
-      $link=$ids['link'];
-      $idBook=$ids['id'];
-      $chapterQuery = "SELECT `name`, `text`,`id` FROM `chapter` WHERE `book_id`=$idBook";
-      $chapters = Book::queryMysql($chapterQuery);
-
-
-
-
-
-
-
-
-
-
-      if(count($ids)>0) {
-        echo "<form action='admin.php' id='form-update-book' enctype='multipart/form-data' method='post' onsubmit='update_book(event)'>";
-        echo("<div class='admin-container__row'>
-         <p>Редактировать имя</p>
-        <input class='admin-container__input-text' type='text' name='book-name' id='book-name-new' value='$name'>
-         </div>");
-         echo("<div class='admin-container__row'>
-         <p>Редактировать Логотип для mob версии</p>
-         <div class='file_upload btn'>
-           Выбрать
-           <input name='picture-mobile' type='file' id='logomob'/>
-         </div>
-          </div>");
-          echo("<div class='admin-container__row'>
-          <p>Редактировать Логотип для desk версии</p>
-          <div class='file_upload btn'>
-            Выбрать
-            <input name='picture-desktop' type='file' id='logodesk'/>
-          </div>
-           </div>");
-           echo("<div class='admin-container__row'>
-           <p>Редактировать mini</p>
-           <div class='file_upload btn'>
-             Выбрать
-             <input name='picture-book' type='file' id='imgbook'/>
-           </div>
-            </div>");
-
-
-         echo("<div class='admin-container__row'>
-          <p>Редактировать автора</p>
-         <input id='author-name' class='admin-container__input-text' type='text' name='author-name' value='$author_name'>
-          </div>");
-
-          echo("<div class='admin-container__row'>
-           <p>Редактировать ссылку</p>
-          <input id='book-link' class='admin-container__input-text' type='text' name='link' value='$link'>
-           </div>");
-    	echo("<input type='submit'  class='btn hidden' data-id='$idBook' id='onUpdateBookButton' name='UpdateBookButton' value='Применить изменения'>");
-      echo "</form>";
-      //onclick='update_book(this,event)'
-      }
-
-$j=0;
-    while($row=$chapters->fetch_array(MYSQLI_ASSOC))
-{
-  $j++;
-	$idChapter=$row['id'];
-  $nameChapter=$row['name'];
-  $textChapter=$row['text'];
-			echo("<div class='admin_container__wrapper' id='chp-$idChapter'>");
-  echo("<a class='admin-container__chapter-link' onclick='visible(this)'>$nameChapter</a>");
-  echo("<div class='hidden'>
-   <p>Редактировать название главы №$j</p>
-  <input class='admin-container__input-text admin-container__input-text--center' type='text' name='chapter-name' value='$nameChapter'>
-   </div>");
-   echo("<div class='hidden'>
-    <p>Редактировать текст главы №$j</p>
-   <textarea class='admin-container__input-text admin-container__input-text--center' rows='8' cols='80' name='chapter-text' >$textChapter</textarea>
-    </div>");
-			echo("<button onclick='update_chapter(this)' class='btn hidden' data-id='$idChapter'>Обновить</button>");
-echo("</div>");
-
-}
-echo("<div class='admin-container__row admin-container__row--central'>
- <button onclick='visibleAddChapter()' class='btn admin-container__input-text--center' data-id='$idBook'>Добавить новую главу</button>
- </div>");
-
- echo("<div class='admin_container__wrapper hidden' id='addNewChapterWrapper'>");
-echo("<div >
-<p>название главы</p>
-<input class='admin-container__input-text admin-container__input-text--center' type='text' name='chapter-name'>
-</div>");
-echo("<div>
-<p>текст главы</p>
-<textarea class='admin-container__input-text admin-container__input-text--center' rows='8' cols='80' name='chapter-text' ></textarea>
-</div>");
- echo("<button  class='btn' onclick='add_chapter(this)' data-id='$idBook'>Добавить</button>");
-echo("</div>");
-
-  }
 }
  ?>

@@ -77,10 +77,12 @@ $dbhost  = 'localhost';
 
 
 		if(isset($_POST['chapter-id'])) {
+
     Chapter::updateChapter($_POST);
    }
 
    if((isset($_POST['book-id']))&&(isset($_POST['chapter-name']))) {
+      echo "string";
     $chapter = new Chapter($_POST);
     $chapter->insert();
   }

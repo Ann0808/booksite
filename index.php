@@ -40,7 +40,7 @@ if ($mysqli->connect_error) die($mysqli->connect_error);
 </head>
 <!--// I am A!!!-->
 <body>
-  <?php if ( $_SESSION['username'] == ADMIN_USERNAME):
+  <?php if ( $_SESSION['adminname'] == ADMIN_USERNAME):
     include ("admin-flag.php");
    endif; ?>
   <div class="button-to-top">
