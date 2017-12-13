@@ -25,7 +25,11 @@ $chapters = Book::queryMysql($chapterQuery);
          </div>");
          echo("<div class='hidden'>
           <p>Редактировать текст главы №$j</p>
-         <textarea class='admin-container__input-text admin-container__input-text--center' rows='8' cols='80' name='chapter-text' >$textChapter</textarea>
+          <input type='button' value='B' onclick='setBold()' />
+          <input type='button' value='I' onclick='setItal()' />
+          <input type='button' value='Image' onclick='chooseImage()' />
+         <iframe class='admin-container__input-text admin-container__input-text--center' name='newTextArea'  id='newTextArea'></iframe>
+         <input type='hidden' value='$textChapter' id='hiddentext'/>
           </div>");
       			echo("<button onclick='update_chapter(this)' class='btn hidden' data-id='$idChapter'>Обновить</button>");
       echo("</div>");
@@ -50,6 +54,8 @@ $chapters = Book::queryMysql($chapterQuery);
     <p id="info"></p>
   </div>
 </div>
+
+
 <?php include("footer_admin.php"); ?>
 <?}
 else {
