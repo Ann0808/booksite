@@ -28,9 +28,10 @@ function setImage(src) {
 iWin.document.execCommand("InsertImage", "", "");
 iWin.document.execCommand("ForeColor", null, src);
 }
-
+var popup = document.querySelector(".modal-content");
 function chooseImage() {
 
+           	popup.classList.toggle("modal-content--show");
 }
 
 

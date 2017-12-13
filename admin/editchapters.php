@@ -54,6 +54,15 @@ $chapters = Book::queryMysql($chapterQuery);
     <p id="info"></p>
   </div>
 </div>
+<div class="modal-content modal-content--close">
+	<h2 class="modal-content__title">Вставка изображения</h2>
+	<div class="file_upload btn">
+							 Выбрать
+							 <input name="picture-book" type="file" />
+						 </div>
+			 <input type="text" placeholder="Picture url">
+			 <button class="btn">Вставить</button>
+</div>
 
 
 <?php include("footer_admin.php"); ?>
