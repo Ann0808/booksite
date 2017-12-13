@@ -1,28 +1,28 @@
 <?php
-require_once( "../config.php" );
+include("settings.php");
 session_start();
 $action = isset( $_GET['action'] ) ? $_GET['action'] : "";
 $username = isset( $_SESSION['adminname'] ) ? $_SESSION['adminname'] : ""; ?>
 <? if ( $action != "login" && $action != "logout" && !$username ) {
-  login();
+  login($adminLogin, $adminPassword);
   exit;
 }
 switch ( $action ) {
   case 'login':
-    login();
+    login($adminLogin, $adminPassword);
     break;
   case 'logout':
     logout();
     break;
 }
-function login() {
+function login($admLog, $admPass) {
   $results = array();
   $results['pageTitle'] = "Admin Login | Widget News";
   if ( isset( $_POST['login'] ) ) {
     // Пользователь получает форму входа: попытка авторизировать пользователя
-    if ( $_POST['username'] == ADMIN_USERNAME && $_POST['password'] == ADMIN_PASSWORD ) {
+    if ( $_POST['username'] == $admLog && $_POST['password'] == $admPass ) {
       // Вход прошел успешно: создаем сессию и перенаправляем на страницу администратора
-      $_SESSION['adminname'] = ADMIN_USERNAME;
+      $_SESSION['adminname'] = $admLog;
       header( "Location: admin.php" );
     } else {
       // Ошибка входа: выводим сообщение об ошибке для пользователя
@@ -38,7 +38,7 @@ function logout() {
   unset( $_SESSION['adminname'] );
   header( "Location: login.php" );
 }
-if ( $_SESSION['adminname'] == ADMIN_USERNAME) {
+if ( $_SESSION['adminname'] == $adminLogin) {
   include('adminpannel.php');
 }
 ?>

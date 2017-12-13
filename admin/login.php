@@ -1,7 +1,9 @@
 <?php
-require( "../config.php" );
 session_start();
-if ( $_SESSION['adminname'] == ADMIN_USERNAME):
+if( !isset( $adminLogin) ) {
+  include("settings.php");
+}
+if ( $_SESSION['adminname'] == $adminLogin):
 header( "Location: admin.php" );
  endif; ?>
 <!DOCTYPE html>

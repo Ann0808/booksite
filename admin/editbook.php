@@ -1,6 +1,7 @@
-<?php require_once( "../config.php" );
-session_start(); ?>
-<?php if ( $_SESSION['adminname'] == ADMIN_USERNAME) { ?>
+<?php include("settings.php"); 
+session_start();
+?>
+<?php if ( $_SESSION['adminname'] == $adminLogin) { ?>
 <?php include("header_admin.php");
 	require_once"picture.php"; ?>
 <?
@@ -102,7 +103,7 @@ echo($_FILES['picture-mobile']['tmp_name']);
     </div>
 
 
-}
+
 
 <?php include("footer_admin.php"); ?>
 <?}
