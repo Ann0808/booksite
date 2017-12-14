@@ -82,7 +82,7 @@ function update_chapter(e,num) {
 function add_chapter(e) {
   var book_id = $(e).data("id");
    var chapter_name =$('#addNewChapterWrapper input').val();
-   var chapter_text =$('#addNewChapterWrapper'+ ' #editornew p').html();
+   var chapter_text =$('#addNewChapterWrapper'+ ' #editornew').html();
   $.ajax({
           type: "POST",
           url: "ajax_posts.php",
