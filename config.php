@@ -2,6 +2,8 @@
 ini_set( "display_errors", true );
 date_default_timezone_set( "Europe/Amsterdam" );  // http://www.php.net/manual/en/timezones.php
 define( "DB_DSN", "mysql:host=localhost;dbname=cms" );
+define( "HOST", "localhost" );
+define( "DB_NAME", "cms" );
 define( "DB_USERNAME", "cms" );
 define( "DB_PASSWORD", "080895" );
 define( "CLASS_PATH", "classes" );

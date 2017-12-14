@@ -1,5 +1,5 @@
 <?php
-require( "../config.php" );
+include("settings.php");
 
 session_start();
 $action = isset( $_GET['action'] ) ? $_GET['action'] : "";
@@ -39,14 +39,14 @@ $username = isset( $_SESSION['adminname'] ) ? $_SESSION['adminname'] : ""; ?>
 //   unset( $_SESSION['username'] );
 //   header( "Location: login.php" );
 // }
-if ( $_SESSION['adminname'] == ADMIN_USERNAME):
+if ( $_SESSION['adminname'] == $adminLogin):
 
-$dbhost  = 'localhost';
- $dbname  = 'cms';
- $dbuser  = DB_USERNAME;
- $dbpass  = DB_PASSWORD;
- $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
- if ($connection->connect_error) die($connection->connect_error);
+// $dbhost  = 'localhost';
+//  $dbname  = 'cms';
+//  $dbuser  = DB_USERNAME;
+//  $dbpass  = DB_PASSWORD;
+ // $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+ // if ($connection->connect_error) die($connection->connect_error);
 // if(isset($_POST['book-name'])) {
 //     Book::findBook($_POST);
 //    }
