@@ -1,7 +1,7 @@
 function visible(e) {
 
     $(e).siblings().toggleClass("visible");
-    
+
     //var s = document.getElementById("hiddentext").value;
     //newTextArea.document.writeln(s);
     // var isGecko = navigator.userAgent.toLowerCase().indexOf("gecko") != -1;
@@ -54,12 +54,12 @@ function visibleAddChapter() {
   $(".admin_container__wrapper.hidden").toggleClass("visible");
 }
 
-function update_chapter(e) {
+function update_chapter(e,num) {
   var chapter_id = $(e).data("id");
    var chapter_name =$('#chp-'+chapter_id+' input').val();
    //var chapter_text =$('#chp-'+chapter_id+' textarea').val();
    // var chapter_text = iDoc.body.innerHTML;
-   var chapter_text =$('#chp-'+chapter_id+' #editor p').html();
+   var chapter_text =$('#chp-'+chapter_id+' #editor'+num+' p').html();
 
   $.ajax({
           type: "POST",
