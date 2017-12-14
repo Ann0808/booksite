@@ -59,7 +59,7 @@ function update_chapter(e,num) {
    var chapter_name =$('#chp-'+chapter_id+' input').val();
    //var chapter_text =$('#chp-'+chapter_id+' textarea').val();
    // var chapter_text = iDoc.body.innerHTML;
-   var chapter_text =$('#chp-'+chapter_id+' #editor'+num+' p').html();
+   var chapter_text =$('#chp-'+chapter_id+' #editor'+num).html();
 
   $.ajax({
           type: "POST",
