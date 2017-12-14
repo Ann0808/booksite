@@ -2,6 +2,7 @@
 session_start(); ?>
 <?php if ( $_SESSION['adminname'] == $adminLogin) { ?>
 <?php include("header_admin.php"); ?>
+<link href="../css/snow.css" rel="stylesheet">
 <?
 $id =  $_GET["id"];
 $chapterQuery = "SELECT `name`, `text`,`id` FROM `chapter` WHERE `book_id`=$id";
@@ -25,11 +26,10 @@ $chapters = Book::queryMysql($chapterQuery);
          </div>");
          echo("<div class='hidden'>
           <p>Редактировать текст главы №$j</p>
-          <input type='button' value='B' onclick='setBold()' />
-          <input type='button' value='I' onclick='setItal()' />
-          <input type='button' value='Image' onclick='chooseImage()' />
-         <iframe class='admin-container__input-text admin-container__input-text--center' name='newTextArea'  id='newTextArea'></iframe>
-         <input type='hidden' value='$textChapter' id='hiddentext'/>
+          <div id='editor$j' class='quilhelper'>
+            <p>$textChapter</p>
+          </div>
+
           </div>");
       			echo("<button onclick='update_chapter(this)' class='btn hidden' data-id='$idChapter'>Обновить</button>");
       echo("</div>");
@@ -45,7 +45,9 @@ $chapters = Book::queryMysql($chapterQuery);
    </div>");
    echo("<div>
    <p>текст главы</p>
-   <textarea class='admin-container__input-text admin-container__input-text--center' rows='8' cols='80' name='chapter-text' ></textarea>
+   <div id='editornew'>
+     <p></p>
+   </div>
    </div>");
     echo("<button  class='btn' onclick='add_chapter(this)' data-id='$id'>Добавить</button>");
    echo("</div>");
@@ -64,7 +66,56 @@ $chapters = Book::queryMysql($chapterQuery);
 			 <button class="btn">Вставить</button>
 </div>
 
+<!-- Include the Quill library -->
+<script src="../js/quil.min.js"></script>
 
+<!-- Initialize Quill editor -->
+<script>
+
+//vanilla
+var arrayIdsEditChapter = [].map.call(document.querySelectorAll('.quilhelper[id]'), function(el) {
+  return el.id;
+});
+
+
+
+var toolbarOptions = [
+  ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+  ['blockquote', 'code-block'],
+
+  [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+  [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+  [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+  [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+  [{ 'direction': 'rtl' }],                         // text direction
+
+  [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+  [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+  [{ 'font': [] }],
+  [{ 'align': [] }],
+  ['video'],
+  ['image'],
+  ['clean']                                         // remove formatting button
+];
+for (let i=0; i<arrayIdsEditChapter.length; i++) {
+  var quill = new Quill('#editor'+(i+1), {
+    modules: {
+      toolbar: toolbarOptions
+    },
+    theme: 'snow'
+  });
+}
+
+
+var quill = new Quill('#editornew', {
+  modules: {
+    toolbar: toolbarOptions
+  },
+  theme: 'snow'
+});
+</script>
 <?php include("footer_admin.php"); ?>
 <?}
 else {
