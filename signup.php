@@ -42,12 +42,11 @@
 					$error = "Такой логин уже существует!";
 					else
 					{
-					queryMysql("INSERT INTO members VALUES('$user', '$name', '$surname','$pass', '0' )");
+					queryMysql("INSERT INTO members VALUES('$user', '$name', '$surname','$pass' )");
 					$_SESSION['user'] = $user;
 					$_SESSION['pass'] = $pass;
 					$_SESSION['name'] = $name;
 					$_SESSION['surname'] = $surname;
-					$_SESSION['admin'] = 0;
 
 					die("<script>window.location = 'index.php';</script>");
 					}
