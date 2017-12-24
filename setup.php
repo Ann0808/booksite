@@ -11,12 +11,11 @@
   require_once 'functions.php';
 
   createTable('members',
-              'user VARCHAR(16) PRIMARY KEY,
-			   name VARCHAR(16),
+							'id INT(11) AUTO_INCREMENT PRIMARY KEY,
+              user VARCHAR(16) NOT NULL,
+			   name VARCHAR(16) NOT NULL,
 			  surname VARCHAR(16),
-              pass VARCHAR(16),
-              INDEX(user(6))');
-
+              pass VARCHAR(16) NOT NULL');
 ?>
 
     <br> создали.

@@ -143,7 +143,7 @@ if ($mysqli->connect_error) die($mysqli->connect_error);
   <script type="text/javascript" src="/js/script.js"></script>
   <script type="text/javascript" src="/js/carousel.js"></script>
   <script>
-		 jQuery(function ($) {
+		 /*jQuery(function ($) {
 				function fix_size() {
 						var images = $('.carousel__item img');
 						images.each(setsize);
@@ -169,7 +169,7 @@ if ($mysqli->connect_error) die($mysqli->connect_error);
 				}
 				$(window).on('resize', fix_size);
 				fix_size();
-		});
+		});*/
 
 	</script>
 </body>
