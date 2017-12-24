@@ -13,8 +13,9 @@ $admin_name = ADMIN_NAME;
 $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 if ($mysqli->connect_error) die($mysqli->connect_error);
     $books_images_my = Book::queryMysql("SELECT image FROM books WHERE author_name='$admin_name'");
-    $books_images_other = Book::queryMysql("SELECT image FROM books WHERE author_name!='$admin_name'");
-
+    $books_other_query = Book::queryMysql("SELECT link, image FROM books WHERE author_name!='$admin_name'");
+//		$row = $books_other_query->fetch_array(MYSQLI_ASSOC);
+//		$books_images_other=$row['image']
  ?>
 <head>
   <meta charset="utf-8">
@@ -77,7 +78,7 @@ if ($mysqli->connect_error) die($mysqli->connect_error);
             foreach ($books_images_my as $value) {
              foreach ($value as $v) {
             //  echo ($v), "\n";
-          echo ('<div class="carousel__item">  <img src='.$v.' alt="slide 1"></div>');
+          echo ('<a class="carousel__item">  <img src='.$v.' alt="slide 1"></a>');
             }
           }
              ?>
@@ -107,11 +108,20 @@ if ($mysqli->connect_error) die($mysqli->connect_error);
           <?php //include( 'carousel-inner.php'); ?>
           <button class="prev">Назад</button><button class="next">Вперед</button>
           <?php
-          foreach ($books_images_other as $value) {
+          foreach ($books_other_query as $value) {
+						$id_link = 0;
+						$is_link = true;
+
            foreach ($value as $v) {
-          //  echo ($v), "\n";
-        echo ('<div class="carousel__item">  <img src='.$v.' alt="slide 1"></div>');
-          }
+						 if($is_link){
+							$id_link =  $v;
+						 }
+						 else {
+							  echo ('<a class="carousel__item" href="page.php?book='.$id_link.'">  <img src='.$v.' alt="slide 1"></a>');
+						 }
+				//$books_link_other = Book::queryMysql("SELECT link FROM books WHERE author_name!='$admin_name'");
+
+          $is_link = false;}
         }
            ?>
         </div>
