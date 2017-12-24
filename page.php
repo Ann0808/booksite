@@ -1,14 +1,13 @@
+<? session_start();
+?>
 <!DOCTYPE html>
+<?php	 ?>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="/js/popper.min.js"></script>
@@ -16,23 +15,35 @@
     <link rel="stylesheet" href="/css/style.css">
     <script type="text/javascript" src="/js/script.js"></script>
 </head>
+<?php
+  require_once 'functions.php';
+	$id_link =  $_GET["book"];
+	$searchBook = queryMysql("SELECT * FROM `books` WHERE `link`='$id_link'");
+	$row = $searchBook->fetch_array(MYSQLI_ASSOC);
+	$image=$row['image'];
+	$logo_mob=$row['logo-mob'];
+	$logo_desk=$row['logo-desk'];
+	$author_name=$row['author_name'];
+	$book_id=$row['id'];
+	$searchChapters = queryMysql("SELECT * FROM `chapter` WHERE `book_id`='$book_id'");
 
-<body class="second-page">
+	?>
+<body class="admin__body">
   <div class="button-to-top">
-      <!-- <span class="glyphicon glyphico-arrow-up"></span> -->
       <img src="/img/up.png" alt="" width="50px" height="50px">
   </div>
   <header class="page-header">
-    <div class="container">
+    <!--<div class="container">
       <div class="row">
-        <div class="col-12 col-md-8 col-lg-9 offset-md-4 offset-lg-3 page-header__logo">
+        <div class="col-12 col-md-8 col-lg-9 offset-md-4 offset-lg-3 page-header__logo">-->
+
           <picture>
-            <source media="(min-width:768px)" srcset="../img/logo-tablet.jpg">
-            <img src="../img/logo-mobile.jpg" alt="logo" width="100%" height="200px;">
+            <source media="(min-width:768px)" srcset='<? echo $logo_desk; ?>'>
+            <img src='<? echo $logo_mob; ?>' alt="logo" width="100%" height="200px;">
           </picture>
-        </div>
+        <!--</div>
       </div>
-    </div>
+    </div>-->
   </header>
   <main>
     <div class="container">
@@ -43,19 +54,20 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="navbar-collapse collapse row justify-content-center page-navbar" id="navbarWEX">
-                        <a href="#" class="nav-link col-12 page-navbar__link">Главная</a>
-                        <a href="#" class="nav-link col-12 page-navbar__link">Введение в тему</a>
-                        <a href="#" class="nav-link col-12 page-navbar__link">Установка и настройка темы аааааа</a>
-                        <a href="#" class="nav-link col-12 page-navbar__link">Главная</a>
-                        <a href="#" class="nav-link col-12 page-navbar__link">Введение в тему</a>
-                        <a href="#" class="nav-link col-12 page-navbar__link">Главная</a>
-                        <a href="#" class="nav-link col-12 page-navbar__link">Введение в тему</a>
+                      <?
+
+											foreach($searchChapters as $value){
+												echo '<a href="" class="nav-link col-12 page-navbar__link">'.$value["name"].'</a>';
+
+											}
+
+											?>
                     </div>
                 </nav>
             </div>
             <div class="col-12 col-md-8 col-lg-9 page-content">
               <div class="row justify-content-center">
-                <span class="col-12 page-content__welcome">Добро пожаловать!</span>
+                <span class="col-12 page-content__welcome">Добро пожаловать! </span>
                 <p class="col-12 page-content__congratulate">Разрешите еще раз поздравить бла-бла-бла.....</p>
               </div>
               <div>

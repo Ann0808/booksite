@@ -3,14 +3,31 @@
 body {
   margin: 0;
 }
-
+.book-name {
+		text-align: center;
+}
 .second-page {
   background-image: url(../img/bg_contentblock.png);
 }
-.page-header {
-  /*margin-bottom: 10px;*/
-}
+@media (min-width: 768px) {
 
+	.container {
+    width: 84%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+		.page-header {
+		margin-left: 30%;
+		width: 66%;
+		padding: 0;
+		padding-left: 15px;
+	}
+
+	.book-name {
+		margin: 25px auto;
+		clear: both;
+	}
+}
 .page-header__logo {
   background: #1578;
   padding: 0;

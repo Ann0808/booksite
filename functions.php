@@ -1,7 +1,7 @@
 <?php
  require_once( "config.php" );
- $dbhost  = 'localhost';
- $dbname  = 'cms';
+ $dbhost  = HOST;
+ $dbname  = DB_NAME;
  $dbuser  = DB_USERNAME;
  $dbpass  = DB_PASSWORD;
 

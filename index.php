@@ -49,18 +49,6 @@ if ($mysqli->connect_error) die($mysqli->connect_error);
         <div id="carouselPurchased" class="carousel" >
           <?php include( 'carousel-inner.php'); ?>
         </div>
-          <!-- <div id="carouselPurchased" class="carousel slide" data-ride="carousel" data-interval="false">
-
-            <a class="carousel-control-prev" href="#carouselPurchased" role="button" data-slide="prev">
-                <i class="fa fa-chevron-left fa-lg text-muted"></i>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next text-faded" href="#carouselPurchased" role="button" data-slide="next">
-                <i class="fa fa-chevron-right fa-lg text-muted"></i>
-                <span class="sr-only">Next</span>
-            </a>
-          </div> -->
-        <!-- </div> -->
       </div>
     </section>
     <section class="recommended-books">
@@ -84,19 +72,6 @@ if ($mysqli->connect_error) die($mysqli->connect_error);
              ?>
 
         </div>
-        <!-- <div class="row">
-          <div id="carouselRecommended" class="carousel slide" data-ride="carousel" >
-            <?php //include( 'carousel-inner.php'); ?>
-            <a class="carousel-control-prev" href="#carouselRecommended" role="button" data-slide="prev">
-                <i class="fa fa-chevron-left fa-lg text-muted"></i>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next text-faded" href="#carouselRecommended" role="button" data-slide="next">
-                 <i class="fa fa-chevron-right fa-lg text-muted"></i>
-                 <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div> -->
       </div>
     </section>
     <section class="interesting">
@@ -117,27 +92,13 @@ if ($mysqli->connect_error) die($mysqli->connect_error);
 							$id_link =  $v;
 						 }
 						 else {
-							  echo ('<a class="carousel__item" href="page.php?book='.$id_link.'">  <img src='.$v.' alt="slide 1"></a>');
+							  echo ('<a class="carousel__item" href="page2.php?book='.$id_link.'">  <img src='.$v.' alt="slide 1"></a>');
 						 }
-				//$books_link_other = Book::queryMysql("SELECT link FROM books WHERE author_name!='$admin_name'");
 
           $is_link = false;}
         }
            ?>
         </div>
-        <!-- <div class="row">
-          <div id="carouselInteresting" class="carousel slide" data-ride="carousel" >
-            <?php //include( 'carousel-inner.php'); ?>
-            <a class="carousel-control-prev" href="#carouselInteresting" role="button" data-slide="prev">
-                <i class="fa fa-chevron-left fa-lg text-muted"></i>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next text-faded" href="#carouselInteresting" role="button" data-slide="next">
-                <i class="fa fa-chevron-right fa-lg text-muted"></i>
-                <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div> -->
       </div>
     </section>
   </main>
