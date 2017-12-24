@@ -42,11 +42,18 @@
 					$error = "Такой логин уже существует!";
 					else
 					{
-					queryMysql("INSERT INTO members VALUES('$user', '$name', '$surname','$pass' )");
+					queryMysql("INSERT INTO `members` (`user`, `name`, `surname`,`pass`) VALUES('$user', '$name', '$surname','$pass' )");
 					$_SESSION['user'] = $user;
 					$_SESSION['pass'] = $pass;
 					$_SESSION['name'] = $name;
 					$_SESSION['surname'] = $surname;
+
+					$res = queryMySQL("SELECT id FROM members WHERE user='$user' AND pass='$pass'");
+					$row = $res->fetch_array(MYSQLI_ASSOC);
+					$id_user = $row['id'];
+					$ip = get_the_user_ip();
+					$time = time();
+					queryMysql("INSERT INTO `protect` (`id_member`, `ip`, `data`) VALUES('$id_user', '$ip', '$time')");
 
 					die("<script>window.location = 'index.php';</script>");
 					}
@@ -61,7 +68,7 @@
 							<h2 class='signup__title'>Регистрация</h2>
 							<p>Заполните поля</p>
 							<form action='signup.php' method='post' class='signup__login-form'>
-				<p class='signup__error'><? echo $error; ?></p>
+				<p class='signup__error'><? echo $error; echo $ip; echo $time; ?></p>
 									<input type='text' class='signup__icon-user' name='user' placeholder='Логин' value='<? echo $user; ?>' onBlur='checkUser(this)'>
 					<input type='text' class='signup__icon-user' name='name' placeholder='Имя' value='<? echo $name; ?>'>
 					<input type='text' class='signup__icon-user' name='surname' placeholder='Фамилия' value='<? echo $surname; ?>'>

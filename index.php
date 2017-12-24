@@ -12,15 +12,6 @@ $dbpass  = DB_PASSWORD;
 $admin_name = ADMIN_NAME;
 $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 if ($mysqli->connect_error) die($mysqli->connect_error);
-
-// function queryMysql($query)
-//   {
-//     global $mysqli;
-//     $result = $mysqli->query($query);
-//     if (!$result) die($mysqli->error);
-//     return $result;
-//   }
-  //images for slider
     $books_images_my = Book::queryMysql("SELECT image FROM books WHERE author_name='$admin_name'");
     $books_images_other = Book::queryMysql("SELECT image FROM books WHERE author_name!='$admin_name'");
 
@@ -142,35 +133,5 @@ if ($mysqli->connect_error) die($mysqli->connect_error);
   </main>
   <script type="text/javascript" src="/js/script.js"></script>
   <script type="text/javascript" src="/js/carousel.js"></script>
-  <script>
-		 /*jQuery(function ($) {
-				function fix_size() {
-						var images = $('.carousel__item img');
-						images.each(setsize);
-
-						function setsize() {
-								var img = $(this),
-										img_dom = img.get(0),
-										container = img.parents('.carousel__item');
-								if (img_dom.complete) {
-										resize();
-								} else img.one('load', resize);
-
-								function resize() {
-										if ((container.width() / container.height()) < (img_dom.width / img_dom.height)) {
-												img.width('100%');
-												img.height('auto');
-												return;
-										}
-										img.height('100%');
-										img.width('auto');
-								}
-						}
-				}
-				$(window).on('resize', fix_size);
-				fix_size();
-		});*/
-
-	</script>
 </body>
 </html>
