@@ -824,3 +824,64 @@ body {
     margin-right: 0px;
   }
 }
+
+.signup {
+  width: 100%;
+  margin: 0;
+  padding: 5%;
+  background: #f8f3f0;
+  color: #000000;
+}
+.signup__title {
+  margin: 2%;
+  margin-bottom: 20px;
+  font-size: 30px;
+  line-height: 42px;
+}
+.signup p {
+  margin: 2%;
+  font-size: 20px;
+  line-height: 30px;
+}
+.signup__icon-user,
+.signup__icon-password {
+  display: block;
+  width: 100%;
+  margin: 2% 0;
+  padding: 10px 5px;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: bold;
+  font-family: "Arial", sans-serif;
+  color: #000000;
+  background-color: #f8fdff;
+  border: 2px solid #95a6ad;
+  outline: none;
+}
+.signup__error {
+  color: red;
+  font-size: 24px;
+}
+.signup__enter {
+  margin: 20px auto;
+}
+@media (min-width: 768px) {
+  .signup {
+    width: 50%;
+    margin: 50px auto;
+    padding: 30px;
+  }
+  .signup__icon-user,
+  .signup__icon-password {
+    display: block;
+    width: 90%;
+    margin: 2% 5%;
+    padding: 10px 20px;
+  }
+  .signup__title,
+  .signup__enter,
+  .signup p,
+  .signup__error {
+    margin-left: 5%;
+  }
+}
