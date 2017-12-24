@@ -2,7 +2,10 @@
  include("header_admin.php"); ?>
 
 <div class="admin-container">
-  Привет, <? echo  $adminName; ?> <br>
+  Привет, <?
+
+   echo  $adminName; ?> <br>
+
   здесь будет документация к тому, как пользоваться продуктом :)
 </div>
 

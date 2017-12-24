@@ -1,16 +1,19 @@
 <?php include("settings.php");
 session_start(); ?>
 <?php if ( $_SESSION['adminname'] == $adminLogin) { ?>
-<?php include("header_admin.php"); ?>
+<?php include("header_admin.php");
+?>
 <link href="../css/snow.css" rel="stylesheet">
 <?
 $id =  $_GET["id"];
 $chapterQuery = "SELECT `name`, `text`,`id` FROM `chapter` WHERE `book_id`=$id";
+
 $chapters = Book::queryMysql($chapterQuery);
 ?>
 <div class="admin-container">
   <div class="admin-container__items">
     <div class="admin-container__item">
+
       <?$j=0;
           while($row=$chapters->fetch_array(MYSQLI_ASSOC))
       {
