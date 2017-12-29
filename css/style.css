@@ -210,11 +210,11 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
 .del::before {
   position: absolute;
   left: center;
-  top: 30px;
-  margin-left: -10px;
+  top: 25px;
+  margin-left: -12px;
   content: "";
-  width: 20px;
-  height: 2px;
+  width: 25px;
+  height: 3px;
   background: #000;
 }
 .del::after {
@@ -222,6 +222,14 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
 }
 .del::before {
   transform: rotate(-45deg);
+}
+.del:hover::before,
+.del:hover::after,
+.del:focus::before,
+.del:focus::after,
+.del:active::before,
+.del:active::after {
+  opacity: 0.5;
 }
 
 .main-page {
