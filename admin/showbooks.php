@@ -1,8 +1,20 @@
 <?php include("settings.php");
-session_start(); ?>
+session_start();
+require_once "../functions.php";
+?>
 <?php if ( $_SESSION['adminname'] == $adminLogin) { ?>
 <?php include("header_admin.php");
-$everything = Book::queryMysql("SELECT * FROM books"); ?>
+$everything = Book::queryMysql("SELECT * FROM books");
+
+if (isset($_GET['erase'])) // Удаление глав и книги по id
+    {
+      $erase = sanitizeString($_GET['erase']);
+			queryMysql("DELETE FROM chapter WHERE book_id=$erase");
+      queryMysql("DELETE FROM books WHERE id=$erase");
+			echo "<script>window.location.href='showbooks.php'</script>";
+    }
+
+?>
    <div class="admin-container">
    	<div class="admin-container__items">
 			<div class="admin-container__item">
@@ -15,8 +27,8 @@ $everything = Book::queryMysql("SELECT * FROM books"); ?>
 					<div class="col">bookimg</div>
 					<div class="col">Author</div>
 					<div class="col">Link</div>
-					<div class="col">Editbook</div>
-					<div class="col">Editchapter</div>
+					<div class="col">Edit</div>
+					<div class="col">Del</div>
 				</div>
 				<?
 						foreach ($everything as $value) { ?>
@@ -41,8 +53,8 @@ $everything = Book::queryMysql("SELECT * FROM books"); ?>
 										?>
 									</div>
 							<?    $is_id = false; } ?>
-							<div class="col"><a class="showbook__btn" href="editbook.php?id=<?echo $id_redirect; ?>">edit book</a></div>
-							<div class="col"><a class="showbook__btn" href="editchapters.php?id=<?echo $id_redirect; ?>">edit chapters</a></div>
+							<div class="col"><a class="showbook__btn" href="editbook.php?id=<?echo $id_redirect; ?>">edit book</a><br><a class="showbook__btn" href="editchapters.php?id=<?echo $id_redirect; ?>">edit chapters</a></div>
+							<div class="col"><a href="showbooks.php?erase=<? echo $id_redirect; ?>" class="del">Удалить</a></div>
 						</div>
 					<?  } ?>
 			</div>

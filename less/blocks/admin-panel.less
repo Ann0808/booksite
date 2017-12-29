@@ -146,16 +146,20 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
 .admin-container__row .col {
 	position: relative;
 	box-sizing: border-box;
-	width: 12%;
+	width: 13%;
 	border-bottom: 1px solid black;
 	border-right: 1px solid black;
 	overflow: hidden;
 	text-align: center;
 }
 
-.admin-container__row .col:first-child {
+.admin-container__row .col:first-child{
 	width: 4%;
 	border-left: 1px solid black;
+}
+
+.admin-container__row .col:last-child {
+	width: 4%;
 }
 
 .admin-container__row--big {
@@ -165,12 +169,11 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
 .showbook__btn {
   display: block;
 	width: auto;
-  padding: 5px 5px;
+  padding: 2px 2px;
   font-weight: 700;
   font-size: 14px;
   line-height: 24px;
   font-family: "Arial", sans-serif;
-  vertical-align: top;
   text-align: center;
   color: black;
   text-transform: uppercase;
@@ -194,4 +197,29 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
 .showbook__btn.disabled:hover,
 .showbook__btn:disabled:hover {
   color: rgba(0,0,0,0.7);
+}
+
+.del {
+	position: relative;
+	font-size: 0;
+}
+
+.del::after,
+.del::before {
+	position: absolute;
+	left: center;
+	top: 30px;
+	margin-left: -10px;
+	content: "";
+	width: 20px;
+	height: 2px;
+	background: #000;
+}
+
+.del::after {
+	transform: rotate(45deg);
+}
+
+.del::before {
+	transform: rotate(-45deg);
 }
