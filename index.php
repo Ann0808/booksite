@@ -24,10 +24,7 @@ if ($mysqli->connect_error) die($mysqli->connect_error);
   <!-- then add bootstrap to local -->
   <link rel="stylesheet" href="../css/grid.min.css">
   <script src="/js/jquery-3.2.1.min.js"></script>
-  <!-- <script src="" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-  <script src="/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script> -->
   <script type="text/javascript" src="../js/script.js"></script>
-    <!-- <script type="text/javascript" src="../js/carousel.js"></script> -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <!--// I am A!!!-->
@@ -36,8 +33,7 @@ if ($mysqli->connect_error) die($mysqli->connect_error);
     include ("admin-flag.php");
    endif; ?>
   <div class="button-to-top">
-    <!-- <span class="glyphicon glyphico-arrow-up"></span> -->
-    <img src="/img/up.png" alt="" width="50px" height="50px">
+    <img src="/img/standart/up.png" alt="" width="50px" height="50px">
   </div>
   <main class="main-page">
     <section class="purchased-books">
@@ -45,7 +41,6 @@ if ($mysqli->connect_error) die($mysqli->connect_error);
         <div class="row justify-content-center">
           <h2 class="carousel-title">Приобретенные книги</h2>
         </div>
-        <!-- <div class="row"> -->
         <div id="carouselPurchased" class="carousel" >
           <?php include( 'carousel-inner.php'); ?>
         </div>
@@ -56,11 +51,8 @@ if ($mysqli->connect_error) die($mysqli->connect_error);
         <div class="row justify-content-center">
 
 <h2 class="carousel-title">Рекомендуемые книги автора </h2>
-
-
         </div>
         <div id="carouselRecommended" class="carousel" >
-          <?php //include( 'carousel-inner.php'); ?>
             <button class="prev">Назад</button><button class="next">Вперед</button>
             <?php
             foreach ($books_images_my as $value) {
@@ -80,7 +72,6 @@ if ($mysqli->connect_error) die($mysqli->connect_error);
           <h2 class="carousel-title">Вам может быть интересно</h2>
         </div>
         <div id="carouselInteresting" class="carousel" >
-          <?php //include( 'carousel-inner.php'); ?>
           <button class="prev">Назад</button><button class="next">Вперед</button>
           <?php
           foreach ($books_other_query as $value) {

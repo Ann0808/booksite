@@ -9,9 +9,21 @@ $everything = Book::queryMysql("SELECT * FROM books");
 if (isset($_GET['erase'])) // Удаление глав и книги по id
     {
       $erase = sanitizeString($_GET['erase']);
+
+			$delBook = queryMysql("SELECT * FROM `books` WHERE `id`='$erase'");
+			$rows = $delBook->fetch_array(MYSQLI_ASSOC);
+			$image_del=$rows['image'];
+			$mob_del=$rows['logo-mob'];
+			$desk_del=$rows['logo-desk'];
+
+			unlink("$image_del");
+			unlink("$mob_del");
+			unlink("$desk_del");
+
 			queryMysql("DELETE FROM chapter WHERE book_id=$erase");
       queryMysql("DELETE FROM books WHERE id=$erase");
 			echo "<script>window.location.href='showbooks.php'</script>";
+
     }
 
 ?>
