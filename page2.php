@@ -25,6 +25,19 @@
 	$book_id=$row['id'];
 	$searchChapters = queryMysql("SELECT * FROM `chapter` WHERE `book_id`='$book_id'");
 
+
+
+	if (isset($_GET['purchase'])){
+		if(isset($_SESSION['user_id'])){
+			$id_user = $_SESSION['user_id'];
+			$id_book = sanitizeString($_GET['purchase']);
+			queryMysql("INSERT INTO `purchases` (`id_book`, `id_member`) VALUES('$id_book', '$id_user')");
+		} else {
+			echo "<script>window.location.href='signin.php'</script>";
+		}
+
+
+	}
 	?>
 <body class="admin__body">
  <div class="container">
@@ -61,6 +74,7 @@
        <div class="chapters__text"> <? echo $text; ?> </div>
     </div>
   </main>
+  <div class="purchase"><a class="btn" href="page2.php?book=<? echo $id_link; ?>&purchase=<? echo $book_id; ?>">Купить эту книгу</a></div>
  </div>
 
 <script>
