@@ -25,7 +25,12 @@
 	$author_name=$row['author_name'];
 	$book_id=$row['id'];
 	$searchChapters = queryMysql("SELECT * FROM `chapter` WHERE `book_id`='$book_id'");
-
+  $acceptToChapter = false;
+  $searchPurchasedBooks = queryMysql("SELECT * FROM `purchases` WHERE `id_book`=62 AND `id_member`=3");
+  $purchasedBooks=  $searchPurchasedBooks->fetch_array(MYSQLI_ASSOC);
+  if((!empty($purchasedBooks))||($currentChapter==0)) {
+    $acceptToChapter = true;
+  }
 		if (isset($_GET['purchase'])){
 		if(isset($_SESSION['user_id'])){
 				$id_user = $_SESSION['user_id'];
@@ -74,7 +79,9 @@
     <div class="chapters">
       <h2 class="book-name">Название книги</h2>
        <div class="chapters__book"><img src='<? echo $image; ?>' alt="Обложка книги"></div>
-       <div class="chapters__text"> <? echo $text[$currentChapter]; ?> </div>
+
+       <div class="chapters__text"> <? if($acceptToChapter) {
+         echo $text[$currentChapter];} ?> </div>
     </div>
   </main>
   <div class="purchase"><a class="btn" href="page.php?chapter=<? echo '0'; ?>&book=<? echo $id_link; ?>&purchase=<? echo $book_id; ?>">Купить эту книгу</a></div>
