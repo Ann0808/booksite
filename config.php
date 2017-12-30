@@ -11,6 +11,7 @@ define( "CLASS_PATH", "classes" );
 define( "ADMIN_USERNAME", "admin" );
 define( "ADMIN_PASSWORD", "mypass" );
 define( "ADMIN_NAME", "Вася" );
+define( "ADMIN_YANDEX", "410014992861718" );
 require_once( CLASS_PATH . "/Book.php" );
 require_once( CLASS_PATH . "/Chapter.php" );
 //then add try catch
