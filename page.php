@@ -95,7 +95,14 @@
          }?> </div>
     </div>
   </main>
-  <div class="purchase"><a class="btn" href="page.php?chapter=<? echo '0'; ?>&book=<? echo $id_link; ?>&purchase=<? echo $book_id; ?>">Купить эту книгу</a></div>
+  <? $result = queryMysql("SELECT id FROM purchases WHERE id_book='$book_id' AND id_member='$id_user'");
+	 if ($result->num_rows == 0){
+					?>
+					<div class="purchase"><a class="btn" href="page.php?chapter=<? echo '0'; ?>&book=<? echo $id_link; ?>&purchase=<? echo $book_id; ?>">Купить эту книгу</a></div>
+					<?
+				}
+	 ?>
+
  </div>
 
 <script>
