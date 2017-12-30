@@ -51,11 +51,18 @@
 					$res = queryMySQL("SELECT id FROM members WHERE user='$user' AND pass='$pass'");
 					$row = $res->fetch_array(MYSQLI_ASSOC);
 					$id_user = $row['id'];
+					$_SESSION['user_id'] = $row['id'];
 					$ip = get_the_user_ip();
 					$time = time();
 					queryMysql("INSERT INTO `protect` (`id_member`, `ip`, `data`) VALUES('$id_user', '$ip', '$time')");
 
-					die("<script>window.location = 'index.php';</script>");
+					if(isset($_SESSION['href'])){
+						$href = $_SESSION['href'];
+						die("<script>window.location = '$href';</script>");
+					}else {
+						die("<script>window.location = 'index.php';</script>");
+					}
+
 					}
 
 				}

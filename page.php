@@ -32,6 +32,7 @@
 				$id_book = sanitizeString($_GET['purchase']);
 				queryMysql("INSERT INTO `purchases` (`id_book`, `id_member`) VALUES('$id_book', '$id_user')");
 			} else {
+				$_SESSION['href'] = "page.php?chapter=0&book=$id_link";
 				echo "<script>window.location.href='signin.php'</script>";
 			}
 		}

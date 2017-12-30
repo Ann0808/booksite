@@ -52,7 +52,12 @@
 					echo "Privret";
 				}
 
-      die("<script>window.location = 'index.php';</script>");
+			if(isset($_SESSION['href'])){
+				$href = $_SESSION['href'];
+				die("<script>window.location = '$href';</script>");
+			}else {
+				die("<script>window.location = 'index.php';</script>");
+			}
 
       }
 
@@ -68,6 +73,7 @@
                 <input type='text' class='signup__icon-user' name='user' placeholder='Логин' value='<? echo $user; ?>'>
                 <input type='password' class='signup__icon-password' name='pass' placeholder='Пароль' value='<? echo $pass; ?>'>
                 <button class='btn signup__enter' type='submit' value='Login'>Войти</button>
+                <a href="signup.php" class="link">Зарегистрироваться</a>
             </form>
         </div>
         </body>

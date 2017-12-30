@@ -804,6 +804,13 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
 }
 
 
+.link {
+  display: inline-block;
+  text-decoration: underline;
+  color: black;
+  margin-left: 30px;
+}
+
 .modal-content {
   position: absolute;
   display: block;
