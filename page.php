@@ -82,7 +82,10 @@
        <div class="chapters__book"><img src='<? echo $image; ?>' alt="Обложка книги"></div>
 
        <div class="chapters__text"> <? if($acceptToChapter) {
-         echo $text[$currentChapter];} ?> </div>
+         echo $text[$currentChapter];}
+         else {
+           echo("для дальнейшего просмотра предлагаем купить книгу");
+         }?> </div>
     </div>
   </main>
   <div class="purchase"><a class="btn" href="page.php?chapter=<? echo '0'; ?>&book=<? echo $id_link; ?>&purchase=<? echo $book_id; ?>">Купить эту книгу</a></div>
