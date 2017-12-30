@@ -25,12 +25,13 @@
 	$author_name=$row['author_name'];
 	$book_id=$row['id'];
 	$searchChapters = queryMysql("SELECT * FROM `chapter` WHERE `book_id`='$book_id'");
-
+echo $book_id;
 	?>
 <body class="admin__body">
  <div class="container">
  	<div class="button-to-top">
       <img src="/img/standart/up.png" alt="" width="50px" height="50px">
+
   </div>
   <header class="page-header">
 
