@@ -12,7 +12,7 @@ function update_chapter(e,num) {
    var chapter_name =$('#chp-'+chapter_id+' input').val();
    //var chapter_text =$('#chp-'+chapter_id+' textarea').val();
    // var chapter_text = iDoc.body.innerHTML;
-   var chapter_text =$('#chp-'+chapter_id+' #editor'+num+ ' .ql-editor').html();
+   var chapter_text ='<div class="ql-editor">' + $('#chp-'+chapter_id+' #editor'+num+ ' .ql-editor').html() + '</div>';
 
   $.ajax({
           type: "POST",
@@ -35,7 +35,7 @@ function update_chapter(e,num) {
 function add_chapter(e) {
   var book_id = $(e).data("id");
    var chapter_name =$('#addNewChapterWrapper input').val();
-   var chapter_text =$('#addNewChapterWrapper'+ ' #editornew'+ ' .ql-editor').html();
+   var chapter_text ='<div class="ql-editor">' +$('#addNewChapterWrapper'+ ' #editornew'+ ' .ql-editor').html()+ '</div>';
     //var chapter_text =$('#chp-'+chapter_id+' #editor'+num+ ' .ql-editor').html();
   $.ajax({
           type: "POST",
