@@ -35,7 +35,13 @@
 		if(isset($_SESSION['user_id'])){
 				$id_user = $_SESSION['user_id'];
 				$id_book = sanitizeString($_GET['purchase']);
-				queryMysql("INSERT INTO `purchases` (`id_book`, `id_member`) VALUES('$id_book', '$id_user')");
+				$result = queryMysql("SELECT id FROM members WHERE id_book='$id_book' AND id_member='$id_user'");
+				if ($result->num_rows == 0){
+					queryMysql("INSERT INTO `purchases` (`id_book`, `id_member`) VALUES('$id_book', '$id_user')");
+				} else {
+					$information = "Вы уже купили эту книгу"
+				}
+
 			} else {
 				$_SESSION['href'] = "page.php?chapter=0&book=$id_link";
 				echo "<script>window.location.href='signin.php'</script>";
