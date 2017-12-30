@@ -36,11 +36,11 @@
 		if(isset($_SESSION['user_id'])){
 				$id_user = $_SESSION['user_id'];
 				$id_book = sanitizeString($_GET['purchase']);
-				$result = queryMysql("SELECT id FROM members WHERE id_book='$id_book' AND id_member='$id_user'");
+				$result = queryMysql("SELECT id FROM purchases WHERE id_book='$id_book' AND id_member='$id_user'");
 				if ($result->num_rows == 0){
 					queryMysql("INSERT INTO `purchases` (`id_book`, `id_member`) VALUES('$id_book', '$id_user')");
 				} else {
-					$information = "Вы уже купили эту книгу"
+					$information = "Вы уже купили эту книгу";
 				}
 
 			} else {
@@ -85,6 +85,7 @@
             </nav>
     <div class="chapters">
       <h2 class="book-name">Название книги</h2>
+      <h2 class="book-name red"><? echo $information; ?></h2>
        <div class="chapters__book"><img src='<? echo $image; ?>' alt="Обложка книги"></div>
 
        <div class="chapters__text"> <? if($acceptToChapter) {
