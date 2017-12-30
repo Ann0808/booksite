@@ -26,7 +26,8 @@
 	$book_id=$row['id'];
 	$searchChapters = queryMysql("SELECT * FROM `chapter` WHERE `book_id`='$book_id'");
   $acceptToChapter = false;
-  $searchPurchasedBooks = queryMysql("SELECT * FROM `purchases` WHERE `id_book`=62 AND `id_member`=3");
+  $id_user = $_SESSION['user_id'];
+  $searchPurchasedBooks = queryMysql("SELECT * FROM `purchases` WHERE `id_book`='$book_id' AND `id_member`='$id_user'");
   $purchasedBooks=  $searchPurchasedBooks->fetch_array(MYSQLI_ASSOC);
   if((!empty($purchasedBooks))||($currentChapter==0)) {
     $acceptToChapter = true;
