@@ -74,7 +74,7 @@
        <div class="chapters__text"> <? echo $text; ?> </div>
     </div>
   </main>
-  <div class="purchase"><a class="btn" href="page2.php?book=<? echo $id_link; ?>&purchase=<? echo $book_id; ?>">Купить эту книгу</a></div>
+  <div class="purchase"><a class="btn" href="&purchase=<? echo $book_id; ?>">Купить эту книгу</a></div>
  </div>
 
 <script>
