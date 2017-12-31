@@ -17,6 +17,7 @@
   require_once 'functions.php';
 	$id_link =  $_GET["book"];
   $currentChapter = $_GET["chapter"];
+  queryMysql("SET NAMES utf8");
 	$searchBook = queryMysql("SELECT * FROM `books` WHERE `link`='$id_link'");
 	$row = $searchBook->fetch_array(MYSQLI_ASSOC);
 	$image=$row['image'];

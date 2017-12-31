@@ -1,4 +1,4 @@
-<?php include("settings.php"); 
+<?php include("settings.php");
 session_start();
 ?>
 <?php if ( $_SESSION['adminname'] == $adminLogin) { ?>
@@ -74,7 +74,7 @@ if(isset($_POST['UpdateBookButton'])){
 // }
 
 $book = new Book($_POST,$_FILES);
-echo($_FILES['picture-mobile']['tmp_name']);
+//echo($_FILES['picture-mobile']['tmp_name']);
  if (!@copy($_FILES['picture-mobile']['tmp_name'], $book->logoMobile)){
    echo 'Логотип для мобильной версии не обновлен '; ?> <br>
 <? }
@@ -85,7 +85,14 @@ echo($_FILES['picture-mobile']['tmp_name']);
    echo 'Миниатюра не обновлена'; ?> <br>
  <? }
  $book->update();
- picture_book($book->logoBook);?>
+ $logo= $book->logoBook;
+if($logo!=null){
+	picture_book($book->logoBook);
+}
+
+
+
+ ?>
 
 <script>
     if(document.URL.indexOf("#")==-1){ //Check if the current URL contains '#'

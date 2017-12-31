@@ -5,8 +5,8 @@ session_start();
 <html>
 <?php require( "config.php" ); ?>
 <?php
-$dbhost  = 'localhost';
-$dbname  = 'cms';
+$dbhost  = HOST;
+$dbname  = DB_NAME;
 $dbuser  = DB_USERNAME;
 $dbpass  = DB_PASSWORD;
 $admin_name = ADMIN_NAME;
