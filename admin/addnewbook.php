@@ -39,7 +39,11 @@ session_start(); ?>
 					 </div>
 					 <div class="admin-container__row">
 						 <p>Ссылка на книгу</p>
-						 <input class="admin-container__input-text" type="text" name="book-link" id="" placeholder="/book-name">
+						 <input class="admin-container__input-text" type="text" name="book-link" id="" placeholder="book-name">
+					 </div>
+					  <div class="admin-container__row">
+						 <p>Цена книги в рублях</p>
+						 <input class="admin-container__input-text" type="number" name="book-price" id="" placeholder="50">
 					 </div>
 					 <div class="admin-container__row">
 						 <input class="btn" type="submit" value="Отправить данные"  name="submit"/>
@@ -63,6 +67,7 @@ session_start(); ?>
 										echo 'Что-то пошло не так';
 									}
 									else {
+
 										$book->insert();
 										//queryMysql("INSERT INTO `books`(`name`, `logo-mob`, `logo-desk`, `image`,`author_name`,`link`) VALUES ('$name','$logo1','$logo2','$img','$author','$link')");
 										picture_book($book->logoBook);
