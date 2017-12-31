@@ -11,6 +11,7 @@ class Book
    public $logoBook = null;
    public $author = null;
    public $link = null;
+	 public $price = null;
 
   public function __construct($data, $files)
   {
@@ -24,10 +25,11 @@ class Book
     if (  $files['picture-desktop']['tmp_name']!=null )$this->logoDesktop = $path . 'desktop-logo-'. time() . '.' . $ext;
     if ( $files['picture-book']['tmp_name']!=null )$this->logoBook = $path . 'book-logo-'. time() . '.' . $ext;
     if ( isset( $data['book-author'] ) )$this->author = $data['book-author'];
+		if ( isset( $data['book-price'] ) )$this->price = $data['book-price'];
   }
 
   public function insert() {
-    $insertQuery = "INSERT INTO `books`(`name`, `logo-mob`, `logo-desk`, `image`,`author_name`,`link`) VALUES ('$this->name','$this->logoMobile','$this->logoDesktop','$this->logoBook','$this->author','$this->link')";
+    $insertQuery = "INSERT INTO `books`(`name`, `logo-mob`, `logo-desk`, `image`,`author_name`,`link`,`price`) VALUES ('$this->name','$this->logoMobile','$this->logoDesktop','$this->logoBook','$this->author','$this->link','$this->price')";
      Book::queryMysql($insertQuery);
   }
 
@@ -54,6 +56,10 @@ class Book
     }
     if($this->link!=null){
       $insertQuery = "UPDATE `books` SET `link`='$this->link' WHERE `id`='$this->id'";
+       Book::queryMysql($insertQuery);
+    }
+		if($this->price!=null){
+      $insertQuery = "UPDATE `books` SET `price`='$this->price' WHERE `id`='$this->id'";
        Book::queryMysql($insertQuery);
     }
   }

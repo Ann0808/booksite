@@ -16,6 +16,7 @@ if ($books->num_rows)
 $name=$books['name'];
 $author_name=$books['author_name'];
 $link=$books['link'];
+$price=$books['price'];
 
 ?>
 <div class="admin-container">
@@ -57,6 +58,10 @@ $link=$books['link'];
         <div class='admin-container__row'>
            <p>Редактировать ссылку</p>
           <input id='book-link' class='admin-container__input-text' type='text' name='book-link' value='<?echo $link;?>'>
+           </div>
+           <div class='admin-container__row'>
+						 <p>Редактировать цену в рублях</p>
+							<input id='book-price' class='admin-container__input-text' type='text' name='book-price' value='<?echo $price;?>'>
            </div>
            <input name="book-id" type="hidden" value='<?echo $id;?>'>
       <input type='submit'  class='btn hidden' name='UpdateBookButton' value='Применить изменения'>
