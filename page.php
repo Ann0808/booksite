@@ -11,6 +11,7 @@
     <script src="/js/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/snow.css">
+    <link rel="stylesheet" href="/css/noselect.css">
     <script type="text/javascript" src="/js/script.js"></script>
 </head>
 <?php
@@ -89,7 +90,7 @@
         <?}?>
        <div class="chapters__book"><img src='<? echo $image; ?>' alt="Обложка книги"></div>
 <?}?>
-       <div class="chapters__text">
+       <div class="chapters__text noselect">
         <?if($isBlack){
            echo "иди нафиг";
          }
