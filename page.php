@@ -18,6 +18,7 @@
 	$id_link =  $_GET["book"];
   $currentChapter = $_GET["chapter"];
   queryMysql("SET NAMES utf8");
+
 	$searchBook = queryMysql("SELECT * FROM `books` WHERE `link`='$id_link'");
   $adminQuery = queryMysql("SELECT `yandex_money`, `login` FROM `admin`");
   $adminYandexRow = $adminQuery->fetch_array(MYSQLI_ASSOC);
@@ -34,6 +35,9 @@
 	$searchChapters = queryMysql("SELECT * FROM `chapter` WHERE `book_id`='$book_id'");
   $acceptToChapter = false;
   $id_user = $_SESSION['user_id'];
+
+  $searchBlackList = queryMysql("SELECT * FROM `black_list` WHERE `user_id`='$id_user'");
+  $isBlack = $searchBlackList->num_rows;
   $label = $book_id . '|' . $id_user;
   $searchPurchasedBooks = queryMysql("SELECT * FROM `purchases` WHERE `id_book`='$book_id' AND `id_member`='$id_user'");
   $purchasedBooks=  $searchPurchasedBooks->fetch_array(MYSQLI_ASSOC);
@@ -85,8 +89,15 @@
         <?}?>
        <div class="chapters__book"><img src='<? echo $image; ?>' alt="Обложка книги"></div>
 <?}?>
-       <div class="chapters__text"> <? if($acceptToChapter) {
-         echo $text[$currentChapter];}
+       <div class="chapters__text">
+        <?if($isBlack){
+           echo "иди нафиг";
+         }
+          else {?>
+
+         <? if($acceptToChapter) {
+         echo $text[$currentChapter];
+       }
          else {
           if(isset($_SESSION['user_id'])){
             echo("для дальнейшего просмотра предлагаем купить книгу"); ?>
@@ -97,6 +108,8 @@
      				$_SESSION['href'] = "page.php?chapter=0&book=$id_link";
      				echo "<script>window.location.href='signin.php'</script>";
      			}
+
+         }
 
          }?> </div>
     </div>
