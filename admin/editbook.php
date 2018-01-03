@@ -17,6 +17,7 @@ $name=$books['name'];
 $author_name=$books['author_name'];
 $link=$books['link'];
 $price=$books['price'];
+$checked=$books['admin'];
 
 ?>
 <div class="admin-container">
@@ -54,6 +55,10 @@ $price=$books['price'];
           <p>Редактировать автора</p>
          <input id='author-name' class='admin-container__input-text' type='text' name='book-author' value='<?echo $author_name;?>'>
           </div>
+					<div class="admin-container__row">
+					 <p>Вы автор книги</p>
+					 <input class="admin-container__input-text" type="checkbox" name="book-is-admin" id="" <?php if($checked) echo "checked"; ?>>
+				 </div>
 
         <div class='admin-container__row'>
            <p>Редактировать ссылку</p>

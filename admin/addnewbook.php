@@ -46,6 +46,10 @@ session_start(); ?>
 						 <input class="admin-container__input-text" type="number" name="book-price" id="" placeholder="50">
 					 </div>
 					 <div class="admin-container__row">
+						<p>Вы автор книги</p>
+						<input class="admin-container__input-text" type="checkbox" name="book-is-admin" id="" >
+					</div>
+					 <div class="admin-container__row">
 						 <input class="btn" type="submit" value="Отправить данные"  name="submit"/>
 						 <p>
 							 <?php
