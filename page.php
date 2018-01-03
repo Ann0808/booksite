@@ -61,12 +61,13 @@
                     <ul class="main-nav__items">
                     <?
 											$text=array();
-                      
+                      $chapterNames=array();
                       $j=0;
 
 											foreach($searchChapters as $value){
 												echo '<li class="main-nav__item"><a href="?chapter='.$j.'&book='.$id_link.'">'.$value["name"].'</a></li>';
 												$text[] = $value["text"];
+                        $chapterNames[] = $value["name"];
                         $j++;
 											}
 
@@ -76,9 +77,12 @@
             </nav>
     <div class="chapters">
       <h2 class="book-name"><? echo $book_name; ?></h2>
+      <h2 class="book-name"><? echo $chapterNames[$currentChapter]; ?></h2>
 
-      <h2 class="book-name red"><? echo $information; ?></h2>
-      <?if($currentChapter==0){?>
+      <?if($currentChapter==0){
+        if($acceptToChapter) {?>
+        <h2 class="book-name red"><? echo "Спасибо за приобретение книги!"; ?></h2>
+        <?}?>
        <div class="chapters__book"><img src='<? echo $image; ?>' alt="Обложка книги"></div>
 <?}?>
        <div class="chapters__text"> <? if($acceptToChapter) {

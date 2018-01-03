@@ -18,6 +18,7 @@
 					<li><a href="admin.php"  class="btn" >Моя страница</a></li>
 					<li><a href="addnewbook.php"  class="btn">Добавить книгу</a></li>
 					<li><a href="showbooks.php"  class="btn">Список всех книг</a></li>
+          <li><a href="showpurch.php"  class="btn">Список всех покупок</a></li>
 					<li><a href="editadmin.php"  class="btn">Изменить данные администратора</a></li>
 			</div>
 		</div>

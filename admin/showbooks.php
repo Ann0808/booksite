@@ -1,6 +1,5 @@
 <?php include("settings.php");
 session_start();
-require_once "../functions.php";
 ?>
 <?php if ( $_SESSION['adminname'] == $adminLogin) { ?>
 <?php include("header_admin.php");
@@ -10,7 +9,7 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
     {
       $erase = sanitizeString($_GET['erase']);
 
-			$delBook = queryMysql("SELECT * FROM `books` WHERE `id`='$erase'");
+			$delBook = Book::queryMysql("SELECT * FROM `books` WHERE `id`='$erase'");
 			$rows = $delBook->fetch_array(MYSQLI_ASSOC);
 			$image_del=$rows['image'];
 			$mob_del=$rows['logo-mob'];
@@ -20,8 +19,8 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
 			unlink("$mob_del");
 			unlink("$desk_del");
 
-			queryMysql("DELETE FROM chapter WHERE book_id=$erase");
-      queryMysql("DELETE FROM books WHERE id=$erase");
+			Book::queryMysql("DELETE FROM chapter WHERE book_id=$erase");
+      Book::queryMysql("DELETE FROM books WHERE id=$erase");
 			echo "<script>window.location.href='showbooks.php'</script>";
 
     }
@@ -30,7 +29,7 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
    <div class="admin-container">
    	<div class="admin-container__items">
 			<div class="admin-container__item">
-			<h2>Basic Table</h2>
+			<h2>Покупки</h2>
 				<div class="admin-container__row">
 					<div class="col">Id</div>
 					<div class="col">BookName</div>
