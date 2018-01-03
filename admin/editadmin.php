@@ -17,6 +17,10 @@ session_start(); ?>
             <p>Новый логин</p>
             <input class="admin-container__input-text" type="text" name="admin-login" id="" placeholder="login">
           </div>
+          <div class="admin-container__row">
+            <p>Ваш e-mail для связи с клиентами</p>
+            <input class="admin-container__input-text" type="email" name="admin-email" id="" placeholder="vasya@mail.ru">
+          </div>
    				<div class="admin-container__row">
    						<p>Старый пароль</p>
    						<input class="admin-container__input-text" type="password" name="password" id="" placeholder="Старый пароль">
@@ -44,7 +48,7 @@ session_start(); ?>
               </div>
               <div class="admin-container__row">
                 <p>
-                  Более подробно описано в <a href="http://sitebook/admin/admin.php">мануале</a> 
+                  Более подробно описано в <a href="http://sitebook/admin/admin.php">мануале</a>
                 </p>
               </div>
    					<div class="admin-container__row">
@@ -56,9 +60,15 @@ session_start(); ?>
                   $newPassAgain = $_POST['password-new-again'];
                   $oldPass = $_POST['password'];
                   $newLogin = $_POST['admin-login'];
+                  $newEmail = $_POST['admin-email'];
                   $newName = $_POST['admin-name'];
                   $yandex_secret = $_POST['admin-yandex-secret'];
                   $yandex_money = $_POST['admin-yandex-money'];
+                  if ( $newEmail!=null ) {
+                    $insertQuery = "UPDATE `admin` SET `email`='$newEmail'";
+                    Book::queryMysql($insertQuery);
+                    echo ("Email успешно изменен!");
+                  }
                     if ( $yandex_secret!=null ) {
                       $insertQuery = "UPDATE `admin` SET `yandex_secret`='$yandex_secret'";
                       Book::queryMysql($insertQuery);

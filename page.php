@@ -21,10 +21,11 @@
   queryMysql("SET NAMES utf8");
 
 	$searchBook = queryMysql("SELECT * FROM `books` WHERE `link`='$id_link'");
-  $adminQuery = queryMysql("SELECT `yandex_money`, `login` FROM `admin`");
+  $adminQuery = queryMysql("SELECT `yandex_money`, `login`, `email` FROM `admin`");
   $adminYandexRow = $adminQuery->fetch_array(MYSQLI_ASSOC);
   $adminYandex = $adminYandexRow['yandex_money'];
   $adminLogin = $adminYandexRow['login'];
+  $adminEmail = $adminYandexRow['email'];
 	$row = $searchBook->fetch_array(MYSQLI_ASSOC);
 	$image=$row['image'];
 	$logo_mob=$row['logo-mob'];
@@ -92,7 +93,7 @@
 <?}?>
        <div class="chapters__text noselect">
         <?if($isBlack){
-           echo "иди нафиг";
+           echo "иди нафиг пиши  <a href='mailto:$adminEmail?Subject=Черный%список' target='_top'>на этот адрес:</a>$adminEmail";
          }
           else {?>
 
