@@ -1,17 +1,21 @@
-<?php
+<?php  require_once( "config.php" );
+ $dbhost  = HOST;
+ $dbname  = DB_NAME;
+ $dbuser  = DB_USERNAME;
+ $dbpass  = DB_PASSWORD;
+ $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+ if ($connection->connect_error) die($connection->connect_error);
+   Book::queryMysql("SET NAMES utf8");
+   $adminQuery = Book::queryMysql("SELECT * FROM admin");
+   $adminQuery = $adminQuery->fetch_array(MYSQLI_ASSOC);
+   $adminLogin = $adminQuery['login'];
+   $adminPassword = $adminQuery['password'];
+   $adminName = $adminQuery['name'];
 session_start();
 ?>
 <!doctype html>
 <html>
-<?php require( "config.php" ); ?>
 <?php
-$dbhost  = HOST;
-$dbname  = DB_NAME;
-$dbuser  = DB_USERNAME;
-$dbpass  = DB_PASSWORD;
-$admin_name = ADMIN_NAME;
-$mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-if ($mysqli->connect_error) die($mysqli->connect_error);
     $books_images_my = Book::queryMysql("SELECT image FROM books WHERE author_name='$admin_name'");
     $books_other_query = Book::queryMysql("SELECT link, image FROM books WHERE author_name!='$admin_name'");
 //		$row = $books_other_query->fetch_array(MYSQLI_ASSOC);
@@ -29,7 +33,7 @@ if ($mysqli->connect_error) die($mysqli->connect_error);
 </head>
 <!--// I am A!!!-->
 <body>
-  <?php if ( $_SESSION['adminname'] == ADMIN_USERNAME):
+  <?php if ( $_SESSION['adminname'] == $adminLogin):
     include ("admin-flag.php");
    endif; ?>
   <div class="button-to-top">

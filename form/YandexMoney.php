@@ -1,5 +1,6 @@
 <?php require( "../config.php" );
  $adminYandex  = ADMIN_YANDEX; ?>
+
 <form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
     <input type="hidden" name="receiver" value="<?echo $adminYandex;?>">
     <input type="hidden" name="label" value="62" data-type="number">

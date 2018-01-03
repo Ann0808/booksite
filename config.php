@@ -8,10 +8,10 @@ define( "DB_USERNAME", "cms" );
 define( "DB_PASSWORD", "080895" );
 define( "CLASS_PATH", "classes" );
 // define( "TEMPLATE_PATH", "/" );
-define( "ADMIN_USERNAME", "admin" );
-define( "ADMIN_PASSWORD", "mypass" );
-define( "ADMIN_NAME", "Вася" );
-define( "ADMIN_YANDEX", "410014992861718" );
+// define( "ADMIN_USERNAME", "admin" );
+// define( "ADMIN_PASSWORD", "mypass" );
+// define( "ADMIN_NAME", "Вася" );
+// define( "ADMIN_YANDEX", "41001379265341" );
 require_once( CLASS_PATH . "/Book.php" );
 require_once( CLASS_PATH . "/Chapter.php" );
 //then add try catch
