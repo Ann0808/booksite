@@ -12,12 +12,20 @@
    $adminPassword = $adminQuery['password'];
    $adminName = $adminQuery['name'];
 session_start();
+$id_user = $_SESSION['user_id'];
 ?>
 <!doctype html>
 <html>
 <?php
-    $books_images_my = Book::queryMysql("SELECT image FROM books WHERE author_name='$admin_name'");
-    $books_other_query = Book::queryMysql("SELECT link, image FROM books WHERE author_name!='$admin_name'");
+    $books_images_my = Book::queryMysql("SELECT books.link, books.image
+FROM purchases
+INNER JOIN books ON purchases.id_book =books.id  WHERE id_member!='$id_user' AND books.admin=1;");
+    $books_other_query = Book::queryMysql("SELECT books.link, books.image
+FROM purchases
+INNER JOIN books ON purchases.id_book =books.id  WHERE id_member!='$id_user' AND books.admin=0;");
+    $books_images_purchased = Book::queryMysql("SELECT books.link, books.image
+FROM purchases
+INNER JOIN books ON purchases.id_book =books.id  WHERE id_member='$id_user';");
 //		$row = $books_other_query->fetch_array(MYSQLI_ASSOC);
 //		$books_images_other=$row['image']
  ?>
@@ -46,7 +54,25 @@ session_start();
           <h2 class="carousel-title">Приобретенные книги</h2>
         </div>
         <div id="carouselPurchased" class="carousel" >
-          <?php include( 'carousel-inner.php'); ?>
+          <button class="prev">Назад</button><button class="next">Вперед</button>
+          <?php
+          foreach ($books_images_purchased as $value) {
+						$id_link = 0;
+						$is_link = true;
+
+           foreach ($value as $v) {
+						 if($is_link){
+							$id_link =  $v;
+						 }
+						 else {
+							  echo ('<a class="carousel__item" href="page.php?chapter=0&book='.$id_link.'">  <img src='.$v.' alt="slide 1"></a>');
+						 }
+
+          $is_link = false;}
+        }
+           ?>
+
+          <?php //include( 'carousel-inner.php'); ?>
         </div>
       </div>
     </section>
@@ -60,10 +86,18 @@ session_start();
             <button class="prev">Назад</button><button class="next">Вперед</button>
             <?php
             foreach ($books_images_my as $value) {
+  						$id_link = 0;
+  						$is_link = true;
+
              foreach ($value as $v) {
-            //  echo ($v), "\n";
-          echo ('<a class="carousel__item">  <img src='.$v.' alt="slide 1"></a>');
-            }
+  						 if($is_link){
+  							$id_link =  $v;
+  						 }
+  						 else {
+  							  echo ('<a class="carousel__item" href="page.php?chapter=0&book='.$id_link.'">  <img src='.$v.' alt="slide 1"></a>');
+  						 }
+
+            $is_link = false;}
           }
              ?>
 

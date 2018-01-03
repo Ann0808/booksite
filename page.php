@@ -34,7 +34,7 @@
 	$searchChapters = queryMysql("SELECT * FROM `chapter` WHERE `book_id`='$book_id'");
   $acceptToChapter = false;
   $id_user = $_SESSION['user_id'];
-    $label = $book_id . '|' . $id_user;
+  $label = $book_id . '|' . $id_user;
   $searchPurchasedBooks = queryMysql("SELECT * FROM `purchases` WHERE `id_book`='$book_id' AND `id_member`='$id_user'");
   $purchasedBooks=  $searchPurchasedBooks->fetch_array(MYSQLI_ASSOC);
   if((!empty($purchasedBooks))||($currentChapter==0)||( $_SESSION['adminname'] == $adminLogin)) {
@@ -80,7 +80,7 @@
       <h2 class="book-name"><? echo $chapterNames[$currentChapter]; ?></h2>
 
       <?if($currentChapter==0){
-        if($acceptToChapter) {?>
+        if(!empty($purchasedBooks)) {?>
         <h2 class="book-name red"><? echo "Спасибо за приобретение книги!"; ?></h2>
         <?}?>
        <div class="chapters__book"><img src='<? echo $image; ?>' alt="Обложка книги"></div>
