@@ -41,16 +41,19 @@
 				$time = time();
 				$lastday = $time - (24*60*60);
 				$search = queryMysql("SELECT * FROM protect WHERE id_member='$id_user' AND ip='$ip'");
-				if ($search->num_rows) {
+				if (!$search->num_rows) {
 					queryMysql("INSERT INTO `protect` (`id_member`, `ip`, `data`) VALUES('$id_user', '$ip', '$time')");
-
-					$countSQL = queryMysql("SELECT COUNT(*) AS count FROM `protect` WHERE data>'$lastday' AND `id_member`='$id_user'");
-					$r = $countSQL->fetch_array(MYSQLI_ASSOC);
-					$count = $r['count'];
-
 				}else {
 					echo "Privret";
 				}
+
+        $countSQL = queryMysql("SELECT COUNT(*) AS count FROM `protect` WHERE data>'$lastday' AND `id_member`='$id_user'");
+        $r = $countSQL->fetch_array(MYSQLI_ASSOC);
+        $count = $r['count'];
+        $s= queryMysql("SELECT * FROM `black_list` WHERE `user_id`='$id_user'");
+        if (($count>3)&&(!$s->num_rows)) {
+          queryMysql("INSERT INTO `black_list` ( `user_id`) VALUES ('$id_user')");
+        }
 
 			if(isset($_SESSION['href'])){
 				$href = $_SESSION['href'];
