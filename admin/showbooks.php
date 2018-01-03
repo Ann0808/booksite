@@ -7,7 +7,7 @@ $everything = Book::queryMysql("SELECT * FROM books");
 
 if (isset($_GET['erase'])) // Удаление глав и книги по id
     {
-      $erase = sanitizeString($_GET['erase']);
+    //  $erase = sanitizeString($_GET['erase']);
 
 			$delBook = Book::queryMysql("SELECT * FROM `books` WHERE `id`='$erase'");
 			$rows = $delBook->fetch_array(MYSQLI_ASSOC);
@@ -29,7 +29,7 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
    <div class="admin-container">
    	<div class="admin-container__items">
 			<div class="admin-container__item">
-			<h2>Покупки</h2>
+			<h2>Книги</h2>
 				<div class="admin-container__row">
 					<div class="col">Id</div>
 					<div class="col">BookName</div>
