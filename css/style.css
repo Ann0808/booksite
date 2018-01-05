@@ -143,6 +143,15 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
 .admin-container__row .purchases-col:first-child {
   border-left: 1px solid black;
 }
+.admin-container__row .col:first-child {
+  width: 4%;
+  border-left: 1px solid black;
+}
+.admin-container__row .col:last-child,
+.admin-container__row .col:nth-child(8),
+.admin-container__row .col:nth-child(9) {
+  width: 4%;
+}
 @media (min-width: 768px) {
   .admin-container {
     width: 90%;
@@ -189,15 +198,6 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
   display: inline;
   width: 100%;
   max-width: none;
-}
-.admin-container__row .col:first-child {
-  width: 4%;
-  border-left: 1px solid black;
-}
-.admin-container__row .col:last-child,
-.admin-container__row .col:nth-child(8),
-.admin-container__row .col:nth-child(9) {
-  width: 4%;
 }
 .admin-container__row--big {
   height: 150px;
