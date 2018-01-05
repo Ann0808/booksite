@@ -27,10 +27,10 @@ $erase = $_GET['erase'];
    <div class="admin-container__item">
    <h2>Black List</h2>
      <div class="admin-container__row start">
-       <div class="purchases-col">id</div>
-       <div class="purchases-col">Имя</div>
-       <div class="purchases-col">Логин</div>
-       <div class="col">del</div>
+       <div class="purchases-col border-top">id</div>
+       <div class="purchases-col border-top">Имя</div>
+       <div class="purchases-col border-top">Логин</div>
+       <div class="col border-top">del</div>
 
      </div>
      <?
