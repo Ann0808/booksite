@@ -12,7 +12,7 @@ INNER JOIN members ON black_list.user_id =members.id");
 
 <?php
 
-if (isset($_GET['erase'])) // Удаление глав и книги по id
+if (isset($_GET['erase']))
     {
 $erase = $_GET['erase'];
 			Book::queryMysql("DELETE FROM `black_list` WHERE `id` = '$erase';");
@@ -27,10 +27,10 @@ $erase = $_GET['erase'];
    <div class="admin-container__item">
    <h2>Black List</h2>
      <div class="admin-container__row start">
-       <div class="purchases-col">id</div>
-       <div class="purchases-col">UserNAme</div>
-       <div class="purchases-col">UserLogin</div>
-       <div class="purchases-col">delete from black list</div>
+       <div class="col">id</div>
+       <div class="col">Имя</div>
+       <div class="col">Логин</div>
+       <div class="col">del</div>
 
      </div>
      <?
@@ -42,7 +42,7 @@ $erase = $_GET['erase'];
              ?>
              <?php foreach ($value as $v) {
                if($is_id) $id_redirect = $v; ?>
-               <div class="purchases-col">
+               <div class="col">
                 <?php echo $v ?>
                </div>
              <? $is_id = false;}  ?>
