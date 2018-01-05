@@ -50,7 +50,7 @@ session_start(); ?>
 						<input class="admin-container__input-text" type="checkbox" name="book-is-admin" id="" >
 					</div>
 					 <div class="admin-container__row">
-						 <input class="btn" type="submit" value="Отправить данные"  name="submit"/>
+						 <input class="btn btn--margin" type="submit" value="Отправить данные"  name="submit"/>
 						 <p>
 							 <?php
 								 //$path = '../img/';

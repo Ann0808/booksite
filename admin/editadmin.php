@@ -38,21 +38,16 @@ session_start(); ?>
               <input class="admin-container__input-text" type="text" name="admin-yandex-money" id="" placeholder="410011111111111">
             </div>
             <div class="admin-container__row">
-              <p>Секретное слово для проверки подлинности  </p>
+              <p>Секретное слово для проверки подлинности  <a href="https://money.yandex.ru/sign.xml?retpath=https%3A%2F%2Fmoney.yandex.ru%2Fmyservices%2Fonline.xml"> перейдите по этой ссылке, чтобы узнать его </a></p>
               <input class="admin-container__input-text" type="text" name="admin-yandex-secret" id="" placeholder="ThjrWTYJsjSRHFssf">
             </div>
-              <div class="admin-container__row">
-                <p>
-                  <a href="https://money.yandex.ru/sign.xml?retpath=https%3A%2F%2Fmoney.yandex.ru%2Fmyservices%2Fonline.xml"> перейдите по этой ссылке, чтобы узнать его </a>
-                </p>
-              </div>
               <div class="admin-container__row">
                 <p>
                   Более подробно описано в <a href="http://sitebook/admin/admin.php">мануале</a>
                 </p>
               </div>
    					<div class="admin-container__row">
-   						<input class="btn" type="submit" value="Обновить" />
+   						<input class="btn btn--margin" type="submit" value="Обновить" />
    						<p>
                 <?php
                 if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
