@@ -12,17 +12,18 @@
    $adminPassword = $adminQuery['password'];
    $adminName = $adminQuery['name'];
 session_start();
+  if(isset($_SESSION['user_id'])){
 $id_user = $_SESSION['user_id'];
+}
+else {
+  $id_user = 0;
+}
 ?>
 <!doctype html>
 <html>
 <?php
-    $books_images_my = Book::queryMysql("SELECT books.link, books.image
-FROM purchases
-INNER JOIN books ON purchases.id_book =books.id  WHERE id_member!='$id_user' AND books.admin=1;");
-    $books_other_query = Book::queryMysql("SELECT books.link, books.image
-FROM purchases
-INNER JOIN books ON purchases.id_book =books.id  WHERE id_member!='$id_user' AND books.admin=0;");
+    $books_images_my = Book::queryMysql("SELECT books.link, books.image FROM purchases RIGHT JOIN books ON purchases.id_book = books.id WHERE books.admin=1 AND `id_member` IS NULL UNION ALL SELECT books.link, books.image FROM purchases RIGHT JOIN books ON purchases.id_book = books.id WHERE books.admin=1 AND `id_member`!='$id_user';");
+    $books_other_query = Book::queryMysql("SELECT books.link, books.image FROM purchases RIGHT JOIN books ON purchases.id_book = books.id WHERE books.admin=0 AND `id_member` IS NULL UNION ALL SELECT books.link, books.image FROM purchases RIGHT JOIN books ON purchases.id_book = books.id WHERE books.admin=0 AND `id_member`!='$id_user';");
     $books_images_purchased = Book::queryMysql("SELECT books.link, books.image
 FROM purchases
 INNER JOIN books ON purchases.id_book =books.id  WHERE id_member='$id_user';");
@@ -130,7 +131,9 @@ INNER JOIN books ON purchases.id_book =books.id  WHERE id_member='$id_user';");
         </div>
       </div>
     </section>
+    <a href="//www.free-kassa.ru/"><img src="//www.free-kassa.ru/img/fk_btn/16.png"></a>
   </main>
+
   <script type="text/javascript" src="/js/script.js"></script>
   <script type="text/javascript" src="/js/carousel.js"></script>
 </body>
