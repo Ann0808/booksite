@@ -35,7 +35,7 @@ $erase = $_GET['erase'];
      </div>
      <?
          foreach ($everything as $value) { ?>
-           <div class="admin-container__row admin-container__row--big start">
+           <div class="admin-container__row start">
              <?
                $id_redirect = 0;
                $is_id = true;
