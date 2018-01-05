@@ -43,7 +43,7 @@ $checked=$books['admin'];
           </div>
            </div>
            <div class='admin-container__row'>
-           <p>Редактировать mini</p>
+           <p>Редактировать обложку</p>
            <div class='file_upload btn'>
              Выбрать
              <input name='picture-book' type='file' id='imgbook'/>
@@ -57,7 +57,7 @@ $checked=$books['admin'];
           </div>
 					<div class="admin-container__row">
 					 <p>Вы автор книги</p>
-					 <input class="admin-container__input-text" type="checkbox" name="book-is-admin" id="" <?php if($checked) echo "checked"; ?>>
+					 <label class="checkbox"><input type="checkbox"  name="book-is-admin" <?php if($checked) echo "checked"; ?>><span class="checkbox-indicator"></span></label>
 				 </div>
 
         <div class='admin-container__row'>

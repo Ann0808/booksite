@@ -42,7 +42,7 @@ $erase = $_GET['erase'];
              ?>
              <?php foreach ($value as $v) {
                if($is_id) $id_redirect = $v; ?>
-               <div class="col">
+               <div class="purchases-col">
                 <?php echo $v ?>
                </div>
              <? $is_id = false;}  ?>
