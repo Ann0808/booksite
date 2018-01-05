@@ -47,7 +47,7 @@ session_start(); ?>
 					 </div>
 					 <div class="admin-container__row">
 						<p>Вы автор книги</p>
-						<input class="admin-container__input-text" type="checkbox" name="book-is-admin" id="" >
+						<label class="checkbox"><input type="checkbox"  name="book-is-admin" value="a1"><span class="checkbox-indicator"></span></label>
 					</div>
 					 <div class="admin-container__row">
 						 <input class="btn btn--margin" type="submit" value="Отправить данные"  name="submit"/>
