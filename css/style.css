@@ -32,6 +32,14 @@
   border-left: 50px solid transparent;
 }
 
+.admin-container__row {
+  display: flex;
+  flex-wrap: wrap;
+  width: auto;
+  max-width: 1100px;
+  justify-content: start;
+  vertical-align: middle;
+}
 .admin__body {
   background: #95a6ad;
 }
@@ -39,7 +47,6 @@
   display: flex;
   flex-wrap: wrap;
   width: auto;
-  padding: 30px;
   color: black;
   justify-content: center;
   border: 2px solid #92aac4;
@@ -48,13 +55,6 @@
 .admin-title {
   width: 100%;
   text-align: center;
-}
-.admin-container__row {
-  display: flex;
-  width: 100%;
-  max-width: 1100px;
-  justify-content: space-between;
-  vertical-align: middle;
 }
 .admin-container__row--central {
   max-width: none;
@@ -97,6 +97,8 @@
 }
 .admin-menu {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -114,11 +116,39 @@ input[type="radio"]:nth-of-type(2):checked ~ .admin-menu .admin-menu__item:nth-o
 input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-of-type(3) {
   background: rgba(146, 170, 196, 0.7);
 }
+.admin-container__row .col {
+  position: relative;
+  box-sizing: border-box;
+  width: 12%;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  overflow: hidden;
+  text-align: center;
+}
+.admin-container__row .purchases-col {
+  position: relative;
+  box-sizing: border-box;
+  width: 23%;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  overflow: hidden;
+  text-align: center;
+}
+.admin-container__row .purchases-col:first-child {
+  border-left: 1px solid black;
+}
 @media (min-width: 768px) {
   .admin-container {
     width: 90%;
     max-width: 1020px;
+    padding: 30px;
     margin: 30px auto;
+  }
+  .admin-container__row {
+    flex-wrap: nowrap;
+  }
+  .admin-menu {
+    flex-wrap: nowrap;
   }
 }
 .admin-container__chapter-link {
@@ -154,24 +184,17 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
   width: 100%;
   max-width: none;
 }
-.admin-container__row .col {
-  position: relative;
-  box-sizing: border-box;
-  width: 13%;
-  border-bottom: 1px solid black;
-  border-right: 1px solid black;
-  overflow: hidden;
-  text-align: center;
-}
 .admin-container__row .col:first-child {
   width: 4%;
   border-left: 1px solid black;
 }
-.admin-container__row .col:last-child {
+.admin-container__row .col:last-child,
+.admin-container__row .col:nth-child(8),
+.admin-container__row .col:nth-child(9) {
   width: 4%;
 }
 .admin-container__row--big {
-  height: 100px;
+  height: 150px;
 }
 .showbook__btn {
   display: block;
