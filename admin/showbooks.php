@@ -31,17 +31,17 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
 			<div class="admin-container__item">
 			<h2>Книги</h2>
 				<div class="admin-container__row">
-					<div class="col">Id</div>
-					<div class="col">BookName</div>
-					<div class="col">logomob</div>
-					<div class="col">logodesk</div>
-					<div class="col">bookimg</div>
-					<div class="col">Author</div>
-					<div class="col">Link</div>
-					<div class="col">Price</div>
-					<div class="col">My</div>
-					<div class="col">Edit</div>
-					<div class="col">Del</div>
+					<div class="col border-top">Id</div>
+					<div class="col border-top">BookName</div>
+					<div class="col border-top">logomob</div>
+					<div class="col border-top" >logodesk</div>
+					<div class="col border-top">bookimg</div>
+					<div class="col border-top">Author</div>
+					<div class="col border-top">Link</div>
+					<div class="col border-top">Price</div>
+					<div class="col border-top">My</div>
+					<div class="col border-top">Edit</div>
+					<div class="col border-top">Del</div>
 				</div>
 				<?
 						foreach ($everything as $value) { ?>

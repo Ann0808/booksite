@@ -15,10 +15,10 @@ INNER JOIN books ON purchases.id_book =books.id;");
    <div class="admin-container__item">
    <h2>Basic Table</h2>
      <div class="admin-container__row start">
-       <div class="purchases-col">UserNAme</div>
-       <div class="purchases-col">UserLogin</div>
-       <div class="purchases-col">BookName</div>
-       <div class="purchases-col">BookCost</div>
+       <div class="purchases-col border-top">UserNAme</div>
+       <div class="purchases-col border-top">UserLogin</div>
+       <div class="purchases-col border-top">BookName</div>
+       <div class="purchases-col border-top">BookCost</div>
      </div>
      <?
          foreach ($everything as $value) { ?>
