@@ -26,16 +26,16 @@ $erase = $_GET['erase'];
  <div class="admin-container__items">
    <div class="admin-container__item">
    <h2>Black List</h2>
-     <div class="admin-container__row">
-       <div class="col">id</div>
-       <div class="col">UserNAme</div>
-       <div class="col">UserLogin</div>
-       <div class="col">delete from black list</div>
+     <div class="admin-container__row start">
+       <div class="purchases-col">id</div>
+       <div class="purchases-col">UserNAme</div>
+       <div class="purchases-col">UserLogin</div>
+       <div class="purchases-col">delete from black list</div>
 
      </div>
      <?
          foreach ($everything as $value) { ?>
-           <div class="admin-container__row admin-container__row--big">
+           <div class="admin-container__row admin-container__row--big start">
              <?
                $id_redirect = 0;
                $is_id = true;
@@ -46,7 +46,7 @@ $erase = $_GET['erase'];
                 <?php echo $v ?>
                </div>
              <? $is_id = false;}  ?>
-            <div class="col"><a href="blacklist.php?erase=<? echo $id_redirect; ?>" class="del">Удалить</a></div>
+            <div class="purchases-col"><a href="blacklist.php?erase=<? echo $id_redirect; ?>" class="del">Удалить</a></div>
          </div>
        <?   } ?>
    </div>
