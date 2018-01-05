@@ -34,7 +34,6 @@
 .admin-container__row--central {
 	max-width: none;
 	justify-content: center;
-	padding-top: 20px;
 }
 
 .admin-container__row--central .btn {
@@ -158,6 +157,10 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
 	}
 
 
+
+}
+
+@media (min-width: 1024px) {
 	.admin-menu {
 		flex-wrap: nowrap;
 	}
@@ -209,6 +212,10 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
 	height: 150px;
 }
 
+.admin-container__row--medium {
+	height: 50px;
+}
+
 .showbook__btn {
   display: block;
 	width: auto;
@@ -251,7 +258,7 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
 .del::before {
 	position: absolute;
 	left: center;
-	top: 25px;
+	top: 50%;
 	margin-left: -12px;
 	content: "";
 	width: 25px;
@@ -275,3 +282,11 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
 .del:active::after {
 	opacity: 0.5;
 }
+
+@media (max-width: 768px) {
+	.admin-container__row .purchases-col {
+		width: 25%;
+		flex-wrap: nowrap;
+	}
+}
+

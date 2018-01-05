@@ -28,24 +28,25 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
 ?>
    <div class="admin-container">
    	<div class="admin-container__items">
-			<div class="admin-container__item">
-			<h2>Книги</h2>
-				<div class="admin-container__row">
-					<div class="col border-top">Id</div>
-					<div class="col border-top">BookName</div>
-					<div class="col border-top">logomob</div>
-					<div class="col border-top" >logodesk</div>
-					<div class="col border-top">bookimg</div>
-					<div class="col border-top">Author</div>
-					<div class="col border-top">Link</div>
-					<div class="col border-top">Price</div>
-					<div class="col border-top">My</div>
-					<div class="col border-top">Edit</div>
-					<div class="col border-top">Del</div>
+   	<h2>Книги</h2>
+			<div class="showbooks">
+
+				<div class="showbooks__row">
+					<div class="col col--border-top">Id</div>
+					<div class="col col--border-top">BookName</div>
+					<div class="col col--border-top">logomob</div>
+					<div class="col col--border-top" >logodesk</div>
+					<div class="col col--border-top">bookimg</div>
+					<div class="col col--border-top">Author</div>
+					<div class="col col--border-top">Link</div>
+					<div class="col col--border-top">Price</div>
+					<div class="col col--border-top">My</div>
+					<div class="col col--border-top">Edit</div>
+					<div class="col col--border-top">Del</div>
 				</div>
 				<?
 						foreach ($everything as $value) { ?>
-							<div class="admin-container__row admin-container__row--big">
+							<div class="showbooks__row">
 								<?
 									$id_redirect = 0;
 									$is_id = true;

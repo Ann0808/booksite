@@ -1,0 +1,35 @@
+.blacklist__row {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	max-width: 1100px;
+	justify-content: space-between;
+	vertical-align: middle;
+}
+
+.blacklist__row .col {
+	position: relative;
+	box-sizing: border-box;
+	width: 30%;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	overflow: hidden;
+	text-align: center;
+	height: 50px;
+}
+
+
+.blacklist__row .col:first-child {
+	border-left: 1px solid black;
+}
+
+.blacklist__row .col:last-child {
+	width: 10%;
+}
+
+@media (min-width: 768px) {
+	.blacklist__row {
+		width: 100%;
+		max-width: 1200px;
+	}
+}

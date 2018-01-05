@@ -26,23 +26,23 @@ $erase = $_GET['erase'];
  <div class="admin-container__items">
    <div class="admin-container__item">
    <h2>Black List</h2>
-     <div class="admin-container__row start">
-       <div class="purchases-col border-top">id</div>
-       <div class="purchases-col border-top">Имя</div>
-       <div class="purchases-col border-top">Логин</div>
+     <div class="blacklist__row">
+       <div class="col border-top">id</div>
+       <div class="col border-top">Имя</div>
+       <div class="col border-top">Логин</div>
        <div class="col border-top">del</div>
 
      </div>
      <?
          foreach ($everything as $value) { ?>
-           <div class="admin-container__row start">
+           <div class="blacklist__row">
              <?
                $id_redirect = 0;
                $is_id = true;
              ?>
              <?php foreach ($value as $v) {
                if($is_id) $id_redirect = $v; ?>
-               <div class="purchases-col">
+               <div class="col">
                 <?php echo $v ?>
                </div>
              <? $is_id = false;}  ?>
