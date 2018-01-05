@@ -3,23 +3,13 @@ session_start();
 ?>
 <?php if ( $_SESSION['adminname'] == $adminLogin) { ?>
 <?php include("header_admin.php");
-$everything = Book::queryMysql("SELECT  members.name, members.user , books.name AS n, books.price 
+$everything = Book::queryMysql("SELECT  members.name, members.user , books.name AS n, books.price
 FROM purchases
 INNER JOIN members ON purchases.id_member =members.id
 INNER JOIN books ON purchases.id_book =books.id
 ;");
 
 ?>
-
-<?  foreach ($everything as $value) { ?>
-
-        <?php foreach ($value as $v) { ?>
-
-           <?php echo $v ?>
-
-        <? }  ?>
-
-  <? } ?>
 
 <div class="admin-container">
  <div class="admin-container__items">
