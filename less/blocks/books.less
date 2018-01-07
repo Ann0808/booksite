@@ -1,4 +1,12 @@
 @import "../var.less";
+@font-face {
+  font-family: "AdineKirnberg";
+
+  src: url("../fonts/adinekirnberg.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
 .main-page {
    padding: 10px 0;
    /*background-image: url(../standart/img/books-bg.jpg);
@@ -23,16 +31,18 @@
 
 .carousel-title  {
   margin: 0;
-  font-size: 6vw;
+  font-size: 10vw;
   padding-top: 3vw;
   text-align: center;
   margin-bottom: 12vw;
+  color: #481c00;
+  font-family: "AdineKirnberg";
 }
 
 @media @sm-width {
   .carousel-title  {
     padding-top: 2vw;
-      font-size: 5vw;
+      font-size: 10vw;
   }
 }
 
@@ -58,6 +68,6 @@
 
   .carousel-title  {
     padding-top: 1vw;
-    font-size: 45px;
+    font-size: 92px;
   }
 }
