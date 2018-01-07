@@ -12,7 +12,7 @@
 <body class="admin__body">
 <?php
 		require_once 'functions.php';
-		$error = $user = $pass = $name = $surname = "";
+		$error = $user = $pass = $name = $email = "";
 		if (isset($_SESSION['user'])) destroySession();
 
 		if (isset($_POST['user']))
@@ -20,16 +20,16 @@
 			$user = sanitizeString($_POST['user']);
 			$pass = sanitizeString($_POST['pass']);
 			$name = sanitizeString($_POST['name']);
-			$surname = sanitizeString($_POST['surname']);
+			$email = sanitizeString($_POST['email']);
 
-			if ($user == "" || $pass == ""|| $name == ""|| $surname == "")
+			if ($user == "" || $pass == ""|| $name == ""|| $email == "")
 				$error = "Не все поля заполнены!";
 			else
 			{
 				$result = queryMysql("SELECT * FROM members WHERE user='$user'");
-			if (!preg_match("/^[a-z а-яё]{2,30}$/iu",$name)||!preg_match("/^[a-z а-яё]{2,30}$/iu",$surname))
+			if (!preg_match("/^[a-z а-яё]{2,30}$/iu",$name))
 			{
-				$error = "Убедитесь что Имя и Фамилия содержит от 2 до 30 символов и не содержит цифр!";
+				$error = "Убедитесь что Имя содержит от 2 до 30 символов и не содержит цифр!";
 			}
 			else
 				{
@@ -42,11 +42,11 @@
 					$error = "Такой логин уже существует!";
 					else
 					{
-					queryMysql("INSERT INTO `members` (`user`, `name`, `surname`,`pass`) VALUES('$user', '$name', '$surname','$pass' )");
+					queryMysql("INSERT INTO `members` (`user`, `name`, `email`,`pass`) VALUES('$user', '$name', '$email','$pass' )");
 					$_SESSION['user'] = $user;
 					$_SESSION['pass'] = $pass;
 					$_SESSION['name'] = $name;
-					$_SESSION['surname'] = $surname;
+					$_SESSION['email'] = $email;
 
 					$res = queryMySQL("SELECT id FROM members WHERE user='$user' AND pass='$pass'");
 					$row = $res->fetch_array(MYSQLI_ASSOC);
@@ -55,6 +55,8 @@
 					$ip = get_the_user_ip();
 					$time = time();
 					queryMysql("INSERT INTO `protect` (`id_member`, `ip`, `data`) VALUES('$id_user', '$ip', '$time')");
+          $textMail = "Здравствуйте!\nБлагодарим вас за регистрацию на сайте " . $_SERVER['HTTP_HOST'] . "\nВаш Логин: " . $user . "\nВаш Пароль: " . $pass;
+          mail($email, "Регистрация на сайте", $textMail);
 
 					if(isset($_SESSION['href'])){
 						$href = $_SESSION['href'];
@@ -78,7 +80,7 @@
 				<p class='signup__error'><? echo $error; echo $ip; echo $time; ?></p>
 									<input type='text' class='signup__icon-user' name='user' placeholder='Логин' value='<? echo $user; ?>' onBlur='checkUser(this)'>
 					<input type='text' class='signup__icon-user' name='name' placeholder='Имя' value='<? echo $name; ?>'>
-					<input type='text' class='signup__icon-user' name='surname' placeholder='Фамилия' value='<? echo $surname; ?>'>
+					<input type='email' class='signup__icon-user' name='email' placeholder='Email' value='<? echo $email; ?>'>
 									<input type='password' class='signup__icon-password' name='pass' placeholder='Пароль' value='<? echo $pass; ?>'>
 									<button class='btn signup__enter' type='submit' value='Login'>Зарегистрироваться</button>
 							</form>
