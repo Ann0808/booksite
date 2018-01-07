@@ -32,7 +32,7 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
 			<div class="showbooks">
 
 				<div class="showbooks__row">
-					<div class="col col--border-top">Id</div>
+					<div class="col col--border-top col--border-top-mobile">Id</div>
 					<div class="col col--border-top">BookName</div>
 					<div class="col col--border-top">logomob</div>
 					<div class="col col--border-top" >logodesk</div>

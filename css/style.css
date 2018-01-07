@@ -1266,6 +1266,11 @@ body {
     border-top: 1px solid black;
   }
 }
+@media (max-width: 768px) {
+  .col--border-top-mobile {
+    border-top: 1px solid black;
+  }
+}
 
 .signup {
   width: 100%;
