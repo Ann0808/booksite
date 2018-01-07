@@ -34,13 +34,17 @@
 	$author_name=$row['author_name'];
   $book_name=$row['name'];
 	$book_id=$row['id'];
-  $freeKassaId = $row['freekassaID'];
-  $freeKassaSecret = $row['freekassaSecret'];
+  $freeKassaId = $adminYandexRow['freekassaID'];
+  $freeKassaSecret = $adminYandexRow['freekassaSecret'];
   $price = $row['price'];
 	$searchChapters = queryMysql("SELECT * FROM `chapter` WHERE `book_id`='$book_id'");
   $acceptToChapter = false;
+  $usermail = '';
   if(isset($_SESSION['user'])) {
     $id_user = $_SESSION['user_id'];
+    $searchMail = queryMysql("SELECT email from members WHERE id='$id_user'");
+    $searchMail = $searchMail->fetch_array(MYSQLI_ASSOC);
+    $usermail = $searchMail['email'];
   } else {
     $id_user = 0;
   }
@@ -137,6 +141,7 @@ $sign = md5($merchant_id.':'.$order_amount.':'.$secret_word.':'.$order_id);
     <input type='hidden' name='oa' value='<?php echo $order_amount?>'>
     <input type='hidden' name='o' value='<?php echo $order_id?>'>
     <input type='hidden' name='s' value='<?php echo $sign?>'>
+    <input type='hidden' name='em' value='<?php echo $usermail?>'>
     <input type='hidden' name='lang' value='ru'>
     <input type='hidden' name='us_login' value='<? echo $id_user?>'>
     <input type='submit' name='pay' value='Оплатить'>

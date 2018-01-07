@@ -19,7 +19,6 @@ $key.'&'.
 $_POST['label']);
 
 if($_POST['sha1_hash'] != $hash or $_POST['codepro']===true or $_POST['unaccepted']===true) exit('error');
-
 Book::queryMysql("INSERT INTO `purchases`(`id_book`, `id_member`) VALUES ('$id_book','$id_user')");
 
 
