@@ -40,7 +40,7 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
 					<div class="col col--border-top">Автор</div>
 					<div class="col col--border-top">Ссылка</div>
 					<div class="col col--border-top">Цена</div>
-					<div class="col col--border-top">Я автор</div>
+					<div class="col col--border-top">My</div>
 					<div class="col col--border-top">Изменить</div>
 					<div class="col col--border-top">Del</div>
 				</div>
