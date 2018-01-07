@@ -22,7 +22,7 @@ INNER JOIN books ON purchases.id_book =books.id
           <div class="purchases-col border-top">Цена книги</div>
      </div>
      <?  foreach ($everything as $value) { ?>
-           <div class="admin-container__row admin-container__row--big start">
+           <div class="admin-container__row start">
              <?php foreach ($value as $v) { ?>
                <div class="purchases-col">
                 <?php echo $v ?>
