@@ -57,6 +57,10 @@ INNER JOIN books ON purchases.id_book =books.id  WHERE id_member='$id_user';");
         <div id="carouselPurchased" class="carousel" >
           <button class="prev">Назад</button><button class="next">Вперед</button>
           <?php
+          $rowIsEmpty = $books_images_purchased->fetch_array(MYSQLI_ASSOC);
+          if (sizeof($rowIsEmpty)==0) {
+            echo " <a class='carousel__item carousel__item--center'><img src='/img/standart/book-opacity.png' alt='нет приобретенных книг'></a>";
+          }
           foreach ($books_images_purchased as $value) {
 						$id_link = 0;
 						$is_link = true;

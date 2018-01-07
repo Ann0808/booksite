@@ -108,6 +108,18 @@
 
             <p>яндекс-деньгами:</p>
             <iframe src="https://money.yandex.ru/quickpay/button-widget?targets=%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0&default-sum=<?echo $price;?>&button-text=11&yamoney-payment-type=on&button-size=m&button-color=orange&successURL=http%3A%2F%2Fbooks.livefreely.ru%2Fpage.php%3Fchapter%3D0%26book%3D<?echo $id_link?>&quickpay=small&account=<?echo $adminYandex?>&label=<?echo $label?>" width="184" height="36" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
+            <p>С помощью fee-kassa</p>
+            <form method='get' action='http://www.free-kassa.ru/merchant/cash.php'>
+            <input type='hidden' name='m' value='64939'>
+            <input type='hidden' name='oa' value='<?echo $price;?>'>
+            <input type='hidden' name='o' value='28'>
+            <input type='hidden' name='s' value='6d4a81a20eacbdefdeaa1848eed4fcd3'>
+            <input type='hidden' name='i' value=''>
+            <input type='hidden' name='lang' value='ru'>
+            <input type='hidden' name='em' value='gladiatorxp@yandex.ru'>
+            <input type='submit' name='pay' class="btn" value='Оплатить'>
+            </form>
+
 <?
            }
            else {

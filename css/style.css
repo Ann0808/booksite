@@ -261,6 +261,13 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
   opacity: 0.5;
 }
 
+@font-face {
+  font-family: "AdineKirnberg";
+  src: url("../fonts/adinekirnberg.woff2") format("woff2");
+  /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
 .main-page {
   padding: 10px 0;
   /*background-image: url(../standart/img/books-bg.jpg);
@@ -282,15 +289,17 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
 }
 .carousel-title {
   margin: 0;
-  font-size: 6vw;
+  font-size: 10vw;
   padding-top: 3vw;
   text-align: center;
   margin-bottom: 12vw;
+  color: #481c00;
+  font-family: "AdineKirnberg";
 }
 @media (min-width:540px) {
   .carousel-title {
     padding-top: 2vw;
-    font-size: 5vw;
+    font-size: 10vw;
   }
 }
 @media (min-width:768px) {
@@ -311,7 +320,7 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
   }
   .carousel-title {
     padding-top: 1vw;
-    font-size: 45px;
+    font-size: 92px;
   }
 }
 
@@ -527,6 +536,9 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
   margin: 0;
   text-align: center;
   padding: 0 1%;
+}
+.carousel__item--center {
+  margin: auto;
 }
 @media (min-width: 768px) {
   .carousel__item {
