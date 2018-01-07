@@ -70,7 +70,8 @@
 ?>
             		<div class='signup'>
 									<h2 class='signup__title'>Вы уже вошли</h2>
-									<a href="index.php" class="btn">На главную</a>
+									<a href="index.php" class="link">На главную</a>
+									<a href="signout.php" class="link">Выйти</a>
 								</div>
 						<?	} else {
           ?>
