@@ -32,17 +32,17 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
 			<div class="showbooks">
 
 				<div class="showbooks__row">
-					<div class="col col--border-top col--border-top-mobile">Id</div>
-					<div class="col col--border-top">Название</div>
-					<div class="col col--border-top">Лого min</div>
-					<div class="col col--border-top" >Лого max</div>
-					<div class="col col--border-top">Обложка</div>
-					<div class="col col--border-top">Автор</div>
-					<div class="col col--border-top">Ссылка</div>
-					<div class="col col--border-top">Цена</div>
-					<div class="col col--border-top">My</div>
-					<div class="col col--border-top">Изменить</div>
-					<div class="col col--border-top">Del</div>
+					<div class="col col--border-top col--small">Id</div>
+					<div class="col col--border-top col--small">Название</div>
+					<div class="col col--border-top col--small">Лого min</div>
+					<div class="col col--border-top col--small" >Лого max</div>
+					<div class="col col--border-top col--small">Обложка</div>
+					<div class="col col--border-top col--small">Автор</div>
+					<div class="col col--border-top col--small">Ссылка</div>
+					<div class="col col--border-top col--small">Цена</div>
+					<div class="col col--border-top col--small">My</div>
+					<div class="col col--border-top col--small">Изменить</div>
+					<div class="col col--border-top col--small">Del</div>
 				</div>
 				<?
 						foreach ($everything as $value) { ?>
