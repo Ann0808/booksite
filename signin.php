@@ -66,18 +66,25 @@
 
     }
   }
-
+							if(isset($_SESSION['user'])){
 ?>
-            <div class='signup'>
+            		<div class='signup'>
+									<h2 class='signup__title'>Вы уже вошли</h2>
+									<a href="index.php" class="btn">На главную</a>
+								</div>
+						<?	} else {
+          ?>
+           <div class='signup'>
             <h2 class='signup__title'>Вход в личный кабинет</h2>
             <p>Введите свой логин и пароль</p>
             <form action='signin.php' method='post' class='signup__login-form'>
-			<p class='signup__error'><? echo $error; echo $count; ?></p>
+								<p class='signup__error'><? echo $error; echo $count; ?></p>
                 <input type='text' class='signup__icon-user' name='user' placeholder='Логин' value='<? echo $user; ?>'>
                 <input type='password' class='signup__icon-password' name='pass' placeholder='Пароль' value='<? echo $pass; ?>'>
                 <button class='btn signup__enter' type='submit' value='Login'>Войти</button>
                 <a href="signup.php" class="link">Зарегистрироваться</a>
             </form>
         </div>
+      <? } ?>
         </body>
 </html>
