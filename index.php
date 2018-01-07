@@ -11,6 +11,7 @@
    $adminLogin = $adminQuery['login'];
    $adminPassword = $adminQuery['password'];
    $adminName = $adminQuery['name'];
+   $adminEmail = $adminQuery['email'];
    $host ='http://'.$_SERVER['HTTP_HOST'];
 session_start();
   if(isset($_SESSION['user_id'])){
@@ -137,6 +138,7 @@ INNER JOIN books ON purchases.id_book =books.id  WHERE id_member='$id_user';");
       </div>
     </section>
     <a href="//www.free-kassa.ru/"><img src="//www.free-kassa.ru/img/fk_btn/16.png"></a>
+    <span class="questions">Возникли вопросы? Пишите на <b><?php echo $adminEmail; ?></b> </span>
   </main>
 
   <script type="text/javascript" src="/js/script.js"></script>
