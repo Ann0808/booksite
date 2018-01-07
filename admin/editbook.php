@@ -55,7 +55,7 @@ $checked=$books['admin'];
           <p>Редактировать автора</p>
          <input id='author-name' class='admin-container__input-text' type='text' name='book-author' value='<?echo $author_name;?>'>
           </div>
-					<div class="admin-container__row">
+					<div class="admin-container__row margin-bottom">
 					 <p>Вы автор книги</p>
 					 <label class="checkbox"><input type="checkbox"  name="book-is-admin" <?php if($checked) echo "checked"; ?>><span class="checkbox-indicator"></span></label>
 				 </div>
