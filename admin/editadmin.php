@@ -38,7 +38,7 @@ session_start(); ?>
               <input class="admin-container__input-text" type="text" name="admin-yandex-money" id="" placeholder="410011111111111">
             </div>
             <div class="admin-container__row">
-              <p>Секретное слово для проверки подлинности  <a href="https://money.yandex.ru/sign.xml?retpath=https%3A%2F%2Fmoney.yandex.ru%2Fmyservices%2Fonline.xml"> перейдите по этой ссылке, чтобы узнать его </a></p>
+              <p>Секретное слово для проверки подлинности  <a href="https://money.yandex.ru/sign.xml?retpath=https%3A%2F%2Fmoney.yandex.ru%2Fmyservices%2Fonline.xml"> перейдите по этой ссылке</a>, чтобы узнать его </p>
               <input class="admin-container__input-text" type="text" name="admin-yandex-secret" id="" placeholder="ThjrWTYJsjSRHFssf">
             </div>
               <div class="admin-container__row">
