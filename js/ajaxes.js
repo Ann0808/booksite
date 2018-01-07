@@ -2,8 +2,10 @@ function visible(e) {
     $(e).siblings().toggleClass("visible");
 }
 
-
 function visibleAddChapter() {
+  $(".admin_container__wrapper.hidden").toggleClass("visible");
+}
+function visibleAddPurchase() {
   $(".admin_container__wrapper.hidden").toggleClass("visible");
 }
 
