@@ -21,11 +21,12 @@
   queryMysql("SET NAMES utf8");
 
 	$searchBook = queryMysql("SELECT * FROM `books` WHERE `link`='$id_link'");
-  $adminQuery = queryMysql("SELECT `yandex_money`, `login`, `email` FROM `admin`");
+  $adminQuery = queryMysql("SELECT `yandex_money`, `login`, `email`, `freekassaID`, `freekassaSecret` FROM `admin`");
   $adminYandexRow = $adminQuery->fetch_array(MYSQLI_ASSOC);
   $adminYandex = $adminYandexRow['yandex_money'];
   $adminLogin = $adminYandexRow['login'];
   $adminEmail = $adminYandexRow['email'];
+  $host =$_SERVER['HTTP_HOST'];
 	$row = $searchBook->fetch_array(MYSQLI_ASSOC);
 	$image=$row['image'];
 	$logo_mob=$row['logo-mob'];
@@ -33,11 +34,17 @@
 	$author_name=$row['author_name'];
   $book_name=$row['name'];
 	$book_id=$row['id'];
+  $freeKassaId = $row['freekassaID'];
+  $freeKassaSecret = $row['freekassaSecret'];
   $price = $row['price'];
 	$searchChapters = queryMysql("SELECT * FROM `chapter` WHERE `book_id`='$book_id'");
   $acceptToChapter = false;
-  $id_user = $_SESSION['user_id'];
-
+  if(isset($_SESSION['user'])) {
+    $id_user = $_SESSION['user_id'];
+  } else {
+    $id_user = 0;
+  }
+  $_SESSION['href'] = "page.php?chapter=0&book=$id_link";
   $searchBlackList = queryMysql("SELECT * FROM `black_list` WHERE `user_id`='$id_user'");
   $isBlack = $searchBlackList->num_rows;
   $label = $book_id . '|' . $id_user;
@@ -65,7 +72,9 @@
                 <button class="main-nav__toggle" type="button">Открыть меню</button>
                 <div class="main-nav__wrapper">
                     <ul class="main-nav__items">
+                      <li class="main-nav__item"><a href="/">На главную</a></li>
                     <?
+
 											$text=array();
                       $chapterNames=array();
                       $j=0;
@@ -76,6 +85,12 @@
                         $chapterNames[] = $value["name"];
                         $j++;
 											}
+
+                      if ($id_user!=0) {
+                        echo '<li class="main-nav__item"><a href="/signout.php">Выйти</a></li>';
+                      } else {
+                        echo '<li class="main-nav__item"><a href="/signin.php">Войти</a></li>';
+                      }
 
 											?>
                     </ul>
@@ -104,26 +119,33 @@
           if(isset($_SESSION['user_id'])){
             echo("для дальнейшего просмотра предлагаем купить книгу"); ?>
             <p>банковской картой:</p>
-            <iframe src="https://money.yandex.ru/quickpay/button-widget?targets=%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0&default-sum=<?echo $price;?>&button-text=11&any-card-payment-type=on&button-size=m&button-color=orange&successURL=http%3A%2F%2Fbooks.livefreely.ru%2Fpage.php%3Fchapter%3D0%26book%3D<?echo $id_link?>&quickpay=small&account=<?echo $adminYandex?>&label=<?echo $label?>" width="184" height="36" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
+            <iframe src="https://money.yandex.ru/quickpay/button-widget?targets=%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0&default-sum=<?echo $price;?>&button-text=11&any-card-payment-type=on&button-size=m&button-color=orange&successURL=http%3A%2F%2F<?echo $host?>%2Fpage.php%3Fchapter%3D0%26book%3D<?echo $id_link?>&quickpay=small&account=<?echo $adminYandex?>&label=<?echo $label?>" width="184" height="36" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
 
             <p>яндекс-деньгами:</p>
-            <iframe src="https://money.yandex.ru/quickpay/button-widget?targets=%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0&default-sum=<?echo $price;?>&button-text=11&yamoney-payment-type=on&button-size=m&button-color=orange&successURL=http%3A%2F%2Fbooks.livefreely.ru%2Fpage.php%3Fchapter%3D0%26book%3D<?echo $id_link?>&quickpay=small&account=<?echo $adminYandex?>&label=<?echo $label?>" width="184" height="36" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
+            <iframe src="https://money.yandex.ru/quickpay/button-widget?targets=%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0&default-sum=<?echo $price;?>&button-text=11&yamoney-payment-type=on&button-size=m&button-color=orange&successURL=http%3A%2F%2F<?echo $host?>%2Fpage.php%3Fchapter%3D0%26book%3D<?echo $id_link?>&quickpay=small&account=<?echo $adminYandex?>&label=<?echo $label?>" width="184" height="36" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
             <p>С помощью fee-kassa</p>
-            <form method='get' action='http://www.free-kassa.ru/merchant/cash.php'>
-            <input type='hidden' name='m' value='64939'>
-            <input type='hidden' name='oa' value='<?echo $price;?>'>
-            <input type='hidden' name='o' value='28'>
-            <input type='hidden' name='s' value='6d4a81a20eacbdefdeaa1848eed4fcd3'>
-            <input type='hidden' name='i' value=''>
-            <input type='hidden' name='lang' value='ru'>
-            <input type='hidden' name='em' value='gladiatorxp@yandex.ru'>
-            <input type='submit' name='pay' class="btn" value='Оплатить'>
-            </form>
+            <?php
+$merchant_id = $freeKassaId;
+$secret_word = $freeKassaSecret; //= '8joshplo';
+$order_id = $book_id;
+$order_amount = $price;
+$sign = md5($merchant_id.':'.$order_amount.':'.$secret_word.':'.$order_id);
+
+?>
+  <form method='get' action='http://www.free-kassa.ru/merchant/cash.php'>
+    <input type='hidden' name='m' value='<?php echo $merchant_id?>'>
+    <input type='hidden' name='oa' value='<?php echo $order_amount?>'>
+    <input type='hidden' name='o' value='<?php echo $order_id?>'>
+    <input type='hidden' name='s' value='<?php echo $sign?>'>
+    <input type='hidden' name='lang' value='ru'>
+    <input type='hidden' name='us_login' value='<? echo $id_user?>'>
+    <input type='submit' name='pay' value='Оплатить'>
+  </form>
 
 <?
            }
            else {
-     				$_SESSION['href'] = "page.php?chapter=0&book=$id_link";
+
      				echo "<script>window.location.href='signin.php'</script>";
      			}
 

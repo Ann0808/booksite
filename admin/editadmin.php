@@ -41,10 +41,15 @@ session_start(); ?>
               <p>Секретное слово для проверки подлинности  <a href="https://money.yandex.ru/sign.xml?retpath=https%3A%2F%2Fmoney.yandex.ru%2Fmyservices%2Fonline.xml"> перейдите по этой ссылке</a>, чтобы узнать его </p>
               <input class="admin-container__input-text" type="text" name="admin-yandex-secret" id="" placeholder="ThjrWTYJsjSRHFssf">
             </div>
+              
+
               <div class="admin-container__row">
-                <p>
-                  Более подробно описано в <a href="http://sitebook/admin/admin.php">мануале</a>
-                </p>
+                <p>ID кошелька freekassa</p>
+                <input class="admin-container__input-text" type="text" name="admin-freekassa-money" id="" placeholder="11111">
+              </div>
+              <div class="admin-container__row">
+                <p>Секретное слово freekassa</p>
+                <input class="admin-container__input-text" type="text" name="admin-freekassa-secret" id="" placeholder="secret">
               </div>
    					<div class="admin-container__row">
    						<input class="btn btn--margin" type="submit" value="Обновить" />
@@ -59,6 +64,21 @@ session_start(); ?>
                   $newName = $_POST['admin-name'];
                   $yandex_secret = $_POST['admin-yandex-secret'];
                   $yandex_money = $_POST['admin-yandex-money'];
+                  $freekassa_secret = $_POST['admin-freekassa-secret'];
+                  $freekassa_money = $_POST['admin-freekassa-money'];
+
+                  if ( $freekassa_secret!=null ) {
+                    $insertQuery = "UPDATE `admin` SET `freekassaSecret`='$freekassa_secret'";
+                    Book::queryMysql($insertQuery);
+                    echo ("Секрет успешно изменен!");
+                  }
+
+                  if ( $freekassa_money!=null ) {
+                    $insertQuery = "UPDATE `admin` SET `freekassaID`='$freekassa_money'";
+                    Book::queryMysql($insertQuery);
+                    echo ("ID freekassa кошелька успешно изменен!");
+                  }
+
                   if ( $newEmail!=null ) {
                     $insertQuery = "UPDATE `admin` SET `email`='$newEmail'";
                     Book::queryMysql($insertQuery);
