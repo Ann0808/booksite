@@ -33,15 +33,15 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
 
 				<div class="showbooks__row">
 					<div class="col col--border-top col--border-top-mobile">Id</div>
-					<div class="col col--border-top">BookName</div>
-					<div class="col col--border-top">logomob</div>
-					<div class="col col--border-top" >logodesk</div>
-					<div class="col col--border-top">bookimg</div>
-					<div class="col col--border-top">Author</div>
-					<div class="col col--border-top">Link</div>
-					<div class="col col--border-top">Price</div>
-					<div class="col col--border-top">My</div>
-					<div class="col col--border-top">Edit</div>
+					<div class="col col--border-top">Название</div>
+					<div class="col col--border-top">Лого min</div>
+					<div class="col col--border-top" >Лого max</div>
+					<div class="col col--border-top">Обложка</div>
+					<div class="col col--border-top">Автор</div>
+					<div class="col col--border-top">Ссылка</div>
+					<div class="col col--border-top">Цена</div>
+					<div class="col col--border-top">Я автор</div>
+					<div class="col col--border-top">Изменить</div>
 					<div class="col col--border-top">Del</div>
 				</div>
 				<?
@@ -67,7 +67,7 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
 										?>
 									</div>
 							<?    $is_id = false; } ?>
-							<div class="col"><a class="showbook__btn" href="editbook.php?id=<?echo $id_redirect; ?>">edit book</a><a class="showbook__btn" href="editchapters.php?id=<?echo $id_redirect; ?>">edit chapters</a></div>
+							<div class="col"><a class="showbook__btn" href="editbook.php?id=<?echo $id_redirect; ?>">Книгу</a><a class="showbook__btn" href="editchapters.php?id=<?echo $id_redirect; ?>">Главу</a></div>
 							<div class="col"><a href="showbooks.php?erase=<? echo $id_redirect; ?>" class="del">Удалить</a></div>
 						</div>
 					<?  } ?>
