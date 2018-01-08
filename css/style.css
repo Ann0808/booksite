@@ -95,7 +95,6 @@
   line-height: 24px;
   font-weight: bold;
   font-family: "Arial", sans-serif;
-  height: 30px;
 }
 .admin-menu {
   display: flex;
@@ -272,6 +271,9 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
 }
 .margin-bottom {
   margin-bottom: 20px;
+}
+.padding-right {
+  border-right: 20px solid transparent;
 }
 
 .blacklist__row {
@@ -775,14 +777,20 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
   border-top: 1px solid #95a6ad;
   border-bottom: 1px solid #95a6ad;
 }
+.main-nav__item-special a {
+  background-color: #8dc6e3;
+}
 .main-nav__item a[href]:hover {
   background-color: #e0e5e8;
   border-top-color: #84959d;
 }
 .main-nav__item a[href]:active {
   color: rgba(255, 255, 255, 0.3);
-  background-color: #6a4d38;
-  border-top-color: #6a4d38;
+  background-color: #c3ae93;
+  border-top-color: #c3ae93;
+}
+.main-nav__item-special a[href]:hover {
+  background-color: #7bb1cd;
 }
 .main-nav__user-login {
   position: relative;

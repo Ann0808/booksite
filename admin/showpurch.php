@@ -35,8 +35,10 @@ INNER JOIN books ON purchases.id_book =books.id
        <? } ?>
    </div>
  </div>
- <div class='admin-container__row admin-container__row--central'>
-  <button onclick='visibleAddPurchase()' class='btn admin-container__input-text--center' >Добавить покупку вручную</button>
+ <div class='admin-container__row'>
+  <button onclick='visibleAddPurchase()' class='btn btn--margin' >Добавить покупку вручную</button>
+	</div>
+	<div class='admin-container__row admin-container__row'>
   <div class='admin_container__wrapper hidden' id='addNewPurchaseWrapper'>
     <form action='showpurch.php' method='post' >
     <p>Email пользователя</p>
