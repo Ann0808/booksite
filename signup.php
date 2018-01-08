@@ -12,6 +12,7 @@
 <body class="admin__body">
 <?php
 		require_once 'functions.php';
+    queryMysql("SET NAMES utf8");
 		$error = $user = $pass = $name = $email = "";
 		if (isset($_SESSION['user'])) destroySession();
 
@@ -27,6 +28,7 @@
 			else
 			{
 				$result = queryMysql("SELECT * FROM members WHERE user='$user'");
+        $resultEmail = queryMysql("SELECT * FROM members WHERE email='$email'");
 			if (!preg_match("/^[a-z а-яё]{2,30}$/iu",$name))
 			{
 				$error = "Убедитесь что Имя содержит от 2 до 30 символов и не содержит цифр!";
@@ -38,8 +40,11 @@
 					$error = "Убедитесь что Логин содержит от 5 до 20 символов, и состоит из латинских символов и цифр!";
 				}
 				else {
-					if ($result->num_rows)
-					$error = "Такой логин уже существует!";
+					if ($result->num_rows){
+            $error = "Такой логин уже существует!";
+          } elseif ($resultEmail->num_rows) {
+            $error = "Пользователь с таким email уже существует!";
+          }
 					else
 					{
 					queryMysql("INSERT INTO `members` (`user`, `name`, `email`,`pass`) VALUES('$user', '$name', '$email','$pass' )");
@@ -56,7 +61,7 @@
 					$time = time();
 					queryMysql("INSERT INTO `protect` (`id_member`, `ip`, `data`) VALUES('$id_user', '$ip', '$time')");
           $textMail = "Здравствуйте!\nБлагодарим вас за регистрацию на сайте " . $_SERVER['HTTP_HOST'] . "\nВаш Логин: " . $user . "\nВаш Пароль: " . $pass;
-        
+
           mail($email, "Регистрация на сайте", $textMail, $headers);
 
 					if(isset($_SESSION['href'])){

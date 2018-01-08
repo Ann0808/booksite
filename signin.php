@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Регистрация</title>
+    <title>Войти</title>
     <link rel="stylesheet" href="/css/style.css">
     <script type="text/javascript" src="/js/script.js"></script>
 </head>
