@@ -130,7 +130,7 @@
             <p>С помощью fee-kassa</p>
             <?php
 $merchant_id = $freeKassaId;
-$secret_word = $freeKassaSecret; //= '8joshplo';
+$secret_word = $freeKassaSecret;
 $order_id = $book_id . $id_user;
 $order_amount = $price;
 $sign = md5($merchant_id.':'.$order_amount.':'.$secret_word.':'.$order_id);
