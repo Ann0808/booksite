@@ -131,7 +131,7 @@
             <?php
 $merchant_id = $freeKassaId;
 $secret_word = $freeKassaSecret; //= '8joshplo';
-$order_id = $book_id;
+$order_id = $book_id . $id_user;
 $order_amount = $price;
 $sign = md5($merchant_id.':'.$order_amount.':'.$secret_word.':'.$order_id);
 
@@ -144,6 +144,7 @@ $sign = md5($merchant_id.':'.$order_amount.':'.$secret_word.':'.$order_id);
     <input type='hidden' name='em' value='<?php echo $usermail?>'>
     <input type='hidden' name='lang' value='ru'>
     <input type='hidden' name='us_login' value='<? echo $id_user?>'>
+    <input type='hidden' name='us_book' value='<? echo $book_id?>'>
     <input type='submit' name='pay' value='Оплатить'>
   </form>
 
