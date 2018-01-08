@@ -121,13 +121,13 @@
        }
          else {
           if(isset($_SESSION['user_id'])){
-            echo("для дальнейшего просмотра предлагаем купить книгу"); ?>
-            <p>банковской картой:</p>
+            echo("Для дальнейшего просмотра предлагаем купить книгу"); ?>
+            <p>Банковской картой:</p>
             <iframe src="https://money.yandex.ru/quickpay/button-widget?targets=%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0&default-sum=<?echo $price;?>&button-text=11&any-card-payment-type=on&button-size=m&button-color=orange&successURL=http%3A%2F%2F<?echo $host?>%2Fpage.php%3Fchapter%3D0%26book%3D<?echo $id_link?>&quickpay=small&account=<?echo $adminYandex?>&label=<?echo $label?>" width="184" height="36" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
 
-            <p>яндекс-деньгами:</p>
+            <p>Яндекс-деньгами:</p>
             <iframe src="https://money.yandex.ru/quickpay/button-widget?targets=%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0&default-sum=<?echo $price;?>&button-text=11&yamoney-payment-type=on&button-size=m&button-color=orange&successURL=http%3A%2F%2F<?echo $host?>%2Fpage.php%3Fchapter%3D0%26book%3D<?echo $id_link?>&quickpay=small&account=<?echo $adminYandex?>&label=<?echo $label?>" width="184" height="36" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
-            <p>С помощью fee-kassa</p>
+            <p>Другие способы:</p>
             <?php
 $merchant_id = $freeKassaId;
 $secret_word = $freeKassaSecret;
@@ -145,7 +145,7 @@ $sign = md5($merchant_id.':'.$order_amount.':'.$secret_word.':'.$order_id);
     <input type='hidden' name='lang' value='ru'>
     <input type='hidden' name='us_login' value='<? echo $id_user?>'>
     <input type='hidden' name='us_book' value='<? echo $book_id?>'>
-    <input type='submit' name='pay' value='Оплатить'>
+    <input class="btn" type='submit' name='pay' value='Оплатить'>
   </form>
 
 <?

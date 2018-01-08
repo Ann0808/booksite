@@ -24,8 +24,28 @@ else {
 <!doctype html>
 <html>
 <?php
-    $books_images_my = Book::queryMysql("SELECT DISTINCT books.link, books.image FROM purchases RIGHT JOIN books ON purchases.id_book = books.id WHERE books.admin=1 AND `id_member` IS NULL UNION ALL SELECT DISTINCT books.link, books.image FROM purchases RIGHT JOIN books ON purchases.id_book = books.id WHERE books.admin=1 AND `id_member`!='$id_user';");
-    $books_other_query = Book::queryMysql("SELECT DISTINCT books.link, books.image FROM purchases RIGHT JOIN books ON purchases.id_book = books.id WHERE books.admin=0 AND `id_member` IS NULL UNION ALL SELECT DISTINCT books.link, books.image FROM purchases RIGHT JOIN books ON purchases.id_book = books.id WHERE books.admin=0 AND `id_member`!='$id_user';");
+    $books_images_my = Book::queryMysql("SELECT DISTINCT books.link, books.image FROM purchases
+      RIGHT JOIN books ON purchases.id_book = books.id
+      WHERE books.admin=1 AND `id_member` IS NULL UNION ALL
+      SELECT DISTINCT books.link, books.image FROM purchases
+      RIGHT JOIN books ON purchases.id_book = books.id WHERE books.admin=1 AND `id_member`!='$id_user'
+      AND purchases.id_book NOT
+      IN (
+        SELECT id_book
+        FROM purchases
+        WHERE id_member =$id_user
+      );");
+    $books_other_query = Book::queryMysql("SELECT DISTINCT books.link, books.image FROM purchases
+      RIGHT JOIN books ON purchases.id_book = books.id
+      WHERE books.admin=0 AND `id_member` IS NULL
+      UNION ALL SELECT DISTINCT books.link, books.image FROM purchases
+      RIGHT JOIN books ON purchases.id_book = books.id
+      WHERE books.admin=0 AND `id_member`!='$id_user' AND purchases.id_book NOT
+      IN (
+        SELECT id_book
+        FROM purchases
+        WHERE id_member =$id_user
+      );");
     $books_images_purchased = Book::queryMysql("SELECT books.link, books.image
 FROM purchases
 INNER JOIN books ON purchases.id_book =books.id  WHERE id_member='$id_user';");
