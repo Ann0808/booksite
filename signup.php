@@ -56,7 +56,8 @@
 					$time = time();
 					queryMysql("INSERT INTO `protect` (`id_member`, `ip`, `data`) VALUES('$id_user', '$ip', '$time')");
           $textMail = "Здравствуйте!\nБлагодарим вас за регистрацию на сайте " . $_SERVER['HTTP_HOST'] . "\nВаш Логин: " . $user . "\nВаш Пароль: " . $pass;
-          mail($email, "Регистрация на сайте", $textMail);
+        
+          mail($email, "Регистрация на сайте", $textMail, $headers);
 
 					if(isset($_SESSION['href'])){
 						$href = $_SESSION['href'];
