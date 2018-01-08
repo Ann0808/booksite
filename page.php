@@ -72,7 +72,7 @@
                 <button class="main-nav__toggle" type="button">Открыть меню</button>
                 <div class="main-nav__wrapper">
                     <ul class="main-nav__items">
-                      <li class="main-nav__item"><a href="/">На главную</a></li>
+                      <li class="main-nav__item main-nav__item-special"><a href="/">На главную</a></li>
                     <?
 
 											$text=array();
@@ -87,9 +87,9 @@
 											}
 
                       if ($id_user!=0) {
-                        echo '<li class="main-nav__item"><a href="/signout.php">Выйти</a></li>';
+                        echo '<li class="main-nav__item main-nav__item-special"><a href="/signout.php">Выйти</a></li>';
                       } else {
-                        echo '<li class="main-nav__item"><a href="/signin.php">Войти</a></li>';
+                        echo '<li class="main-nav__item main-nav__item-special"><a href="/signin.php">Войти</a></li>';
                       }
 
 											?>
