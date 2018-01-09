@@ -26,7 +26,7 @@ reload: true
 },
 css: {
 files: ['less/*.less', 'less/blocks/*.less', 'less/carousel/*.less'],
-tasks: ['less'],
+tasks: ['less', 'postcss','cssmin'],
 options: {
 spawn: false,
 reload: true
@@ -40,7 +40,7 @@ dynamic: {
 files: [{
 expand: true,
 cwd: '',
-src: ['img/*.{png,jpg,gif}'],
+src: ['img/*.{png,jpg,gif}','img/standart*.{png,jpg,gif}'],
 dest: ''
 }]
 }
@@ -49,13 +49,25 @@ dest: ''
 postcss: {
 options: {
 processors: [
-require('autoprefixer')({browsers: ['last 2 version']})
+require('autoprefixer')({browsers: ['last 5 versions']})
 ]
 },
 dist: {
 src: 'css/style.css',
 dest: 'css/style.css'
 }
+},
+
+	cssmin: {
+  target: {
+    files: [{
+      expand: true,
+      cwd: 'css/',
+      src: ['style.css'],
+      dest: 'css/',
+      ext: '.min.css'
+    }]
+  }
 }
 
 
@@ -69,6 +81,7 @@ grunt.loadNpmTasks('grunt-contrib-less');
 grunt.loadNpmTasks('grunt-contrib-watch');
 grunt.loadNpmTasks('grunt-postcss');
 grunt.loadNpmTasks('grunt-contrib-imagemin');
+grunt.loadNpmTasks('grunt-contrib-cssmin');
 
 
 
