@@ -1328,7 +1328,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
   }
-  .page-header {
+  .container .page-header {
     -webkit-box-sizing: content-box;
             box-sizing: content-box;
     margin-left: 30%;
