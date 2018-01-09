@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Admin panel</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.min.css">
 		<script src="../js/jquery-3.2.1.min.js"></script>
 
   </head>
@@ -11,7 +11,7 @@
     <div class="admin-container">
     	<h1 class="admin-title">Добро пожаловать, Администратор</h1>
 			<a class="btn" href="../index.php">На главную</a>
-			<a class="btn" href="admin.php?action=logout"?>Выйти</a>
+			<a class="btn" href="admin.php?action=logout">Выйти</a>
     </div>
     <div class="admin-container">
 			<div class="admin-menu">
