@@ -165,9 +165,11 @@ INNER JOIN books ON purchases.id_book =books.id  WHERE id_member='$id_user';");
         </div>
       </div>
     </section>
-    <a href="//www.free-kassa.ru/"><img src="//www.free-kassa.ru/img/fk_btn/16.png"></a>
-    <span class="questions">Возникли вопросы? Пишите на <b><?php echo $adminEmail; ?></b> </span>
   </main>
+  <section class="page-footer">
+  	<a href="//www.free-kassa.ru/"><img src="//www.free-kassa.ru/img/fk_btn/16.png"></a>
+    <div class="page-footer__question">Возникли вопросы? <br> Пишите на <b><?php echo $adminEmail; ?></b> </div>
+  </section>
   <script type="text/javascript" src="/js/script.js"></script>
 </body>
 </html>
