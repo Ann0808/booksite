@@ -22,8 +22,10 @@ $query=$query->fetch_array(MYSQLI_ASSOC);
 $bookname = $query['name'];
 $booklink = $query['link'];
 $link =  $_SERVER['HTTP_HOST'] . "/page.php?chapter=0&book=" . $booklink;
-$textMail = "Здравствуйте!\nБлагодарим вас за покупку книги " . $bookname . "\nСсылка на Вашу книгу: ". $link;
-mail($usermail, "Спасибо за покупку", $textMail);
+$headers = "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/html; charset=utf8\r\n";
+$textMail = "<html><body>Здравствуйте!\nБлагодарим вас за покупку книги \"" . $bookname . "\". \nСсылка на Вашу книгу: <a href='$link'> Перейдите, чтобы прочитать</a></body></html>";
+mail($usermail, "Спасибо за покупку", $textMail, $headers);
 
 exit();
 

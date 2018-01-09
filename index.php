@@ -24,8 +24,28 @@ else {
 <!doctype html>
 <html>
 <?php
-    $books_images_my = Book::queryMysql("SELECT DISTINCT books.link, books.image FROM purchases RIGHT JOIN books ON purchases.id_book = books.id WHERE books.admin=1 AND `id_member` IS NULL UNION ALL SELECT DISTINCT books.link, books.image FROM purchases RIGHT JOIN books ON purchases.id_book = books.id WHERE books.admin=1 AND `id_member`!='$id_user';");
-    $books_other_query = Book::queryMysql("SELECT DISTINCT books.link, books.image FROM purchases RIGHT JOIN books ON purchases.id_book = books.id WHERE books.admin=0 AND `id_member` IS NULL UNION ALL SELECT DISTINCT books.link, books.image FROM purchases RIGHT JOIN books ON purchases.id_book = books.id WHERE books.admin=0 AND `id_member`!='$id_user';");
+    $books_images_my = Book::queryMysql("SELECT DISTINCT books.link, books.image FROM purchases
+      RIGHT JOIN books ON purchases.id_book = books.id
+      WHERE books.admin=1 AND `id_member` IS NULL UNION ALL
+      SELECT DISTINCT books.link, books.image FROM purchases
+      RIGHT JOIN books ON purchases.id_book = books.id WHERE books.admin=1 AND `id_member`!='$id_user'
+      AND purchases.id_book NOT
+      IN (
+        SELECT id_book
+        FROM purchases
+        WHERE id_member =$id_user
+      );");
+    $books_other_query = Book::queryMysql("SELECT DISTINCT books.link, books.image FROM purchases
+      RIGHT JOIN books ON purchases.id_book = books.id
+      WHERE books.admin=0 AND `id_member` IS NULL
+      UNION ALL SELECT DISTINCT books.link, books.image FROM purchases
+      RIGHT JOIN books ON purchases.id_book = books.id
+      WHERE books.admin=0 AND `id_member`!='$id_user' AND purchases.id_book NOT
+      IN (
+        SELECT id_book
+        FROM purchases
+        WHERE id_member =$id_user
+      );");
     $books_images_purchased = Book::queryMysql("SELECT books.link, books.image
 FROM purchases
 INNER JOIN books ON purchases.id_book =books.id  WHERE id_member='$id_user';");
@@ -42,7 +62,7 @@ INNER JOIN books ON purchases.id_book =books.id  WHERE id_member='$id_user';");
   <script type="text/javascript" src="../js/script.js"></script>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<!--// I am A!!!-->
+
 <body>
   <?php if ( $_SESSION['adminname'] == $adminLogin):
     include ("admin-flag.php");
@@ -60,6 +80,8 @@ INNER JOIN books ON purchases.id_book =books.id  WHERE id_member='$id_user';");
           <button class="prev">Назад</button><button class="next">Вперед</button>
           <?php
           $rowIsEmpty = $books_images_purchased->fetch_array(MYSQLI_ASSOC);
+          $rowIsEmptyMy = $books_images_my->fetch_array(MYSQLI_ASSOC);
+          $rowIsEmptyOther = $books_other_query->fetch_array(MYSQLI_ASSOC);
           if (sizeof($rowIsEmpty)==0) {
             echo " <a class='carousel__item carousel__item--center'><img src='/img/standart/book-opacity.png' alt='нет приобретенных книг'></a>";
           }
@@ -92,6 +114,9 @@ INNER JOIN books ON purchases.id_book =books.id  WHERE id_member='$id_user';");
         <div id="carouselRecommended" class="carousel" >
             <button class="prev">Назад</button><button class="next">Вперед</button>
             <?php
+            if (sizeof($rowIsEmptyMy)==0) {
+              echo " <a class='carousel__item carousel__item--center'><img src='/img/standart/book-opacity.png' alt='нет приобретенных книг'></a>";
+            }
             foreach ($books_images_my as $value) {
   						$id_link = 0;
   						$is_link = true;
@@ -119,6 +144,9 @@ INNER JOIN books ON purchases.id_book =books.id  WHERE id_member='$id_user';");
         <div id="carouselInteresting" class="carousel" >
           <button class="prev">Назад</button><button class="next">Вперед</button>
           <?php
+          if (sizeof($rowIsEmptyOther)==0) {
+            echo " <a class='carousel__item carousel__item--center'><img src='/img/standart/book-opacity.png' alt='нет приобретенных книг'></a>";
+          }
           foreach ($books_other_query as $value) {
 						$id_link = 0;
 						$is_link = true;
