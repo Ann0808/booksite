@@ -36,6 +36,8 @@ class Book
   }
 
   public function update() {
+    $insertQuery = "UPDATE `books` SET `admin`='$this->isAdmin' WHERE `id`='$this->id'";
+     Book::queryMysql($insertQuery);
 
     if($this->isAdmin!=null){
       $insertQuery = "UPDATE `books` SET `admin`='$this->isAdmin' WHERE `id`='$this->id'";
