@@ -5,9 +5,7 @@ session_start(); ?>
 
  ?>
 
-<div class="admin-container">
-  <div class="admin-container__items">
-    <div class="admin-container__item">
+<div class="admin-container--special">
    			<form action="editadmin.php" method="post">
           <div class="admin-container__row">
             <p>Ваше имя</p>
@@ -133,8 +131,6 @@ session_start(); ?>
    						</p>
    				</div>
    			</form>
-   			</div>
-  </div>
 </div>
 <?php include("footer_admin.php"); ?>
 <?}

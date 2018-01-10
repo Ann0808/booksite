@@ -48,6 +48,11 @@
       -ms-flex-align: center;
           align-items: center;
 }
+.admin-container__row--special {
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
 .start {
   -webkit-box-pack: start;
       -ms-flex-pack: start;

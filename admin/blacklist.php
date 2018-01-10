@@ -22,9 +22,7 @@ $erase = $_GET['erase'];
 
  ?>
 
-<div class="admin-container">
- <div class="admin-container__items">
-   <div class="admin-container__item">
+<div class="admin-container--special">
    <h2>Black List</h2>
      <div class="blacklist__row">
        <div class="col border-top">id</div>
@@ -49,8 +47,6 @@ $erase = $_GET['erase'];
             <div class="col"><a href="blacklist.php?erase=<? echo $id_redirect; ?>" class="del">Удалить</a></div>
          </div>
        <?   } ?>
-   </div>
- </div>
 </div>
 
 

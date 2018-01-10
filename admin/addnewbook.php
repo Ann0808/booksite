@@ -8,9 +8,7 @@ session_start(); ?>
 
 				 <form enctype="multipart/form-data" method="post" action="addnewbook.php">
 			 	 	<div class="admin-container__block">
-			 	 		<div class="admin-container__row">
 				 	  <span class="admin-container__addition">Все изображения должны быть в формате jpeg</span>
-					 </div>
 					 <div class="admin-container__row">
 					 <p>Логотип для мобильной версии</p>
 						 <div class="file_upload btn">
