@@ -13,7 +13,7 @@ INNER JOIN books ON purchases.id_book =books.id
 
             <div class="admin-container--special">
                 <h2>Все покупки</h2>
-                <div class="admin-container__row start admin-container__row--central">
+                <div class="admin-container__row start admin-container__row--central admin-container__row--special">
                     <div class="purchases-col border-top"><b>Имя пользователя</b></div>
                     <div class="purchases-col border-top"><b>Email пользователя</b></div>
                     <div class="purchases-col border-top"><b>Название книги</b></div>
