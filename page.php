@@ -120,11 +120,35 @@
          else {
           if(isset($_SESSION['user_id'])){
             echo("Для дальнейшего просмотра предлагаем купить книгу"); ?>
-            <p>Банковской картой:</p>
-            <iframe src="https://money.yandex.ru/quickpay/button-widget?targets=%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0&default-sum=<?echo $price;?>&button-text=11&any-card-payment-type=on&button-size=m&button-color=orange&successURL=http%3A%2F%2F<?echo $host?>%2Fpage.php%3Fchapter%3D0%26book%3D<?echo $id_link?>&quickpay=small&account=<?echo $adminYandex?>&label=<?echo $label?>" width="184" height="36" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
 
+            <p>Банковской картой:</p>
+            <!-- <iframe src="https://money.yandex.ru/quickpay/button-widget?targets=%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0&default-sum=<?echo $price;?>&button-text=11&any-card-payment-type=on&button-size=m&button-color=orange&successURL=http%3A%2F%2F<?echo $host?>%2Fpage.php%3Fchapter%3D0%26book%3D<?echo $id_link?>&quickpay=small&account=<?echo $adminYandex?>&label=<?echo $label?>" width="184" height="36" frameborder="0" allowtransparency="true" scrolling="no"></iframe> -->
+            <form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
+                <input type="hidden" name="receiver" value="<?echo $adminYandex;?>">
+                <input type="hidden" name="label" value="<?echo $label?>" data-type="number">
+                <input type="hidden" name="sender" value="2">
+                <!-- <input type="hidden" name="book" value="62"> -->
+                <input type="hidden" name="quickpay-form" value="shop">
+                <input type="hidden" name="targets" value="тестовый перевод">
+                <input type="hidden" name="sum" value="<?echo $price;?>" data-type="number">
+                <input type="hidden" name="successURL " value="http://<?echo $host?>/page.php?chapter=1&book=<?echo $id_link?>">
+                <input type="hidden" name="paymentType" value="AC">
+                <input type="submit" class="btn" value="Купить">
+            </form>
             <p>Яндекс-деньгами:</p>
-            <iframe src="https://money.yandex.ru/quickpay/button-widget?targets=%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0&default-sum=<?echo $price;?>&button-text=11&yamoney-payment-type=on&button-size=m&button-color=orange&successURL=http%3A%2F%2F<?echo $host?>%2Fpage.php%3Fchapter%3D0%26book%3D<?echo $id_link?>&quickpay=small&account=<?echo $adminYandex?>&label=<?echo $label?>" width="184" height="36" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
+            <form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
+                <input type="hidden" name="receiver" value="<?echo $adminYandex;?>">
+                <input type="hidden" name="label" value="<?echo $label?>" data-type="number">
+                <input type="hidden" name="sender" value="2">
+                <!-- <input type="hidden" name="book" value="62"> -->
+                <input type="hidden" name="quickpay-form" value="shop">
+                <input type="hidden" name="targets" value="тестовый перевод">
+                <input type="hidden" name="sum" value="<?echo $price;?>" data-type="number">
+                <input type="hidden" name="successURL " value="http://<?echo $host?>/page.php?chapter=1&book=<?echo $id_link?>">
+                <input type="hidden" name="paymentType" value="PC">
+                <input type="submit" class="btn" value="Купить">
+            </form>
+            <!-- <iframe src="https://money.yandex.ru/quickpay/button-widget?targets=%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0&default-sum=<?echo $price;?>&button-text=11&yamoney-payment-type=on&button-size=m&button-color=orange&successURL=http%3A%2F%2F<?echo $host?>%2Fpage.php%3Fchapter%3D0%26book%3D<?echo $id_link?>&quickpay=small&account=<?echo $adminYandex?>&label=<?echo $label?>" width="184" height="36" frameborder="0" allowtransparency="true" scrolling="no"></iframe> -->
             <p>Другие способы:</p>
             <?php
 $merchant_id = $freeKassaId;
@@ -143,7 +167,7 @@ $sign = md5($merchant_id.':'.$order_amount.':'.$secret_word.':'.$order_id);
     <input type='hidden' name='lang' value='ru'>
     <input type='hidden' name='us_login' value='<? echo $id_user?>'>
     <input type='hidden' name='us_book' value='<? echo $book_id?>'>
-    <input class="btn" type='submit' name='pay' value='Оплатить'>
+    <input class="btn" type='submit' name='pay' value='Купить'>
   </form>
 
 <?
@@ -176,6 +200,8 @@ $sign = md5($merchant_id.':'.$order_amount.':'.$secret_word.':'.$order_id);
 
                 }
             });
+          document.querySelector(".button2__text").innerHTML=kk;
+
 	</script>
 </body>
 
