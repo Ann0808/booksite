@@ -42,7 +42,7 @@ session_start(); ?>
                             <input class="admin-container__input-text" type="text" name="book-author" id="" placeholder="Вася Пупкин">
                         </div>
                         <div class="admin-container__row">
-                            <p>Ссылка на книгу</p>
+                            <p>Ссылка на книгу<br><span class="admin-container__addition">Только латинские символы, дефис и нижнее подчеркивание</span></p>
                             <input class="admin-container__input-text" type="text" name="book-link" id="" placeholder="book-name">
                         </div>
                         <div class="admin-container__row">
