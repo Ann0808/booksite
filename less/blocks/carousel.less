@@ -136,7 +136,6 @@
 		right: 17px;
 	}
 
-
 	.next:before {
 		top: 16px;
 	}
@@ -153,7 +152,10 @@
 	.prev:before {
 		top: 28px;
 	}
-
+	
+	.carousel__item img {
+		height: 300px;
+	}
 }
 .carousel__item {
   display: none;
@@ -165,22 +167,22 @@
   padding: 0 1%;
 
 }
-
-
 .carousel__item--center {
   margin: auto;
 }
-
 @media (min-width: 768px) {
   .carousel__item {
     width: 33%;
-  }
-
+	}
 }
 @media (min-width: 1200px) {
   .carousel__item {
     width: 25%;
   }
+	
+	.carousel__item img {
+		height: 400px;
+	}
 }
 * {
   box-sizing: border-box;
