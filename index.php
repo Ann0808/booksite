@@ -57,9 +57,9 @@ INNER JOIN books ON purchases.id_book =books.id  WHERE id_member='$id_user';");
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- then add bootstrap to local -->
-  <link rel="stylesheet" href="../css/grid.min.css">
-  <script src="/js/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="../js/script.js"></script>
+
+  <script async src="/js/jquery-3.2.1.min.js"></script>
+  <script async type="text/javascript" src="../js/script.js"></script>
     <link rel="stylesheet" href="../css/style.min.css">
 </head>
 
