@@ -64,7 +64,7 @@ $checked=$books['admin'];
                             </div>
                             <div class='admin-container__row'>
                                 <p>Редактировать цену в рублях</p>
-                                <input id='book-price' class='admin-container__input-text' type='text' name='book-price' value='<?echo $price;?>'>
+                                <input id='book-price' class='admin-container__input-text' type="number" step="1" min="0" max="1000000" name='book-price' value='<?echo $price;?>'>
                             </div>
                             <div class="admin-container__row margin-bottom">
                                 <label class="checkbox">Вы автор книги

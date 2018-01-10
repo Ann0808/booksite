@@ -47,7 +47,7 @@ session_start(); ?>
                         </div>
                         <div class="admin-container__row">
                             <p>Цена книги в рублях</p>
-                            <input class="admin-container__input-text" type="number" name="book-price" id="" placeholder="50">
+                            <input class="admin-container__input-text" type="number" step="1" min="0" max="1000000" name="book-price" id="" placeholder="50">
                         </div>
                         <div class="admin-container__row">
                             <label class="checkbox">Вы автор книги
