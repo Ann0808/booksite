@@ -19,7 +19,7 @@ session_start(); ?>
                         </div>
                         <div class="admin-container__row">
                             <p>Логотип для десктопной версии</p>
-                              <br><span class="admin-container__addition">Изображение должно быть в горизонтальной ориентации. Желательное соотношение сторон 1:3.7 (длина:ширина).</span></p>
+                              <br><span class="admin-container__addition">Изображение должно быть в горизонтальной ориентации.</span></p>
                             <div class="file_upload btn">
                                 Выбрать
                                 <input name="picture-desktop" type="file" />
@@ -27,7 +27,7 @@ session_start(); ?>
                         </div>
                         <div class="admin-container__row">
                             <p>Книжная обложка
-                                <br><span class="admin-container__addition">Изображение должно быть высотой более 400px и в вертикальной ориентации. Желательное соотношение сторон 1:1.6 (ширина:длина).</span></p>
+                                <br><span class="admin-container__addition">Изображение должно быть высотой более 400px и в вертикальной ориентации.</span></p>
                             <div class="file_upload btn">
                                 Выбрать
                                 <input name="picture-book" type="file" />
