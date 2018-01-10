@@ -102,7 +102,6 @@
     <div class="chapters">
       <h2 class="book-name"><? echo $book_name; ?></h2>
       <h2 class="book-name"><? echo $chapterNames[$currentChapter]; ?></h2>
-
       <?if($currentChapter==0){
         if(!empty($purchasedBooks)) {?>
         <h2 class="success"><? echo "Спасибо за приобретение книги!"; ?></h2>
