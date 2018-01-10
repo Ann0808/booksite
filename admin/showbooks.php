@@ -3,6 +3,7 @@ session_start();
 ?>
 <?php if ( $_SESSION['adminname'] == $adminLogin) { ?>
 <?php include("header_admin.php");
+include("../functions_only.php");
 $everything = Book::queryMysql("SELECT * FROM books");
 
 if (isset($_GET['erase'])) // Удаление глав и книги по id
