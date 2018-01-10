@@ -20,7 +20,7 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
 			// unlink("$desk_del");
 
 			Book::queryMysql("DELETE FROM chapter WHERE book_id=$erase");
-      Book::queryMysql("DELETE FROM purchases WHERE book_id=$erase");
+      Book::queryMysql("DELETE FROM purchases WHERE id_book=$erase");
       Book::queryMysql("DELETE FROM books WHERE id=$erase");
 			echo "<script>window.location.href='showbooks.php'</script>";
 
