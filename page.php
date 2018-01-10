@@ -7,11 +7,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <script async src="/js/jquery-3.2.1.min.js"></script>
+    <script defer src="/js/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="/css/style.min.css">
     <link rel="stylesheet" href="/css/snow.css">
     <link rel="stylesheet" href="/css/noselect.css">
-    <script async type="text/javascript" src="/js/script.js"></script>
+    <script defer type="text/javascript" src="/js/script.js"></script>
 </head>
 <?php
   require_once 'functions.php';
