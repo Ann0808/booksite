@@ -4,8 +4,11 @@ require( "settings.php" );
 $id_user = $_POST['us_login'];
 $id_book = $_POST['us_book'];
 $searchMail = Book::queryMysql("SELECT email from members WHERE id='$id_user'");
+$searchAdminMail = Book::queryMysql("SELECT email from admin");
 $searchMail = $searchMail->fetch_array(MYSQLI_ASSOC);
+$searchAdminMail = $searchAdminMail->fetch_array(MYSQLI_ASSOC);
 $usermail = $searchMail['email'];
+$adminmail = $searchAdminMail['email'];
 
 function getIP() {
     if(isset($_SERVER['HTTP_X_REAL_IP'])) return $_SERVER['HTTP_X_REAL_IP'];
@@ -24,7 +27,7 @@ $booklink = $query['link'];
 $link =  $_SERVER['HTTP_HOST'] . "/page.php?chapter=0&book=" . $booklink;
 $headers = "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=utf8\r\n";
-$textMail = "<html><body>Здравствуйте!\nБлагодарим вас за покупку книги \"" . $bookname . "\". \nСсылка на Вашу книгу: <a href='$link'> Перейдите, чтобы прочитать</a></body></html>";
+$textMail = "<html><body>Здравствуйте!\nБлагодарим вас за покупку книги \"" . $bookname . "\". <br>Ссылка на Вашу книгу: <a href='$link'> Перейдите, чтобы прочитать</a><br>По всем вопросам пишите на ".$adminmail."</body></html>";
 mail($usermail, "Спасибо за покупку", $textMail, $headers);
 
 exit();

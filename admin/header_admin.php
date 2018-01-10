@@ -9,7 +9,7 @@
   </head>
   <body class="admin__body">
     <div class="admin-container">
-    	<h1 class="admin-title">Добро пожаловать, Администратор</h1>
+    	<h1 class="admin-title">Добро пожаловать, <?php echo  $adminName; ?></h1>
 			<a class="btn" href="../index.php">На главную</a>
 			<a class="btn" href="admin.php?action=logout">Выйти</a>
     </div>

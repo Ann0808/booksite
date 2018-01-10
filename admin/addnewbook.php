@@ -10,16 +10,18 @@ session_start(); ?>
                     <div class="admin-container__block">
                         <span class="admin-container__addition">Все изображения должны быть в формате jpeg</span>
                         <div class="admin-container__row">
-                            <p>Логотип для мобильной версии</p>
-                            <br><span class="admin-container__addition">Изображение должно быть в горизонтальной ориентации. Желательное соотношение сторон 1:3.7 (длина:ширина).</span></p>
+                            <p>Логотип для мобильной версии
+                            <br><span class="admin-container__addition">Изображение должно быть в горизонтальной ориентации. </span></p>
+
                             <div class="file_upload btn">
                                 Выбрать
                                 <input placeholder="mobile" name="picture-mobile" type="file" />
                             </div>
                         </div>
                         <div class="admin-container__row">
-                            <p>Логотип для десктопной версии</p>
-                              <br><span class="admin-container__addition">Изображение должно быть в горизонтальной ориентации. Желательное соотношение сторон 1:3.7 (длина:ширина).</span></p>
+                            <p>Логотип для десктопной версии
+                              <br><span class="admin-container__addition">Изображение должно быть в горизонтальной ориентации.</span></p>
+
                             <div class="file_upload btn">
                                 Выбрать
                                 <input name="picture-desktop" type="file" />
