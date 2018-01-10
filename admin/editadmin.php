@@ -1,58 +1,57 @@
 <?php include("settings.php");
 session_start(); ?>
-<?php if ( $_SESSION['adminname'] == $adminLogin) { ?>
-<?php include("header_admin.php");
+    <?php if ( $_SESSION['adminname'] == $adminLogin) { ?>
+        <?php include("header_admin.php");
 
  ?>
 
-<div class="admin-container--special">
-   			<form action="editadmin.php" method="post">
-          <div class="admin-container__row">
-            <p>Ваше имя</p>
-            <input class="admin-container__input-text" type="text" name="admin-name" id="" placeholder="Аркадий Афанасьевич Фет">
-          </div>
-          <div class="admin-container__row">
-            <p>Новый логин</p>
-            <input class="admin-container__input-text" type="text" name="admin-login" id="" placeholder="login">
-          </div>
-          <div class="admin-container__row">
-            <p>Ваш e-mail для связи с клиентами</p>
-            <input class="admin-container__input-text" type="email" name="admin-email" id="" placeholder="vasya@mail.ru">
-          </div>
-   				<div class="admin-container__row">
-   						<p>Старый пароль</p>
-   						<input class="admin-container__input-text" type="password" name="password" id="" placeholder="Старый пароль">
-   					</div>
-   					<div class="admin-container__row">
-   					<p>Новый пароль</p>
-   						<input class="admin-container__input-text" type="password" name="password-new" id="" placeholder="Новый пароль">
-   					</div>
-   				<div class="admin-container__row">
-   						<p>Повтор пароля</p>
-   						<input class="admin-container__input-text" type="password" name="password-new-again" id="" placeholder="Повтор пароля">
-   					</div>
-            <div class="admin-container__row">
-              <p>Номер яндекс кошелька</p>
-              <input class="admin-container__input-text" type="text" name="admin-yandex-money" id="" placeholder="410011111111111">
-            </div>
-            <div class="admin-container__row margin-bottom">
-              <p class="padding-right">Секретное слово для проверки подлинности  <a href="https://money.yandex.ru/sign.xml?retpath=https%3A%2F%2Fmoney.yandex.ru%2Fmyservices%2Fonline.xml"> перейдите по этой ссылке</a>, чтобы узнать его </p>
-              <input class="admin-container__input-text" type="text" name="admin-yandex-secret" id="" placeholder="ThjrWTYJsjSRHFssf">
-            </div>
-              
+            <div class="admin-container--special">
+                <form action="editadmin.php" method="post">
+                    <div class="admin-container__row">
+                        <p>Ваше имя</p>
+                        <input class="admin-container__input-text" type="text" name="admin-name" id="" placeholder="Аркадий Афанасьевич Фет">
+                    </div>
+                    <div class="admin-container__row">
+                        <p>Новый логин</p>
+                        <input class="admin-container__input-text" type="text" name="admin-login" id="" placeholder="login">
+                    </div>
+                    <div class="admin-container__row">
+                        <p>Ваш e-mail для связи с клиентами</p>
+                        <input class="admin-container__input-text" type="email" name="admin-email" id="" placeholder="vasya@mail.ru">
+                    </div>
+                    <div class="admin-container__row">
+                        <p>Старый пароль</p>
+                        <input class="admin-container__input-text" type="password" name="password" id="" placeholder="Старый пароль">
+                    </div>
+                    <div class="admin-container__row">
+                        <p>Новый пароль</p>
+                        <input class="admin-container__input-text" type="password" name="password-new" id="" placeholder="Новый пароль">
+                    </div>
+                    <div class="admin-container__row">
+                        <p>Повтор пароля</p>
+                        <input class="admin-container__input-text" type="password" name="password-new-again" id="" placeholder="Повтор пароля">
+                    </div>
+                    <div class="admin-container__row">
+                        <p>Номер яндекс кошелька</p>
+                        <input class="admin-container__input-text" type="text" name="admin-yandex-money" id="" placeholder="410011111111111">
+                    </div>
+                    <div class="admin-container__row margin-bottom">
+                        <p class="padding-right">Секретное слово для проверки подлинности <a href="https://money.yandex.ru/sign.xml?retpath=https%3A%2F%2Fmoney.yandex.ru%2Fmyservices%2Fonline.xml"> перейдите по этой ссылке</a>, чтобы узнать его </p>
+                        <input class="admin-container__input-text" type="text" name="admin-yandex-secret" id="" placeholder="ThjrWTYJsjSRHFssf">
+                    </div>
 
-              <div class="admin-container__row">
-                <p>ID кошелька freekassa</p>
-                <input class="admin-container__input-text" type="text" name="admin-freekassa-money" id="" placeholder="11111">
-              </div>
-              <div class="admin-container__row">
-                <p>Секретное слово freekassa</p>
-                <input class="admin-container__input-text" type="text" name="admin-freekassa-secret" id="" placeholder="secret">
-              </div>
-   					<div class="admin-container__row">
-   						<input class="btn btn--margin" type="submit" value="Обновить" />
-   						<p>
-                <?php
+                    <div class="admin-container__row">
+                        <p>ID кошелька freekassa</p>
+                        <input class="admin-container__input-text" type="text" name="admin-freekassa-money" id="" placeholder="11111">
+                    </div>
+                    <div class="admin-container__row">
+                        <p>Секретное слово freekassa</p>
+                        <input class="admin-container__input-text" type="text" name="admin-freekassa-secret" id="" placeholder="secret">
+                    </div>
+                    <div class="admin-container__row">
+                        <input class="btn btn--margin" type="submit" value="Обновить" />
+                        <p>
+                            <?php
                 if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
                   $newPass = $_POST['password-new'];
                   $newPassAgain = $_POST['password-new-again'];
@@ -105,7 +104,6 @@ session_start(); ?>
                       echo "пароли не совпадают";
                     }
 
-
                   }
                   if ( $newLogin!=null ) {
                     $insertQuery = "UPDATE `admin` SET `login`='$newLogin'";
@@ -128,12 +126,12 @@ session_start(); ?>
 
                 }
                  ?>
-   						</p>
-   				</div>
-   			</form>
-</div>
-<?php include("footer_admin.php"); ?>
-<?}
+                        </p>
+                    </div>
+                </form>
+            </div>
+            <?php include("footer_admin.php"); ?>
+                <?}
 else {
     require( "login.php" );
 } ?>
