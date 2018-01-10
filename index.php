@@ -58,8 +58,8 @@ INNER JOIN books ON purchases.id_book =books.id  WHERE id_member='$id_user';");
 
   <!-- then add bootstrap to local -->
 
-  <script async src="/js/jquery-3.2.1.min.js"></script>
-  <script async type="text/javascript" src="../js/script.js"></script>
+  <script defer src="/js/jquery-3.2.1.min.js"></script>
+  <script defer type="text/javascript" src="../js/script.js"></script>
     <link rel="stylesheet" href="../css/style.min.css">
 </head>
 
