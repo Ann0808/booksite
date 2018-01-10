@@ -26,8 +26,7 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
     }
 
 ?>
-   <div class="admin-container">
-   	<div class="admin-container__items">
+   <div class="admin-container--special">
    	<h2>Книги</h2>
 			<div class="showbooks">
 
@@ -40,9 +39,9 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
 					<div class="col col--border-top col--small">Автор</div>
 					<div class="col col--border-top col--small">Ссылка</div>
 					<div class="col col--border-top col--small">Цена</div>
-					<div class="col col--border-top col--small">My</div>
+					<div class="col col--border-top col--small">Моя*</div>
 					<div class="col col--border-top col--small">Изменить</div>
-					<div class="col col--border-top col--small">Del</div>
+					<div class="col col--border-top col--small"></div>
 				</div>
 				<?
 						foreach ($everything as $value) { ?>
@@ -71,8 +70,8 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
 							<div class="col"><a href="showbooks.php?erase=<? echo $id_redirect; ?>" class="del">Удалить</a></div>
 						</div>
 					<?  } ?>
+					<span class="admin-container__addition">* 1-если вы являетесь автором книги, иначе - 0</span>
 			</div>
-   	</div>
    </div>
 
    <script>

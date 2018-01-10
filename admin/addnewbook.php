@@ -4,10 +4,13 @@ session_start(); ?>
 <?php include("header_admin.php");
 			require_once"picture.php";
 ?>
-    <div class="admin-container">
-    	<div class="admin-container__items">
-    		<div class="admin-container__item">
+    <div class="admin-container--special">
+
 				 <form enctype="multipart/form-data" method="post" action="addnewbook.php">
+			 	 	<div class="admin-container__block">
+			 	 		<div class="admin-container__row">
+				 	  <span class="admin-container__addition">Все изображения должны быть в формате jpeg</span>
+					 </div>
 					 <div class="admin-container__row">
 					 <p>Логотип для мобильной версии</p>
 						 <div class="file_upload btn">
@@ -23,12 +26,14 @@ session_start(); ?>
 						 </div>
 					 </div>
 					 <div class="admin-container__row">
-						 <p>Книжная обложка</p>
+						 <p>Книжная обложка<br><span class="admin-container__addition">Изображение должно быть высотой более 400px и в вертикальной ориентации</span></p>
 						 <div class="file_upload btn">
 							 Выбрать
 							 <input name="picture-book" type="file" />
 						 </div>
 					 </div>
+			 	 	</div>
+				 	 <div class="admin-container__block">
 					 <div class="admin-container__row">
 						 <p>Название книги</p>
 						 <input class="admin-container__input-text" type="text" name="book-name" id="" placeholder="Война и мир">
@@ -46,9 +51,9 @@ session_start(); ?>
 						 <input class="admin-container__input-text" type="number" name="book-price" id="" placeholder="50">
 					 </div>
 					 <div class="admin-container__row">
-						<p>Вы автор книги</p>
-						<label class="checkbox"><input type="checkbox"  name="book-is-admin" value="a1"><span class="checkbox-indicator"></span></label>
+						<label class="checkbox">Вы автор книги<input type="checkbox"  name="book-is-admin" value="a1"><span class="checkbox-indicator"></span></label>
 					</div>
+					 </div>
 					 <div class="admin-container__row">
 						 <input class="btn btn--margin" type="submit" value="Отправить данные"  name="submit"/>
 						 <p>
@@ -84,8 +89,6 @@ session_start(); ?>
 						 </p>
 					 </div>
 				 </form>
-			 </div>
-    	</div>
     </div>
 <?php include("footer_admin.php"); ?>
 <?}

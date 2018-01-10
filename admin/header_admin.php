@@ -20,6 +20,6 @@
 					<li><a href="showbooks.php"  class="btn">Все книги</a></li>
           <li><a href="showpurch.php"  class="btn">Все покупки</a></li>
           	<li><a href="blacklist.php"  class="btn">Черный список</a></li>
-					<li><a href="editadmin.php"  class="btn">Админ данные</a></li>
+					<li><a href="editadmin.php"  class="btn">Мои настройки</a></li>
 			</div>
 		</div>

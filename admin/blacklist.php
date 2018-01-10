@@ -30,7 +30,7 @@ $erase = $_GET['erase'];
        <div class="col border-top">id</div>
        <div class="col border-top">Имя</div>
        <div class="col border-top">Логин</div>
-       <div class="col border-top">del</div>
+       <div class="col border-top"></div>
 
      </div>
      <?
