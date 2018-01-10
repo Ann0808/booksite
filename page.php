@@ -105,7 +105,7 @@
 
       <?if($currentChapter==0){
         if(!empty($purchasedBooks)) {?>
-        <h2 class="book-name green"><? echo "Спасибо за приобретение книги!"; ?></h2>
+        <h2 class="success"><? echo "Спасибо за приобретение книги!"; ?></h2>
         <?}?>
        <div class="chapters__book"><img src='<? echo $image; ?>' alt="Обложка книги"></div>
 <?}?>
