@@ -59,7 +59,7 @@ $checked=$books['admin'];
                             </div>
 
                             <div class='admin-container__row'>
-                                <p>Редактировать ссылку</p>
+                                <p>Редактировать ссылку<br><span class="admin-container__addition">Только латинские символы, дефис и нижнее подчеркивание</span></p>
                                 <input id='book-link' class='admin-container__input-text' type='text' name='book-link' value='<?echo $link;?>'>
                             </div>
                             <div class='admin-container__row'>
