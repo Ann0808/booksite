@@ -38,8 +38,8 @@ $chapters = Book::queryMysql($chapterQuery);
       echo("</div>");
 
     }
-    echo("<div class='admin-container__row admin-container__row--central'>
-     <button onclick='visibleAddChapter()' class='btn admin-container__input-text--center' data-id='$idBook'>Добавить новую главу</button>
+    echo("<div class='admin-container__row'>
+     <button onclick='visibleAddChapter()' class='btn btn--margin' data-id='$idBook'>Добавить новую главу</button>
      </div>");
     echo("<div class='admin_container__wrapper hidden' id='addNewChapterWrapper'>");
    echo("<div >
