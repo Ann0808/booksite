@@ -13,11 +13,9 @@ header( "Location: admin.php" );
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Вход в панель администратора</title>
-        <script src="/js/jquery-3.2.1.min.js"></script>
-        <script src="/js/popper.min.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/css/style.css">
-        <script type="text/javascript" src="/js/script.js"></script>
+        <script defer src="/js/jquery-3.2.1.min.js"></script>
+        <link rel="stylesheet" href="/css/style.min.css">
+        <script defer type="text/javascript" src="/js/script.js"></script>
     </head>
 
     <body class="admin__body">
