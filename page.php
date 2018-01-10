@@ -67,7 +67,7 @@
 
           <picture>
             <source media="(min-width:768px)" srcset='<? echo $logo_desk; ?>'>
-            <img src='<? echo $logo_mob; ?>' alt="logo" width="100%" height="200px;">
+            <img src='<? echo $logo_mob; ?>' alt="logo" width="100%" height="auto;">
           </picture>
   </header>
   <main class="book-page">
