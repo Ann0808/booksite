@@ -8,7 +8,7 @@ session_start(); ?>
 
                 <form enctype="multipart/form-data" method="post" action="addnewbook.php">
                     <div class="admin-container__block">
-                        <span class="admin-container__addition">Все изображения должны быть в формате jpg и предварительно сжаты (для сжатия воспользуйтесь ссылкой http://optimizilla.com/ru/)</span>
+                        <span class="admin-container__addition">Все изображения должны быть в формате jpg и предварительно сжаты <a href="http://optimizilla.com/ru/">для сжатия воспользуйтесь ссылкой</a></span>
                         <div class="admin-container__row">
                             <p>Логотип для мобильной версии
                             <br><span class="admin-container__addition">Изображение должно быть в горизонтальной ориентации. </span></p>
