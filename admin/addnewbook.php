@@ -25,7 +25,7 @@ session_start(); ?>
                         </div>
                         <div class="admin-container__row">
                             <p>Книжная обложка
-                                <br><span class="admin-container__addition">Изображение должно быть высотой более 400px и в вертикальной ориентации</span></p>
+                                <br><span class="admin-container__addition">Изображение должно быть высотой более 400px и в вертикальной ориентации. Желательное соотношение сторон 1:1.6 (ширина:длина).</span></p>
                             <div class="file_upload btn">
                                 Выбрать
                                 <input name="picture-book" type="file" />
