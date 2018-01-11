@@ -24,7 +24,7 @@ $checked=$books['admin'];
                     <form action="editbook.php?id=<?echo $id; ?>" id='form-update-book' enctype='multipart/form-data' method='post'>
 
                         <div class="admin-container__block">
-                            <span class="admin-container__addition">Все изображения должны быть в формате jpg и предварительно сжаты <a href="http://optimizilla.com/ru/">для сжатия воспользуйтесь ссылкой</a></span>
+                            <span class="admin-container__addition">Все изображения должны быть в формате jpeg</span>
                             <div class='admin-container__row'>
                                 <p>Редактировать логотип для мобильной версии</p>
                                 <div class='file_upload btn'>
