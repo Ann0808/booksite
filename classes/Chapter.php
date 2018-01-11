@@ -3,7 +3,7 @@
  *
  */
 
- require_once ('../functions.php');
+
 
 
 class Chapter

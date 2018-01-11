@@ -1,5 +1,7 @@
 <?php
  require_once( "config.php" );
+
+ 
  $dbhost  = HOST;
  $dbname  = DB_NAME;
  $dbuser  = DB_USERNAME;

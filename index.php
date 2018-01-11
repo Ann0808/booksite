@@ -5,8 +5,8 @@
  $dbpass  = DB_PASSWORD;
  $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
  if ($connection->connect_error) die($connection->connect_error);
-   Book::queryMysql("SET NAMES utf8");
-   $adminQuery = Book::queryMysql("SELECT * FROM admin");
+   queryMysql("SET NAMES utf8");
+   $adminQuery = queryMysql("SELECT * FROM admin");
    $adminQuery = $adminQuery->fetch_array(MYSQLI_ASSOC);
    $adminLogin = $adminQuery['login'];
    $adminPassword = $adminQuery['password'];
@@ -24,7 +24,7 @@ else {
 <!doctype html>
 <html>
 <?php
-    $books_images_my = Book::queryMysql("SELECT DISTINCT books.link, books.image FROM purchases
+    $books_images_my = queryMysql("SELECT DISTINCT books.link, books.image FROM purchases
       RIGHT JOIN books ON purchases.id_book = books.id
       WHERE books.admin=1 AND `id_member` IS NULL UNION ALL
       SELECT DISTINCT books.link, books.image FROM purchases
@@ -35,7 +35,7 @@ else {
         FROM purchases
         WHERE id_member =$id_user
       );");
-    $books_other_query = Book::queryMysql("SELECT DISTINCT books.link, books.image FROM purchases
+    $books_other_query = queryMysql("SELECT DISTINCT books.link, books.image FROM purchases
       RIGHT JOIN books ON purchases.id_book = books.id
       WHERE books.admin=0 AND `id_member` IS NULL
       UNION ALL SELECT DISTINCT books.link, books.image FROM purchases
@@ -46,7 +46,7 @@ else {
         FROM purchases
         WHERE id_member =$id_user
       );");
-    $books_images_purchased = Book::queryMysql("SELECT books.link, books.image
+    $books_images_purchased = queryMysql("SELECT books.link, books.image
 FROM purchases
 INNER JOIN books ON purchases.id_book =books.id  WHERE id_member='$id_user';");
 //		$row = $books_other_query->fetch_array(MYSQLI_ASSOC);

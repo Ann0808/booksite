@@ -2,7 +2,15 @@
 /**
  *
  */
- require_once ('../functions.php');
+ function queryMysql($query)
+ {
+   global $connection;
+   $result = $connection->query($query);
+   if (!$result) die($connection->error);
+   return $result;
+ }
+
+ 
 class Book
 {
    public $id = null;
