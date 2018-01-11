@@ -76,44 +76,10 @@ border: 1px solid black;
                     <div class="admin-container__row">
                         <input class="btn btn--margin" type="submit" value="Отправить данные" name="submit"  >
                         <div class="progress">
-    <div></div>
-  </div>
+                            <div></div>
+                        </div>
                         <p>
-                            <?php
-								 //$path = '../img/';
 
-								 $types = array('image/jpeg'); //only jpg
-								 echo("");
-								//  if (($_SERVER['REQUEST_METHOD'] == 'POST')&&(isset($_POST['submit'])))
-								//  {?>
-                    <script type="text/javascript">
-                //    $(document).ready(function() {
-                //    $('.btn--margin').removeAttr('disabled');
-                //    });
-                //    </script>
-								 <?	 //$name=$_POST['book-name'];
-								// 	 //$link=$_POST['book-link'];
-								// 	 $ext = array_pop(explode('.',$_FILES['picture-mobile']['name']));
-								// 	 // Проверяем тип файла
-								//  if ((!in_array($_FILES['picture-mobile']['type'], $types))||(!in_array($_FILES['picture-desktop']['type'], $types))||(!in_array($_FILES['picture-book']['type'], $types))) {
-								// 		die('Все файлы должны быть в формате jpg. <a href="?">Попробовать загрузить снова?</a>');
-								//  }
-                //
-								//  $book = new Book($_POST,$_FILES);
-								// 	if ((!@copy($_FILES['picture-mobile']['tmp_name'], $book->logoMobile))||(!@copy($_FILES['picture-desktop']['tmp_name'], $book->logoDesktop))||(!@copy($_FILES['picture-book']['tmp_name'], $book->logoBook))) {
-								// 		echo 'Что-то пошло не так';
-								// 	}
-								// 	else {
-                //
-								// 		$book->insert();
-								// 		//queryMysql("INSERT INTO `books`(`name`, `logo-mob`, `logo-desk`, `image`,`author_name`,`link`) VALUES ('$name','$logo1','$logo2','$img','$author','$link')");
-								// 		picture_book($book->logoBook);
-                //
-								// 		echo 'Загрузка удачна';
-								// 	}
-                //
-							//  }
-							 ?>
                         </p>
                         <p id="info"></p>
                     </div>
