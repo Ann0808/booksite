@@ -4,6 +4,7 @@ session_start(); ?>
         <?php include("header_admin.php");
 			require_once"picture.php";
 ?>
+
             <div class="admin-container--special">
 
                 <form enctype="multipart/form-data" method="post" action="addnewbook.php">
@@ -59,15 +60,21 @@ session_start(); ?>
                         </div>
                     </div>
                     <div class="admin-container__row">
-                        <input class="btn btn--margin" type="submit" value="Отправить данные" name="submit" />
+                        <input class="btn btn--margin" type="submit" value="Отправить данные" name="submit"  >
                         <p>
                             <?php
 								 //$path = '../img/';
+
 								 $types = array('image/jpeg'); //only jpg
 								 echo("");
 								 if (($_SERVER['REQUEST_METHOD'] == 'POST')&&(isset($_POST['submit'])))
-								 {
-									 //$name=$_POST['book-name'];
+								 {?>
+                   <script type="text/javascript">
+                   $(document).ready(function() {
+                   $('.btn--margin').removeAttr('disabled');
+                   });
+                   </script>
+								<?	 //$name=$_POST['book-name'];
 									 //$link=$_POST['book-link'];
 									 $ext = array_pop(explode('.',$_FILES['picture-mobile']['name']));
 									 // Проверяем тип файла
