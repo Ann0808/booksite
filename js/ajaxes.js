@@ -25,9 +25,9 @@ function deleteBook(e) {
   var overlay = $(".modal-overlay");
   var modal = $(".modal-content");
   $(modal).css("display","block");
-<<<<<<< HEAD
+
   $(modal).append('<a  class="btn" href="showbooks.php?erase=' + idBook + '" >Удалить</a>');
-=======
+
   $(overlay).css("display","block");
   $(".btn-uniq").replaceWith('<a  class="btn btn-uniq" href="showbooks.php?erase=' + idBook + '" >Удалить</a>');
 }
@@ -37,7 +37,7 @@ function closeModalContent(e) {
   var modal = $(".modal-content");
   $(modal).css("display","none");
   $(overlay).css("display","none");
->>>>>>> f9773fe28c3522d8d3de799b07383f2652241cc9
+
 }
 
 function update_chapter(e,num) {
