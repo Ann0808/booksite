@@ -68,11 +68,17 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
 									</div>
 							<?    $is_id = false; } ?>
 							<div class="col"><a class="showbook__btn" href="editbook.php?id=<?echo $id_redirect; ?>">Книгу</a><hr><a class="showbook__btn" href="editchapters.php?id=<?echo $id_redirect; ?>">Главы</a></div>
-							<div class="col"><a href="showbooks.php?erase=<? echo $id_redirect; ?>" class="del">Удалить</a></div>
+							<div class="col"><a data-book ='<? echo $id_redirect; ?>' class="del" onclick="deleteBook(this)">Удалить</a></div>
 						</div>
 					<?  } ?>
 					<span class="admin-container__addition">* 1-если вы являетесь автором книги, иначе - 0</span>
 			</div>
+   </div>
+
+   <div class="modal-content modal-content--close">
+   	<h2 class="modal-content__title">Вы действительно хотите удалить книгу?</h2>
+
+
    </div>
 
    <script>

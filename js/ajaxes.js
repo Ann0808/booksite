@@ -15,6 +15,15 @@ var idBook = $(e).data("book");
   var modal = $(".modal-content");
   $(modal).css("display","block");
   $(modal).append('<a  classs="btn" href="editchapters.php?erase=' + idChapter +  '&id=' + idBook + '" >Удалить</a>');
+
+}
+
+function deleteBook(e) {
+  var idBook = $(e).data("book");
+  //alert(idBook);
+  var modal = $(".modal-content");
+  $(modal).css("display","block");
+  $(modal).append('<a  classs="btn" href="showbooks.php?erase=' + idBook + '" >Удалить</a>');
 }
 
 function update_chapter(e,num) {
