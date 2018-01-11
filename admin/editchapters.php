@@ -31,7 +31,7 @@ $chapters = Book::queryMysql($chapterQuery);
         $nameChapter=$row['name'];
         $textChapter=$row['text'];
       			echo("<div class='admin_container__wrapper' id='chp-$idChapter'>");
-        echo("<a class='admin-container__chapter-link' onclick='visible(this)'>$nameChapter</a>"); ?>
+        echo("<a class='admin-container__chapter-link' onclick='visible(this)'>$nameChapter (редактировать)</a>"); ?>
         <a data-book ='<? echo $id; ?>' data-chapter ='<? echo $idChapter; ?>'class="del del--special" onclick="deleteChapter(this)">Удалить</a>
       <?  echo("<div class='hidden'>
          <p>Редактировать название главы №$j</p>
@@ -71,9 +71,10 @@ $chapters = Book::queryMysql($chapterQuery);
 </div>
 <div class="modal-content modal-content--close">
 	<p>Вы действительно хотите удалить главу?</p>
-
-
+  <a class="modal-content__close" onclick='closeModalContent(this)'>Отменить</a>
+  <a href="#" class="btn-uniq"></a>
 </div>
+<div class="modal-overlay"></div>
 <!-- <div class="modal-content modal-content--close">
 	<h2 class="modal-content__title">Вставка изображения</h2>
 	<div class="file_upload btn">

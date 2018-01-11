@@ -278,7 +278,7 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
 .del--special::after,
 .del--special::before {
   left: 20px;
-  top: -5px;
+  top: -9px;
   margin-left: 0;
 }
 .del::after {
@@ -1025,7 +1025,7 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
 .modal-content {
   position: absolute;
   display: block;
-  z-index: 10;
+  z-index: 11;
   width: 320px;
   box-sizing: border-box;
   top: 136px;
@@ -1115,8 +1115,8 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
   }
   .modal-content__close {
     position: absolute;
-    top: 73px;
-    right: -90px;
+    top: 20px;
+    right: 20px;
     z-index: 105;
     width: 26px;
     height: 26px;
@@ -1134,7 +1134,7 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
     position: absolute;
     width: 26px;
     height: 3px;
-    background-color: #ffffff;
+    background-color: #000000;
     transform: rotate(45deg);
     transition: background-color 0.1s linear;
   }
@@ -1151,6 +1151,20 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
   .modal-content__close:active::after {
     opacity: 0.5;
   }
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.modal-overlay-show {
+  display: block;
 }
 
 nav {

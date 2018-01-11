@@ -76,10 +76,11 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
    </div>
 
    <div class="modal-content modal-content--close">
-   	<h2 class="modal-content__title">Вы действительно хотите удалить книгу?</h2>
-
-
+   	<p>Вы действительно хотите удалить книгу?</p>
+    <a class="modal-content__close" onclick='closeModalContent(this)'>Отменить</a>
+    <a href="#" class="btn-uniq"></a>
    </div>
+   <div class="modal-overlay"></div>
 
    <script>
 		 jQuery(function ($) {
