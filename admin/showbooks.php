@@ -15,9 +15,9 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
 			$mob_del=$rows['logo-mob'];
 			$desk_del=$rows['logo-desk'];
 
-			// unlink("$image_del");
-			// unlink("$mob_del");
-			// unlink("$desk_del");
+			unlink("$image_del");
+			unlink("$mob_del");
+			unlink("$desk_del");
 
 			Book::queryMysql("DELETE FROM chapter WHERE book_id=$erase");
       Book::queryMysql("DELETE FROM purchases WHERE id_book=$erase");
