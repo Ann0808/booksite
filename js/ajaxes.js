@@ -26,7 +26,7 @@ function deleteBook(e) {
   var modal = $(".modal-content");
   $(modal).css("display","block");
 
-  $(modal).append('<a  class="btn" href="showbooks.php?erase=' + idBook + '" >Удалить</a>');
+//  $(modal).append('<a  class="btn" href="showbooks.php?erase=' + idBook + '" >Удалить</a>');
 
   $(overlay).css("display","block");
   $(".btn-uniq").replaceWith('<a  class="btn btn-uniq" href="showbooks.php?erase=' + idBook + '" >Удалить</a>');
