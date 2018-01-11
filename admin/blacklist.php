@@ -3,7 +3,7 @@ session_start();
 ?>
 <?php if ( $_SESSION['adminname'] == $adminLogin) { ?>
 <?php include("header_admin.php");
-$everything = Book::queryMysql("SELECT black_list.id, members.name, members.user
+$everything = queryMysql("SELECT black_list.id, members.name, members.user
 FROM black_list
 INNER JOIN members ON black_list.user_id =members.id");
 
@@ -15,7 +15,7 @@ INNER JOIN members ON black_list.user_id =members.id");
 if (isset($_GET['erase']))
     {
 $erase = $_GET['erase'];
-			Book::queryMysql("DELETE FROM `black_list` WHERE `id` = '$erase';");
+			queryMysql("DELETE FROM `black_list` WHERE `id` = '$erase';");
 			echo "<script>window.location.href='blacklist.php'</script>";
 
     }
@@ -66,11 +66,11 @@ $erase = $_GET['erase'];
 
 if (isset($_POST['submitblack'])) {
 $user_email = $_POST['user-email'];
-$searchUser = Book::queryMysql("SELECT id FROM members WHERE email='$user_email';");
+$searchUser = queryMysql("SELECT id FROM members WHERE email='$user_email';");
 
 $rowUser = $searchUser->fetch_array(MYSQLI_ASSOC);
 $id_user = $rowUser['id'];
-$searchBlack = Book::queryMysql("SELECT * FROM `black_list` WHERE `user_id`='$id_user'");
+$searchBlack = queryMysql("SELECT * FROM `black_list` WHERE `user_id`='$id_user'");
 //$row2 = $searchBook->fetch_array(MYSQLI_ASSOC);
 if ($searchUser->num_rows==0)
 {
@@ -78,7 +78,7 @@ echo "Нет пользователя с таким email!";
 } else if($searchBlack->num_rows!=0) {
 echo "Этот пользователь уже в черном списке!";
 } else {
-Book::queryMysql("INSERT INTO `black_list`(`user_id`) VALUES ('$id_user')");
+queryMysql("INSERT INTO `black_list`(`user_id`) VALUES ('$id_user')");
 
 echo "Добавлено! Обновите страницу.";
 }

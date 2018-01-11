@@ -66,35 +66,35 @@ session_start(); ?>
 
                   if ( $freekassa_secret!=null ) {
                     $insertQuery = "UPDATE `admin` SET `freekassaSecret`='$freekassa_secret'";
-                    Book::queryMysql($insertQuery);
+                    queryMysql($insertQuery);
                     echo ("Секрет успешно изменен!");
                   }
 
                   if ( $freekassa_money!=null ) {
                     $insertQuery = "UPDATE `admin` SET `freekassaID`='$freekassa_money'";
-                    Book::queryMysql($insertQuery);
+                    queryMysql($insertQuery);
                     echo ("ID freekassa кошелька успешно изменен!");
                   }
 
                   if ( $newEmail!=null ) {
                     $insertQuery = "UPDATE `admin` SET `email`='$newEmail'";
-                    Book::queryMysql($insertQuery);
+                    queryMysql($insertQuery);
                     echo ("Email успешно изменен!");
                   }
                     if ( $yandex_secret!=null ) {
                       $insertQuery = "UPDATE `admin` SET `yandex_secret`='$yandex_secret'";
-                      Book::queryMysql($insertQuery);
+                      queryMysql($insertQuery);
                       echo ("Секрет успешно изменен!");
                     }
                     if ( $yandex_money!=null ) {
                       $insertQuery = "UPDATE `admin` SET `yandex_money`='$yandex_money'";
-                      Book::queryMysql($insertQuery);
+                      queryMysql($insertQuery);
                       echo ("Яндекс кошелек успешно изменен!");
                     }
                   if ( $newPass!=null ) {
                     if (( $newPass==$newPassAgain )&&($oldPass==$adminPassword)) {
                       $insertQuery = "UPDATE `admin` SET `password`='$newPass'";
-                      Book::queryMysql($insertQuery);
+                      queryMysql($insertQuery);
                       echo ("Пароль успешно изменен!");
                     }
                     elseif ($oldPass!=$adminPassword){
@@ -107,12 +107,12 @@ session_start(); ?>
                   }
                   if ( $newLogin!=null ) {
                     $insertQuery = "UPDATE `admin` SET `login`='$newLogin'";
-                    Book::queryMysql($insertQuery);
+                    queryMysql($insertQuery);
                     echo ("Логин успешно изменен!");
                   }
                   if ( $newName!=null ) {
                     $insertQuery = "UPDATE `admin` SET `name`='$newName'";
-                    Book::queryMysql($insertQuery);
+                    queryMysql($insertQuery);
                     echo ("Имя успешно изменено!");
                   }
                   if (( $newPassAgain!=null )&&( $newPass==null )) {

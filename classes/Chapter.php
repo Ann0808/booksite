@@ -2,6 +2,10 @@
 /**
  *
  */
+
+ require_once ('../functions.php');
+
+
 class Chapter
 {
   public $id = null;
@@ -25,13 +29,13 @@ class Chapter
      $textChapter=$posth['chapter-text'];
      echo("отредактировано!");
      $updateQuery = "UPDATE `chapter` SET `name`='$nameChapter',`text`='$textChapter' WHERE `id`='$idchap'";
-     Book::queryMysql($updateQuery);
+     queryMysql($updateQuery);
   }
 
   public function insert() {
   $insertQuery = "INSERT INTO `chapter`(`name`, `text`, `book_id`) VALUES ('$this->name','$this->text','$this->bookId')";
    echo("добавлено!");
-     Book::queryMysql($insertQuery);
+     queryMysql($insertQuery);
   }
 }
 

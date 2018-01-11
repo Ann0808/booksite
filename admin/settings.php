@@ -8,8 +8,8 @@
 
  $connection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
  if ($connection->connect_error) die($connection->connect_error);
-   Book::queryMysql("SET NAMES utf8");
-   $adminQuery = Book::queryMysql("SELECT * FROM admin");
+   queryMysql("SET NAMES utf8");
+   $adminQuery = queryMysql("SELECT * FROM admin");
 
 
    $adminQuery = $adminQuery->fetch_array(MYSQLI_ASSOC);

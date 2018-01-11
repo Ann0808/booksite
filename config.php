@@ -14,6 +14,7 @@ define( "CLASS_PATH", "classes" );
 // define( "ADMIN_YANDEX", "41001379265341" );
 require_once( CLASS_PATH . "/Book.php" );
 require_once( CLASS_PATH . "/Chapter.php" );
+require_once( "functions.php" );
 //then add try catch
 // function handleException( $exception ) {
 //   echo "Sorry, a problem occurred. Please try later.";

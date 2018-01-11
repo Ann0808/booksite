@@ -3,13 +3,13 @@ session_start();
 ?>
 <?php if ( $_SESSION['adminname'] == $adminLogin) { ?>
 <?php include("header_admin.php");
-$everything = Book::queryMysql("SELECT * FROM books");
+$everything = queryMysql("SELECT * FROM books");
 
 if (isset($_GET['erase'])) // Удаление глав и книги по id
     {
     $erase = $_GET['erase'];
 
-			$delBook = Book::queryMysql("SELECT * FROM `books` WHERE `id`='$erase'");
+			$delBook = queryMysql("SELECT * FROM `books` WHERE `id`='$erase'");
 			$rows = $delBook->fetch_array(MYSQLI_ASSOC);
 			$image_del=$rows['image'];
 			$mob_del=$rows['logo-mob'];
@@ -19,9 +19,9 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
 			// unlink("$mob_del");
 			// unlink("$desk_del");
 
-			Book::queryMysql("DELETE FROM chapter WHERE book_id=$erase");
-      Book::queryMysql("DELETE FROM purchases WHERE id_book=$erase");
-      Book::queryMysql("DELETE FROM books WHERE id=$erase");
+			queryMysql("DELETE FROM chapter WHERE book_id=$erase");
+      queryMysql("DELETE FROM purchases WHERE id_book=$erase");
+      queryMysql("DELETE FROM books WHERE id=$erase");
 			echo "<script>window.location.href='showbooks.php'</script>";
 
     }

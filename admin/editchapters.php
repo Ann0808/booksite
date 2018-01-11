@@ -8,7 +8,7 @@ session_start(); ?>
 $id =  $_GET["id"];
 $chapterQuery = "SELECT `name`, `text`,`id` FROM `chapter` WHERE `book_id`=$id";
 
-$chapters = Book::queryMysql($chapterQuery);
+$chapters = queryMysql($chapterQuery);
 ?>
 <div class="admin-container">
   <div class="admin-container__items">

@@ -3,7 +3,7 @@ session_start();
 ?>
     <?php if ( $_SESSION['adminname'] == $adminLogin) { ?>
         <?php include("header_admin.php");
-$everything = Book::queryMysql("SELECT  members.name, members.email , books.name AS n, books.price
+$everything = queryMysql("SELECT  members.name, members.email , books.name AS n, books.price
 FROM purchases
 INNER JOIN members ON purchases.id_member =members.id
 INNER JOIN books ON purchases.id_book =books.id
@@ -48,12 +48,12 @@ INNER JOIN books ON purchases.id_book =books.id
     if (isset($_POST['submit'])) {
       $user_email = $_POST['user-email'];
       $purch_book_id = $_POST['purch-book-id'];
-      $searchUser = Book::queryMysql("SELECT id FROM members WHERE email='$user_email';");
-      $searchBook = Book::queryMysql("SELECT id FROM books WHERE id='$purch_book_id';");
+      $searchUser = queryMysql("SELECT id FROM members WHERE email='$user_email';");
+      $searchBook = queryMysql("SELECT id FROM books WHERE id='$purch_book_id';");
 
       $rowUser = $searchUser->fetch_array(MYSQLI_ASSOC);
       $id_user = $rowUser['id'];
-      $searchPurch = Book::queryMysql("SELECT * FROM `purchases` WHERE `id_book`='$purch_book_id' AND `id_member`='$id_user'");
+      $searchPurch = queryMysql("SELECT * FROM `purchases` WHERE `id_book`='$purch_book_id' AND `id_member`='$id_user'");
       //$row2 = $searchBook->fetch_array(MYSQLI_ASSOC);
       if ($searchUser->num_rows==0)
       {
@@ -63,7 +63,7 @@ INNER JOIN books ON purchases.id_book =books.id
       } else if($searchPurch->num_rows!=0) {
         echo "Эта покупка уже зарегистрирована!";
       } else {
-        Book::queryMysql("INSERT INTO `purchases`(`id_book`, `id_member`) VALUES ('$purch_book_id','$id_user')");
+        queryMysql("INSERT INTO `purchases`(`id_book`, `id_member`) VALUES ('$purch_book_id','$id_user')");
 
         echo "Добавлено! Обновите страницу.";
       }

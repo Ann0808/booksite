@@ -2,6 +2,7 @@
 /**
  *
  */
+ require_once ('../functions.php');
 class Book
 {
    public $id = null;
@@ -32,55 +33,55 @@ class Book
 
   public function insert() {
     $insertQuery = "INSERT INTO `books`(`name`, `logo-mob`, `logo-desk`, `image`,`author_name`,`link`,`price`,`admin`) VALUES ('$this->name','$this->logoMobile','$this->logoDesktop','$this->logoBook','$this->author','$this->link','$this->price','$this->isAdmin')";
-     Book::queryMysql($insertQuery);
+     queryMysql($insertQuery);
   }
 
   public function update() {
     $insertQuery = "UPDATE `books` SET `admin`='$this->isAdmin' WHERE `id`='$this->id'";
-     Book::queryMysql($insertQuery);
+     queryMysql($insertQuery);
 
     if($this->isAdmin!=null){
       $insertQuery = "UPDATE `books` SET `admin`='$this->isAdmin' WHERE `id`='$this->id'";
-       Book::queryMysql($insertQuery);
+      queryMysql($insertQuery);
     }
     if($this->name!=null){
       $insertQuery = "UPDATE `books` SET `name`='$this->name' WHERE `id`='$this->id'";
-       Book::queryMysql($insertQuery);
+       queryMysql($insertQuery);
     }
     if($this->logoMobile!=null){
       $insertQuery = "UPDATE `books` SET `logo-mob`='$this->logoMobile' WHERE `id`='$this->id'";
-       Book::queryMysql($insertQuery);
+       queryMysql($insertQuery);
     }
     if($this->logoDesktop!=null){
       $insertQuery = "UPDATE `books` SET `logo-desk`='$this->logoDesktop' WHERE `id`='$this->id'";
-       Book::queryMysql($insertQuery);
+       queryMysql($insertQuery);
     }
     if($this->logoBook!=null){
       $insertQuery = "UPDATE `books` SET `image`='$this->logoBook' WHERE `id`='$this->id'";
-       Book::queryMysql($insertQuery);
+       queryMysql($insertQuery);
     }
     if($this->author!=null){
       $insertQuery = "UPDATE `books` SET `author_name`='$this->author' WHERE `id`='$this->id'";
-       Book::queryMysql($insertQuery);
+       queryMysql($insertQuery);
     }
     if($this->link!=null){
       $insertQuery = "UPDATE `books` SET `link`='$this->link' WHERE `id`='$this->id'";
-       Book::queryMysql($insertQuery);
+       queryMysql($insertQuery);
     }
 		if($this->price!=null){
       $insertQuery = "UPDATE `books` SET `price`='$this->price' WHERE `id`='$this->id'";
-       Book::queryMysql($insertQuery);
+       queryMysql($insertQuery);
     }
   }
 
 
 
-  public static function queryMysql($query)
-    {
-      global $mysqli;
-      $result = $mysqli->query($query);
-      if (!$result) die($mysqli->error);
-      return $result;
-    }
+  // public static function queryMysqli($query)
+  //   {
+  //     global $mysqli;
+  //     $result = $mysqli->query($query);
+  //     if (!$result) die($mysqli->error);
+  //     return $result;
+  //   }
 }
  ?>
