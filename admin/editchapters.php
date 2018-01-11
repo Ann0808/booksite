@@ -70,7 +70,7 @@ $chapters = Book::queryMysql($chapterQuery);
   </div>
 </div>
 <div class="modal-content modal-content--close">
-	<h2 class="modal-content__title">Вы действительно хотите удалить главу?</h2>
+	<p>Вы действительно хотите удалить главу?</p>
 
 
 </div>
