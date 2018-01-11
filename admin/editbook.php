@@ -86,10 +86,11 @@ $checked=$books['admin'];
                         </div>
                         <input name="book-id" type="hidden" value='<?echo $id;?>'>
                         <input type='submit' class='btn hidden' name='UpdateBookButton' value='Применить изменения'>
-                        <div id = "infoedit" class="progress">
+                        <div class="progress">
     <div></div>
   </div>
                     </form>
+                    <p id="info"></p>
 
                     <?
 if(isset($_POST['UpdateBookButton'])){
@@ -130,6 +131,7 @@ if(isset($_POST['UpdateBookButton'])){
                 <script type="text/javascript" src="../js/editBook.js">
 
                 </script>
+
                 <?php include("footer_admin.php"); ?>
                     <?}
 else {

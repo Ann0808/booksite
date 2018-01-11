@@ -79,17 +79,18 @@ if ( $_SESSION['adminname'] == $adminLogin):
    //    }
 
 	 if(isset($_POST['flagEdit'])) {
+		 $txt = "";
 		 $book = new Book($_POST,$_FILES);
 		  if (!@copy($_FILES['picture-mobile']['tmp_name'], $book->logoMobile)){
-		    echo 'Логотип для мобильной версии не обновлен '; ?>
+		    $txt .= 'Логотип для мобильной версии не обновлен <br>'; ?>
 		                         <br>
 		                         <? }
 		  if(!@copy($_FILES['picture-desktop']['tmp_name'], $book->logoDesktop)) {
-		    echo 'Логотип для десктопрой версии не обновлен'; ?>
+		    $txt .= 'Логотип для десктопрой версии не обновлен<br>'; ?>
 		                             <br>
 		                             <? }
 		  if(!@copy($_FILES['picture-book']['tmp_name'], $book->logoBook)) {
-		    echo 'Миниатюра не обновлена'; ?>
+		    $txt .= 'Миниатюра не обновлена<br>'; ?>
 		                                 <br>
 		                                 <? }
 		  $book->update();
@@ -107,7 +108,8 @@ if ( $_SESSION['adminname'] == $adminLogin):
 		                                             location.reload(true); //Reload the page
 		                                         }
 		                                     </script>
-		                                     <?echo 'Книга отредактирована';
+		                                     <?$txt .= '<b>Книга отредактирована</b>';
+																				 echo $txt;
 	 }
 
 	 if (isset($_POST['flag']))

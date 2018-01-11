@@ -8,7 +8,7 @@ session_start(); ?>
 .progress{
   width: 500px;
   height: 45px;
-
+border: 1px solid black;
 }
 .progress > div{
   width: 0px;
