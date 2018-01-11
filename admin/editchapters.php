@@ -32,7 +32,7 @@ $chapters = Book::queryMysql($chapterQuery);
         $textChapter=$row['text'];
       			echo("<div class='admin_container__wrapper' id='chp-$idChapter'>");
         echo("<a class='admin-container__chapter-link' onclick='visible(this)'>$nameChapter</a>"); ?>
-        <a data-book ='<? echo $id; ?>' data-chapter ='<? echo $idChapter; ?>'class="del" onclick="deleteChapter(this)">Удалить</a>
+        <a data-book ='<? echo $id; ?>' data-chapter ='<? echo $idChapter; ?>'class="del del--special" onclick="deleteChapter(this)">Удалить</a>
       <?  echo("<div class='hidden'>
          <p>Редактировать название главы №$j</p>
         <input class='admin-container__input-text admin-container__input-text--center' type='text' name='chapter-name' value='$nameChapter'>
@@ -48,7 +48,7 @@ $chapters = Book::queryMysql($chapterQuery);
       echo("</div>");
 
     }
-    echo("<div class='admin-container__row admin-container__row--central'>
+    echo("<div class='admin-container__row'>
      <button onclick='visibleAddChapter()' class='btn admin-container__input-text--center' data-id='$idBook'>Добавить новую главу</button>
      </div>");
     echo("<div class='admin_container__wrapper hidden' id='addNewChapterWrapper'>");
@@ -70,7 +70,7 @@ $chapters = Book::queryMysql($chapterQuery);
   </div>
 </div>
 <div class="modal-content modal-content--close">
-	<h2 class="modal-content__title">Вы действительно хотите удалить главу?</h2>
+	<p>Вы действительно хотите удалить главу?</p>
 
 
 </div>

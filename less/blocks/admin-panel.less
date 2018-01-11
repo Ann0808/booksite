@@ -280,8 +280,15 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
 	width: 25px;
 	height: 3px;
 	background: #000;
+	cursor: pointer;
 }
 
+.del--special::after,
+.del--special::before {
+	left: 20px;
+	top: -5px;
+	margin-left: 0;
+}
 .del::after {
 	transform: rotate(45deg);
 }
@@ -298,6 +305,8 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
 .del:active::after {
 	opacity: 0.5;
 }
+
+
 
 @media (max-width: 768px) {
 	.admin-container__row .purchases-col {

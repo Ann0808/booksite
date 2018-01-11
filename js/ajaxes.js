@@ -14,7 +14,7 @@ var idChapter = $(e).data("chapter");
 var idBook = $(e).data("book");
   var modal = $(".modal-content");
   $(modal).css("display","block");
-  $(modal).append('<a  classs="btn" href="editchapters.php?erase=' + idChapter +  '&id=' + idBook + '" >Удалить</a>');
+  $(modal).append('<a  class="btn" href="editchapters.php?erase=' + idChapter +  '&id=' + idBook + '" >Удалить</a>');
 
 }
 
