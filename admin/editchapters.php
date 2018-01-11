@@ -9,6 +9,14 @@ $id =  $_GET["id"];
 $chapterQuery = "SELECT `name`, `text`,`id` FROM `chapter` WHERE `book_id`=$id";
 
 $chapters = Book::queryMysql($chapterQuery);
+if (isset($_GET['erase']))
+    {
+$erase = $_GET['erase'];
+			Book::queryMysql("DELETE FROM `chapter` WHERE `id` = '$erase';");
+			echo "<script>window.location.href='editchapters.php'</script>";
+
+    }
+
 ?>
 <div class="admin-container">
   <div class="admin-container__items">
@@ -22,8 +30,9 @@ $chapters = Book::queryMysql($chapterQuery);
         $nameChapter=$row['name'];
         $textChapter=$row['text'];
       			echo("<div class='admin_container__wrapper' id='chp-$idChapter'>");
-        echo("<a class='admin-container__chapter-link' onclick='visible(this)'>$nameChapter</a>");
-        echo("<div class='hidden'>
+        echo("<a class='admin-container__chapter-link' onclick='visible(this)'>$nameChapter</a>"); ?>
+        <a href="editchapters.php?erase=<? echo $idChapter; ?>" class="del">Удалить</a>
+      <?  echo("<div class='hidden'>
          <p>Редактировать название главы №$j</p>
         <input class='admin-container__input-text admin-container__input-text--center' type='text' name='chapter-name' value='$nameChapter'>
          </div>");
