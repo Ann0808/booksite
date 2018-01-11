@@ -9,6 +9,14 @@ function visibleAddPurchase() {
   $(".admin_container__wrapper.hidden").toggleClass("visible");
 }
 
+function deleteChapter(e) {
+var idChapter = $(e).data("chapter");
+var idBook = $(e).data("book");
+  var modal = $(".modal-content");
+  $(modal).css("display","block");
+  $(modal).append('<a  classs="btn" href="editchapters.php?erase=' + idChapter +  '&id=' + idBook + '" >Удалить</a>');
+}
+
 function update_chapter(e,num) {
   var chapter_id = $(e).data("id");
    var chapter_name =$('#chp-'+chapter_id+' input').val();

@@ -32,7 +32,7 @@ $chapters = Book::queryMysql($chapterQuery);
         $textChapter=$row['text'];
       			echo("<div class='admin_container__wrapper' id='chp-$idChapter'>");
         echo("<a class='admin-container__chapter-link' onclick='visible(this)'>$nameChapter</a>"); ?>
-        <a href="editchapters.php?erase=<? echo $idChapter; ?>&id=<? echo $id; ?>" class="del">Удалить</a>
+        <a data-book ='<? echo $id; ?>' data-chapter ='<? echo $idChapter; ?>'class="del" onclick="deleteChapter(this)">Удалить</a>
       <?  echo("<div class='hidden'>
          <p>Редактировать название главы №$j</p>
         <input class='admin-container__input-text admin-container__input-text--center' type='text' name='chapter-name' value='$nameChapter'>
@@ -68,6 +68,11 @@ $chapters = Book::queryMysql($chapterQuery);
     </div>
     <p id="info"></p>
   </div>
+</div>
+<div class="modal-content modal-content--close">
+	<h2 class="modal-content__title">Вы действительно хотите удалить главу?</h2>
+
+
 </div>
 <!-- <div class="modal-content modal-content--close">
 	<h2 class="modal-content__title">Вставка изображения</h2>
