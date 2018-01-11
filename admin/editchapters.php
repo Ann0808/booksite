@@ -6,16 +6,17 @@ session_start(); ?>
 <link href="../css/snow.css" rel="stylesheet">
 <?
 $id =  $_GET["id"];
-$chapterQuery = "SELECT `name`, `text`,`id` FROM `chapter` WHERE `book_id`=$id";
-
-$chapters = Book::queryMysql($chapterQuery);
 if (isset($_GET['erase']))
     {
 $erase = $_GET['erase'];
-			Book::queryMysql("DELETE FROM `chapter` WHERE `id` = '$erase';");
-			echo "<script>window.location.href='editchapters.php'</script>";
+			Book::queryMysql("DELETE FROM chapter WHERE id=$erase");
+			echo "<script>window.location.href='editchapters.php?id=" . $id . "'</script>";
 
     }
+$chapterQuery = "SELECT `name`, `text`,`id` FROM `chapter` WHERE `book_id`=$id";
+
+$chapters = Book::queryMysql($chapterQuery);
+
 
 ?>
 <div class="admin-container">
@@ -31,7 +32,7 @@ $erase = $_GET['erase'];
         $textChapter=$row['text'];
       			echo("<div class='admin_container__wrapper' id='chp-$idChapter'>");
         echo("<a class='admin-container__chapter-link' onclick='visible(this)'>$nameChapter</a>"); ?>
-        <a href="editchapters.php?erase=<? echo $idChapter; ?>" class="del">Удалить</a>
+        <a href="editchapters.php?erase=<? echo $idChapter; ?>&id=<? echo $id; ?>" class="del">Удалить</a>
       <?  echo("<div class='hidden'>
          <p>Редактировать название главы №$j</p>
         <input class='admin-container__input-text admin-container__input-text--center' type='text' name='chapter-name' value='$nameChapter'>
@@ -68,7 +69,7 @@ $erase = $_GET['erase'];
     <p id="info"></p>
   </div>
 </div>
-<div class="modal-content modal-content--close">
+<!-- <div class="modal-content modal-content--close">
 	<h2 class="modal-content__title">Вставка изображения</h2>
 	<div class="file_upload btn">
 							 Выбрать
@@ -76,7 +77,7 @@ $erase = $_GET['erase'];
 						 </div>
 			 <input type="text" placeholder="Picture url">
 			 <button class="btn">Вставить</button>
-</div>
+</div> -->
 
 <!-- Include the Quill library -->
 <script src="../js/quil.min.js"></script>
