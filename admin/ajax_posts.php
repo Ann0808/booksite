@@ -4,7 +4,10 @@ include("settings.php");
 session_start();
 $action = isset( $_GET['action'] ) ? $_GET['action'] : "";
 $username = isset( $_SESSION['adminname'] ) ? $_SESSION['adminname'] : ""; ?>
-<? //if ( $action != "login" && $action != "logout" && !$username ) {
+<?  require_once"picture.php";
+
+
+//if ( $action != "login" && $action != "logout" && !$username ) {
   //login();
   //exit;
 //}
@@ -75,7 +78,67 @@ if ( $_SESSION['adminname'] == $adminLogin):
    //  echo 'Загрузка удачна';
    //    }
 
+	 if(isset($_POST['flagEdit'])) {
+		 $book = new Book($_POST,$_FILES);
+		  if (!@copy($_FILES['picture-mobile']['tmp_name'], $book->logoMobile)){
+		    echo 'Логотип для мобильной версии не обновлен '; ?>
+		                         <br>
+		                         <? }
+		  if(!@copy($_FILES['picture-desktop']['tmp_name'], $book->logoDesktop)) {
+		    echo 'Логотип для десктопрой версии не обновлен'; ?>
+		                             <br>
+		                             <? }
+		  if(!@copy($_FILES['picture-book']['tmp_name'], $book->logoBook)) {
+		    echo 'Миниатюра не обновлена'; ?>
+		                                 <br>
+		                                 <? }
+		  $book->update();
+		  $logo= $book->logoBook;
+		 if($logo!=null){
+		 	picture_book($book->logoBook);
+		 }
 
+		  ?>
+
+		                                     <script>
+		                                         if (document.URL.indexOf("#") == -1) { //Check if the current URL contains '#'
+		                                             url = document.URL + "#"; // use "#". Add hash to URL
+		                                             location = "#";
+		                                             location.reload(true); //Reload the page
+		                                         }
+		                                     </script>
+		                                     <?echo 'Книга отредактирована';
+	 }
+
+	 if (isset($_POST['flag']))
+	 {?>
+
+	<?	 //$name=$_POST['book-name'];
+		 //$link=$_POST['book-link'];
+		 $txt="";
+		 $types = array('image/jpeg');
+		 $ext = array_pop(explode('.',$_FILES['picture-mobile']['name']));
+
+		 // Проверяем тип файла
+
+	 if ((!in_array($_FILES['picture-mobile']['type'], $types))||(!in_array($_FILES['picture-desktop']['type'], $types))||(!in_array($_FILES['picture-book']['type'], $types))) {
+			die('Все файлы должны быть в формате jpg. <a href="?">Попробовать загрузить снова?</a>');
+	 }
+
+	 $book = new Book($_POST,$_FILES);
+		if ((!@copy($_FILES['picture-mobile']['tmp_name'], $book->logoMobile))||(!@copy($_FILES['picture-desktop']['tmp_name'], $book->logoDesktop))||(!@copy($_FILES['picture-book']['tmp_name'], $book->logoBook))) {
+			echo 'Что-то пошло не так';
+		}
+		else {
+
+			$book->insert();
+			//queryMysql("INSERT INTO `books`(`name`, `logo-mob`, `logo-desk`, `image`,`author_name`,`link`) VALUES ('$name','$logo1','$logo2','$img','$author','$link')");
+			picture_book($book->logoBook);
+
+			echo 'Загрузка удачна';
+		}
+
+	 }
 
 
 		if(isset($_POST['chapter-id'])) {

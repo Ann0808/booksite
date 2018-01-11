@@ -23,7 +23,7 @@ function deleteBook(e) {
   //alert(idBook);
   var modal = $(".modal-content");
   $(modal).css("display","block");
-  $(modal).append('<a  classs="btn" href="showbooks.php?erase=' + idBook + '" >Удалить</a>');
+  $(modal).append('<a  class="btn" href="showbooks.php?erase=' + idBook + '" >Удалить</a>');
 }
 
 function update_chapter(e,num) {

@@ -20,6 +20,19 @@ $price=$books['price'];
 $checked=$books['admin'];
 
 ?>
+<style>
+.progress{
+  width: 500px;
+  height: 45px;
+
+}
+.progress > div{
+  width: 0px;
+  height: 45px;
+  position: relative;
+  background-color: green;
+}
+</style>
                 <div class="admin-container--special">
                     <form action="editbook.php?id=<?echo $id; ?>" id='form-update-book' enctype='multipart/form-data' method='post'>
 
@@ -73,45 +86,50 @@ $checked=$books['admin'];
                         </div>
                         <input name="book-id" type="hidden" value='<?echo $id;?>'>
                         <input type='submit' class='btn hidden' name='UpdateBookButton' value='Применить изменения'>
+                        <div id = "infoedit" class="progress">
+    <div></div>
+  </div>
                     </form>
 
                     <?
 if(isset($_POST['UpdateBookButton'])){
 
-$book = new Book($_POST,$_FILES);
- if (!@copy($_FILES['picture-mobile']['tmp_name'], $book->logoMobile)){
-   echo 'Логотип для мобильной версии не обновлен '; ?>
-                        <br>
+// $book = new Book($_POST,$_FILES);
+//  if (!@copy($_FILES['picture-mobile']['tmp_name'], $book->logoMobile)){
+//    echo 'Логотип для мобильной версии не обновлен '; ?>
+                         <br>
                         <? }
- if(!@copy($_FILES['picture-desktop']['tmp_name'], $book->logoDesktop)) {
-   echo 'Логотип для десктопрой версии не обновлен'; ?>
-                            <br>
-                            <? }
- if(!@copy($_FILES['picture-book']['tmp_name'], $book->logoBook)) {
-   echo 'Миниатюра не обновлена'; ?>
-                                <br>
-                                <? }
- $book->update();
- $logo= $book->logoBook;
-if($logo!=null){
-	picture_book($book->logoBook);
-}
+//  if(!@copy($_FILES['picture-desktop']['tmp_name'], $book->logoDesktop)) {
+//    echo 'Логотип для десктопрой версии не обновлен'; ?>
+                             <br>
+                            <?// }
+//  if(!@copy($_FILES['picture-book']['tmp_name'], $book->logoBook)) {
+//    echo 'Миниатюра не обновлена'; ?>
+                                 <br>
+                               <?// }
+//  $book->update();
+//  $logo= $book->logoBook;
+// if($logo!=null){
+// 	picture_book($book->logoBook);
+// }
+//
+//  ?>
 
- ?>
-
-                                    <script>
-                                        if (document.URL.indexOf("#") == -1) { //Check if the current URL contains '#'
-                                            url = document.URL + "#"; // use "#". Add hash to URL
-                                            location = "#";
-                                            location.reload(true); //Reload the page
-                                        }
-                                    </script>
-                                    <?echo 'Книга отредактирована';
-   }
+                                   <script>
+//                                         if (document.URL.indexOf("#") == -1) { //Check if the current URL contains '#'
+//                                             url = document.URL + "#"; // use "#". Add hash to URL
+//                                             location = "#";
+//                                             location.reload(true); //Reload the page
+//                                         }
+//                                     </script>
+                                     <?//echo 'Книга отредактирована';
+//    }
 ?>
 
                 </div>
+                <script type="text/javascript" src="../js/editBook.js">
 
+                </script>
                 <?php include("footer_admin.php"); ?>
                     <?}
 else {
