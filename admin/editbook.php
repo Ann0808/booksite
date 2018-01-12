@@ -20,19 +20,6 @@ $price=$books['price'];
 $checked=$books['admin'];
 
 ?>
-    <style>
-        .progress{
-          width: 500px;
-          height: 45px;
-
-        }
-        .progress > div{
-          width: 0px;
-          height: 45px;
-          position: relative;
-          background-color: green;
-        }
-    </style>
     <div class="admin-container--special">
         <form action="editbook.php?id=<?echo $id; ?>" id='form-update-book' enctype='multipart/form-data' method='post'>
 
