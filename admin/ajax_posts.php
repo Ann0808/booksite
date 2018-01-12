@@ -39,7 +39,7 @@ if ( $_SESSION['adminname'] == $adminLogin):
 		           location.reload(true); //Reload the page
 		            }
 	</script>
-<?$txt .= '<b>Книга отредактирована</b>';
+<?$txt .= '<p class="message--itog">Книга отредактирована</p>';
  echo $txt;
 	 }
 
@@ -50,12 +50,12 @@ if ( $_SESSION['adminname'] == $adminLogin):
 		 // Проверяем тип файла
 
 	 if ((!in_array($_FILES['picture-mobile']['type'], $types))||(!in_array($_FILES['picture-desktop']['type'], $types))||(!in_array($_FILES['picture-book']['type'], $types))) {
-			die('<p class="message">Все файлы должны быть в формате jpg. <a href="?">Попробовать загрузить снова?</a></p>');
+			die('<p class="message--red">Все файлы должны быть в формате jpg. <a href="?">Попробовать загрузить снова?</a></p>');
 	 }
 
 	 $book = new Book($_POST,$_FILES);
 		if ((!@copy($_FILES['picture-mobile']['tmp_name'], $book->logoMobile))||(!@copy($_FILES['picture-desktop']['tmp_name'], $book->logoDesktop))||(!@copy($_FILES['picture-book']['tmp_name'], $book->logoBook))) {
-			echo '<p class="message">Что-то пошло не так</p>';
+			echo '<p class="message--red">Что-то пошло не так</p>';
 		}
 		else {
 
