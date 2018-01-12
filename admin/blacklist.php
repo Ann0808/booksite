@@ -16,7 +16,7 @@ if (isset($_GET['erase']))
     {
 $erase = $_GET['erase'];
 			Book::queryMysql("DELETE FROM `black_list` WHERE `id` = '$erase';");
-			echo "<script>window.location.href='blacklist.php'</script>";
+			echo "<script>window.location.href='blacklist'</script>";
 
     }
 
@@ -44,7 +44,7 @@ $erase = $_GET['erase'];
                 <?php echo $v ?>
                </div>
              <? $is_id = false;}  ?>
-            <div class="col"><a href="blacklist.php?erase=<? echo $id_redirect; ?>" class="del">Удалить</a></div>
+            <div class="col"><a href="blacklist?erase=<? echo $id_redirect; ?>" class="del">Удалить</a></div>
          </div>
        <?   } ?>
 

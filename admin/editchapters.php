@@ -10,7 +10,7 @@ if (isset($_GET['erase']))
     {
 $erase = $_GET['erase'];
 			Book::queryMysql("DELETE FROM chapter WHERE id=$erase");
-			echo "<script>window.location.href='editchapters.php?id=" . $id . "'</script>";
+			echo "<script>window.location.href='editchapters?id=" . $id . "'</script>";
 
     }
 $chapterQuery = "SELECT `name`, `text`,`id` FROM `chapter` WHERE `book_id`=$id";

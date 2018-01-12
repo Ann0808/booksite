@@ -22,7 +22,7 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
 			Book::queryMysql("DELETE FROM chapter WHERE book_id=$erase");
       Book::queryMysql("DELETE FROM purchases WHERE id_book=$erase");
       Book::queryMysql("DELETE FROM books WHERE id=$erase");
-			echo "<script>window.location.href='showbooks.php'</script>";
+			echo "<script>window.location.href='showbooks'</script>";
     }
 
 ?>
@@ -66,7 +66,7 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
 										?>
 									</div>
 							<?    $is_id = false; } ?>
-							<div class="col"><a class="showbook__btn" href="editbook.php?id=<?echo $id_redirect; ?>">Книгу</a><hr><a class="showbook__btn" href="editchapters.php?id=<?echo $id_redirect; ?>">Главы</a></div>
+							<div class="col"><a class="showbook__btn" href="editbook?id=<?echo $id_redirect; ?>">Книгу</a><hr><a class="showbook__btn" href="editchapters?id=<?echo $id_redirect; ?>">Главы</a></div>
 							<div class="col"><a data-book ='<? echo $id_redirect; ?>' class="del" onclick="deleteBook(this)">Удалить</a></div>
 						</div>
 					<?  } ?>
