@@ -62,7 +62,7 @@ if ( $_SESSION['adminname'] == $adminLogin):
 			$book->insert();
 			picture_book($book->logoBook);
 
-			echo 'Загрузка удачна';
+			echo '<p class="message">Загрузка удачна</p>';
 		}
 
 	 }
