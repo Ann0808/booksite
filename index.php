@@ -60,7 +60,7 @@ INNER JOIN books ON purchases.id_book =books.id  WHERE id_member='$id_user';");
 
   <script defer src="/js/jquery-3.2.1.min.js"></script>
   <script defer type="text/javascript" src="../js/script.js"></script>
-    <link rel="stylesheet" href="../css/style.min.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
