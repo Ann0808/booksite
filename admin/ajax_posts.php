@@ -10,10 +10,11 @@ if ( $_SESSION['adminname'] == $adminLogin):
 
 	 if(isset($_POST['flagEdit'])) {
 		 $txt = "";
+	
 		 $book = new Book($_POST,$_FILES);
 		  if (!@copy($_FILES['picture-mobile']['tmp_name'], $book->logoMobile)){
 		    $txt .= 'Логотип для мобильной версии не обновлен <br>'; ?>
-		                         
+
 		                         <? }
 		  if(!@copy($_FILES['picture-desktop']['tmp_name'], $book->logoDesktop)) {
 		    $txt .= 'Логотип для десктопрой версии не обновлен<br>'; ?>
