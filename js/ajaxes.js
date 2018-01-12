@@ -56,10 +56,11 @@ function update_chapter(e,num) {
                 },
           cache: false,
           success: function(response){
-              document.getElementById("info").innerHTML = response;
+          $('#chp-'+chapter_id+' #editor'+num+ ' .ql-editor').css("background","	#90EE90");
+              document.getElementById("infoUpdate").innerHTML = response;
          },
         error: function(response) {
-          document.getElementById("info").innerHTML = "Возникла ошибка при отправке формы. Попробуйте еще раз";
+          document.getElementById("infoUpdate").innerHTML = "Возникла ошибка при отправке формы. Попробуйте еще раз";
         }
       });
       return false;
