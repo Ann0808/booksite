@@ -4,25 +4,13 @@ session_start(); ?>
         <?php include("header_admin.php");
 
 ?>
-<style>
-.progress{
-  width: 500px;
-  height: 45px;
-border: 1px solid black;
-}
-.progress > div{
-  width: 0px;
-  height: 45px;
-  position: relative;
-  background-color: green;
-}
-</style>
+
 
             <div class="admin-container--special">
 
                 <form enctype="multipart/form-data" method="post" action="addnewbook.php" id="formupload">
                     <div class="admin-container__block">
-                        <span class="admin-container__addition">Все изображения должны быть в формате jpeg</span>
+                        <span class="admin-container__addition">Все изображения должны быть в формате jpg</span>
                         <div class="admin-container__row">
                             <p>Логотип для мобильной версии
                             <br><span class="admin-container__addition">Изображение должно быть в горизонтальной ориентации. </span></p>
@@ -73,16 +61,12 @@ border: 1px solid black;
                                 <input type="checkbox" name="book-is-admin" value="a1"><span class="checkbox-indicator"></span></label>
                         </div>
                     </div>
-                    <div class="admin-container__row">
+
                         <input class="btn btn--margin" type="submit" value="Отправить данные" name="submit"  >
                         <div class="progress">
-                            <div></div>
+                            <div><p id="info" class="info"></p></div>
                         </div>
-                        <p>
 
-                        </p>
-                        <p id="info"></p>
-                    </div>
                 </form>
             </div>
 
