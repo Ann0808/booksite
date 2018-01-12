@@ -64,10 +64,10 @@ session_start(); ?>
 
                         <input class="btn btn--margin" type="submit" value="Отправить данные" name="submit"  >
                         <div class="progress">
-                            <div><p id="info" class="info"></p></div>
+                            <div></div>
                         </div>
                         <div id="error"></div>
-
+                        <p id="info" class="info"></p>
                         </div>
 
                 </form>
