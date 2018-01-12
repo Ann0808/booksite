@@ -20,7 +20,10 @@ class Book
      //$ext = array_pop(explode('.',$files['picture-mobile']['name']));
     if ( isset( $data['book-id'] ) ) $this->id = $data['book-id'];
     $ext = "jpg";
-    if ( isset( $data['book-link'] ) )$this->link = $data['book-link'];
+    if ( isset( $data['book-link'] ) ){
+      $this->link = str_replace(" ","",$data['book-link']);
+
+    }
     if ( isset( $data['book-name'] ) )$this->name = $data['book-name'];
     if ( $files['picture-mobile']['tmp_name']!=null )$this->logoMobile = $path . 'mobile-logo-'. time() . '.' . $ext;
     if (  $files['picture-desktop']['tmp_name']!=null )$this->logoDesktop = $path . 'desktop-logo-'. time() . '.' . $ext;
