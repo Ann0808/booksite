@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Войти</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.min.css">
     <script type="text/javascript" src="/js/script.js"></script>
 </head>
 <body class="admin__body">
