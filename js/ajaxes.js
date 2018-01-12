@@ -56,11 +56,11 @@ function update_chapter(e,num) {
                 },
           cache: false,
           success: function(response){
-          $('#chp-'+chapter_id+' #editor'+num+ ' .ql-editor').css("background","	#90EE90");
-              document.getElementById("infoUpdate").innerHTML = response;
+          $('#chp-'+chapter_id+' #editor'+num+ ' .ql-editor').css("background","	#E4FCE4");
+              document.getElementById("infoUpdate"+num).innerHTML = response;
          },
         error: function(response) {
-          document.getElementById("infoUpdate").innerHTML = "Возникла ошибка при отправке формы. Попробуйте еще раз";
+          document.getElementById("infoUpdate"+num).innerHTML = "Возникла ошибка при отправке формы. Попробуйте еще раз";
         }
       });
       return false;
