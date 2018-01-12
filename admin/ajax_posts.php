@@ -10,18 +10,18 @@ if ( $_SESSION['adminname'] == $adminLogin):
 
 	 if(isset($_POST['flagEdit'])) {
 		 $txt = "";
-	
+
 		 $book = new Book($_POST,$_FILES);
 		  if (!@copy($_FILES['picture-mobile']['tmp_name'], $book->logoMobile)){
-		    $txt .= 'Логотип для мобильной версии не обновлен <br>'; ?>
+		    $txt .= '<p class="message">Логотип для мобильной версии не обновлен </p>'; ?>
 
 		                         <? }
 		  if(!@copy($_FILES['picture-desktop']['tmp_name'], $book->logoDesktop)) {
-		    $txt .= 'Логотип для десктопрой версии не обновлен<br>'; ?>
+		    $txt .= '<p class="message">Логотип для десктопрой версии не обновлен</p>'; ?>
 
 		                             <? }
 		  if(!@copy($_FILES['picture-book']['tmp_name'], $book->logoBook)) {
-		    $txt .= 'Миниатюра не обновлена<br>'; ?>
+		    $txt .= '<p class="message">Миниатюра не обновлена</p>'; ?>
 
 		                                 <? }
 		  $book->update();
@@ -50,12 +50,12 @@ if ( $_SESSION['adminname'] == $adminLogin):
 		 // Проверяем тип файла
 
 	 if ((!in_array($_FILES['picture-mobile']['type'], $types))||(!in_array($_FILES['picture-desktop']['type'], $types))||(!in_array($_FILES['picture-book']['type'], $types))) {
-			die('Все файлы должны быть в формате jpg. <a href="?">Попробовать загрузить снова?</a>');
+			die('<p class="message">Все файлы должны быть в формате jpg. <a href="?">Попробовать загрузить снова?</a></p>');
 	 }
 
 	 $book = new Book($_POST,$_FILES);
 		if ((!@copy($_FILES['picture-mobile']['tmp_name'], $book->logoMobile))||(!@copy($_FILES['picture-desktop']['tmp_name'], $book->logoDesktop))||(!@copy($_FILES['picture-book']['tmp_name'], $book->logoBook))) {
-			echo 'Что-то пошло не так';
+			echo '<p class="message">Что-то пошло не так</p>';
 		}
 		else {
 
