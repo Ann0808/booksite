@@ -23,7 +23,7 @@ function login($admLog, $admPass) {
     if ( $_POST['username'] == $admLog && $_POST['password'] == $admPass ) {
       // Вход прошел успешно: создаем сессию и перенаправляем на страницу администратора
       $_SESSION['adminname'] = $admLog;
-      header( "Location: admin.php" );
+      header( "Location: admin" );
     } else {
       // Ошибка входа: выводим сообщение об ошибке для пользователя
       $results['errorMessage'] = "Incorrect username or password. Please try again.";
@@ -36,7 +36,7 @@ function login($admLog, $admPass) {
 }
 function logout() {
   unset( $_SESSION['adminname'] );
-  header( "Location: login.php" );
+  header( "Location: login" );
 }
 if ( $_SESSION['adminname'] == $adminLogin) {
   include('adminpannel.php');

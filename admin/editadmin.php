@@ -6,7 +6,7 @@ session_start(); ?>
  ?>
 
             <div class="admin-container--special">
-                <form action="editadmin.php" method="post">
+                <form action="editadmin" method="post">
                     <div class="admin-container__row">
                         <p>Ваше имя</p>
                         <input class="admin-container__input-text" type="text" name="admin-name" id="" placeholder="Аркадий Афанасьевич Фет">

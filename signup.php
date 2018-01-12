@@ -68,7 +68,7 @@
 						$href = $_SESSION['href'];
 						die("<script>window.location = '$href';</script>");
 					}else {
-						die("<script>window.location = 'index.php';</script>");
+						die("<script>window.location = 'index';</script>");
 					}
 
 					}
@@ -82,7 +82,7 @@
 							<div class='signup'>
 							<h2 class='signup__title'>Регистрация</h2>
 							<p>Заполните поля</p>
-							<form action='signup.php' method='post' class='signup__login-form'>
+							<form action='signup' method='post' class='signup__login-form'>
 				<p class='signup__error'><? echo $error; echo $ip; echo $time; ?></p>
 									<input type='text' class='signup__icon-user' name='user' placeholder='Логин' value='<? echo $user; ?>' onBlur='checkUser(this)'>
 					<input type='text' class='signup__icon-user' name='name' placeholder='Имя' value='<? echo $name; ?>'>

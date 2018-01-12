@@ -54,7 +54,7 @@ $erase = $_GET['erase'];
 
        <div class='admin-container__row admin-container__row'>
            <div class='admin_container__wrapper hidden' id='addNewPurchaseWrapper'>
-               <form action='blacklist.php' method='post'>
+               <form action='blacklist' method='post'>
                    <p>Email пользователя</p>
                    <input class='admin-container__input-text admin-container__input-text--center' type='email' name='user-email'>
                    <input class="btn btn--margin" type="submit" value="Отправить данные" name="submitblack" />

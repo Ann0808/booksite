@@ -59,7 +59,7 @@
 				$href = $_SESSION['href'];
 				die("<script>window.location = '$href';</script>");
 			}else {
-				die("<script>window.location = 'index.php';</script>");
+				die("<script>window.location = 'index';</script>");
 			}
 
       }
@@ -70,20 +70,20 @@
 ?>
             		<div class='signup'>
 									<h2 class='signup__title'>Вы уже вошли</h2>
-									<a href="index.php" class="link">На главную</a>
-									<a href="signout.php" class="link">Выйти</a>
+									<a href="index" class="link">На главную</a>
+									<a href="signout" class="link">Выйти</a>
 								</div>
 						<?	} else {
           ?>
            <div class='signup'>
             <h2 class='signup__title'>Вход в личный кабинет</h2>
             <p>Введите свой логин и пароль</p>
-            <form action='signin.php' method='post' class='signup__login-form'>
+            <form action='signin' method='post' class='signup__login-form'>
 								<p class='signup__error'><? echo $error; echo $count; ?></p>
                 <input type='text' class='signup__icon-user' name='user' placeholder='Логин' value='<? echo $user; ?>'>
                 <input type='password' class='signup__icon-password' name='pass' placeholder='Пароль' value='<? echo $pass; ?>'>
                 <button class='btn signup__enter' type='submit' value='Login'>Войти</button>
-                <a href="signup.php" class="link">Зарегистрироваться</a>
+                <a href="signup" class="link">Зарегистрироваться</a>
             </form>
         </div>
       <? } ?>

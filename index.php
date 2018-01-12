@@ -94,7 +94,7 @@ INNER JOIN books ON purchases.id_book =books.id  WHERE id_member='$id_user';");
 							$id_link =  $v;
 						 }
 						 else {
-							  echo ('<a class="carousel__item" href="page.php?chapter=0&book='.$id_link.'">  <img src='.$v.' alt="slide 1"></a>');
+							  echo ('<a class="carousel__item" href="page?chapter=0&book='.$id_link.'">  <img src='.$v.' alt="slide 1"></a>');
 						 }
 
           $is_link = false;}
@@ -126,7 +126,7 @@ INNER JOIN books ON purchases.id_book =books.id  WHERE id_member='$id_user';");
   							$id_link =  $v;
   						 }
   						 else {
-  							  echo ('<a class="carousel__item" href="page.php?chapter=0&book='.$id_link.'">  <img src='.$v.' alt="slide 1"></a>');
+  							  echo ('<a class="carousel__item" href="page?chapter=0&book='.$id_link.'">  <img src='.$v.' alt="slide 1"></a>');
   						 }
 
             $is_link = false;}
@@ -156,7 +156,7 @@ INNER JOIN books ON purchases.id_book =books.id  WHERE id_member='$id_user';");
 							$id_link =  $v;
 						 }
 						 else {
-							  echo ('<a class="carousel__item" href="page.php?chapter=0&book='.$id_link.'">  <img src='.$v.' alt="slide 1"></a>');
+							  echo ('<a class="carousel__item" href="page?chapter=0&book='.$id_link.'">  <img src='.$v.' alt="slide 1"></a>');
 						 }
 
           $is_link = false;}

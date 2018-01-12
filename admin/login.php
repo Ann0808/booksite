@@ -4,7 +4,7 @@ if( !isset( $adminLogin) ) {
   include("settings.php");
 }
 if ( $_SESSION['adminname'] == $adminLogin):
-header( "Location: admin.php" );
+header( "Location: admin" );
  endif; ?>
     <!DOCTYPE html>
     <html>
@@ -21,7 +21,7 @@ header( "Location: admin.php" );
     <body class="admin__body">
         <div class="admin-container">
             <div class="admin-container__items">
-                <form action="admin.php?action=login" method="post">
+                <form action="admin?action=login" method="post">
                     <input type="hidden" name="login" value="true" />
                     <div class="admin-container__row">
                         <p>

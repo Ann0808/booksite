@@ -1,4 +1,4 @@
-<a class="admin-flag" href="admin/admin.php">
+<a class="admin-flag" href="admin/admin">
 		<br>
 		<p>В</p>
 		<br>

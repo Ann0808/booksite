@@ -16,7 +16,7 @@
   if (isset($_SESSION['user']))
   {
     destroySession();
-    die("<script>window.location = 'index.php';</script>");
+    die("<script>window.location = 'index';</script>");
   }
   else echo "<div class='main'><br>" .
             "You cannot log out because you are not logged in";

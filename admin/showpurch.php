@@ -33,7 +33,7 @@ INNER JOIN books ON purchases.id_book =books.id
                         </div>
                         <div class='admin-container__row admin-container__row'>
                             <div class='admin_container__wrapper hidden' id='addNewPurchaseWrapper'>
-                                <form action='showpurch.php' method='post'>
+                                <form action='showpurch' method='post'>
                                     <p>Email пользователя</p>
                                     <input class='admin-container__input-text admin-container__input-text--center' type='email' name='user-email'>
                                     <p>ID книги (смотрите в разделе <a href="showbooks">все книги</a>)</p>
