@@ -66,6 +66,9 @@ session_start(); ?>
                         <div class="progress">
                             <div><p id="info" class="info"></p></div>
                         </div>
+                        <div id="error"></div>
+
+                        </div>
 
                 </form>
             </div>
