@@ -45,7 +45,7 @@ $chapters = Book::queryMysql($chapterQuery);
 
           </div>");
       			echo("<button onclick='update_chapter(this,$j)' class='btn hidden' data-id='$idChapter'>Обновить</button>");
-            echo "<p id='infoUpdate'></p>";
+            echo "<p id='infoUpdate".$j."'></p>";
       echo("</div>");
 
     }
