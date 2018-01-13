@@ -14,5 +14,4 @@
 		<p>е</p>
 		<p>л</p>
 		<p>ь</p>
-		<div class="flag"></div>
 </a>
