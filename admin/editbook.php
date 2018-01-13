@@ -26,22 +26,38 @@ $checked=$books['admin'];
             <div class="admin-container__block">
                 <span class="admin-container__addition">Все изображения должны быть в формате jpeg и предварительно сжаты <a href="http://optimizilla.com/ru/">для сжатия воспользуйтесь ссылкой</a></span>
                 <div class='admin-container__row'>
-                    <p>Редактировать логотип для мобильной версии</p>
+                    <p>
+											Редактировать логотип для мобильной версии
+											<br>
+											<span class="admin-container__addition">
+												Изображение должно быть в горизонтальной ориентации.
+											</span>
+										</p>
                     <div class='file_upload btn'>
                         Выбрать
                         <input name='picture-mobile' type='file' id='logomob' />
                     </div>
                 </div>
                 <div class='admin-container__row'>
-                    <p>Редактировать логотип для десктопной версии</p>
+                    <p>
+											Редактировать логотип для десктопной версии
+											<br>
+											<span class="admin-container__addition">
+												Изображение должно быть в горизонтальной ориентации.
+											</span>
+										</p>
                     <div class='file_upload btn'>
                         Выбрать
                         <input name='picture-desktop' type='file' id='logodesk' />
                     </div>
                 </div>
                 <div class='admin-container__row'>
-                    <p>Редактировать обложку
-                        <br><span class="admin-container__addition">Изображение должно быть высотой более 400px и в вертикальной ориентации</span></p>
+	                    <p>
+												Редактировать обложку
+                        <br>
+												<span class="admin-container__addition">Изображение должно быть высотой более 400px и в вертикальной ориентации
+												</span>
+											</p>
                     <div class='file_upload btn'>
                         Выбрать
                         <input name='picture-book' type='file' id='imgbook' />
