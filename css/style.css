@@ -3,7 +3,7 @@
   z-index: 1000;
   display: block;
   width: 60px;
-  height: 300px;
+  height: 160px;
   background: #481c00;
   position: fixed;
   top: 30%;
@@ -22,10 +22,8 @@
 @media (max-width: 768px) {
   .admin-flag {
     width: 40px;
-    height: 190px;
+    height: 160px;
     top: 35%;
-    font-size: 14px;
-    line-height: 12px;
   }
 }
 
