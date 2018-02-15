@@ -82,7 +82,7 @@ $chapters = Book::queryMysql($chapterQuery);
 </div> -->
 
 <!-- Include the Quill library -->
-<script src="../js/quil.min.js"></script>
+<script src="../js/quil.js"></script>
 
 <!-- Initialize Quill editor -->
 <script>

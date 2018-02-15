@@ -274,7 +274,24 @@
 .ql-editor .ql-video {
   display: block;
   max-width: 100%;
+  width: 560px;
+  height:315px;
+  margin: 0 auto;
 }
+
+@media (max-width: 768px) {
+  .ql-editor .ql-video {
+    width: 560px;
+    height:200px;
+  }
+}
+@media (max-width: 640px) {
+  .ql-editor .ql-video {
+    width: 560px;
+    height:180px;
+  }
+}
+
 .ql-editor .ql-video.ql-align-center {
   margin: 0 auto;
 }
