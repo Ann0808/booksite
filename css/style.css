@@ -69,6 +69,11 @@
   border: 2px solid #92aac4;
   background: #f8fdff;
 }
+.admin-container--instruction {
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
 .admin-container--special {
   display: block;
   width: auto;
