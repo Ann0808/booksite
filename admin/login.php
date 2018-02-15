@@ -19,8 +19,7 @@ header( "Location: admin" );
     </head>
 
     <body class="admin__body">
-        <div class="admin-container">
-            <div class="admin-container__items">
+        <div class="admin-container--special">
                 <form action="admin?action=login" method="post">
                     <input type="hidden" name="login" value="true" />
                     <div class="admin-container__row">
@@ -44,7 +43,6 @@ header( "Location: admin" );
                             <?php } ?>
                     </div>
                 </form>
-            </div>
         </div>
     </body>
 

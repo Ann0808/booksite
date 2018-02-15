@@ -23,8 +23,6 @@
   .admin-flag {
     width: 40px;
     height: 190px;
-    background: #481c00;
-    position: fixed;
     top: 35%;
     font-size: 14px;
     line-height: 12px;
@@ -932,18 +930,6 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
   height: 21px;
   border: 2px solid #95a6ad;
 }
-/*
-.shop-checkbox input[type="checkbox"] + .checkbox-indicator {
-    position:absolute;
-    top: 3px;
-    left: 0;
-
-    width: 17px;
-    height: 17px;
-
-    border: 2px solid #000000;
-}
-*/
 .checkbox input[type="checkbox"]:checked + .checkbox-indicator::before,
 .checkbox input[type="checkbox"]:checked + .checkbox-indicator::after {
   content: "";
@@ -964,7 +950,6 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
-
 
 .link {
   display: inline-block;
@@ -1366,7 +1351,6 @@ nav {
   color: #080508;
 }
 @media (min-width:768px) {
-  /*navbar page.html*/
   .navbar-toggleable-md {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;

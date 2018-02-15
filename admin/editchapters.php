@@ -19,10 +19,7 @@ $chapters = Book::queryMysql($chapterQuery);
 
 
 ?>
-<div class="admin-container">
-  <div class="admin-container__items">
-    <div class="admin-container__item">
-
+<div class="admin-container--special">
       <?$j=0;
           while($row=$chapters->fetch_array(MYSQLI_ASSOC))
       {
@@ -66,9 +63,7 @@ $chapters = Book::queryMysql($chapterQuery);
     echo("<button  class='btn' onclick='add_chapter(this)' data-id='$id'>Добавить</button>");
    echo("</div>");
     ?>
-    </div>
     <p id="info"></p>
-  </div>
 </div>
 <div class="modal-content modal-content--close">
 	<p>Вы действительно хотите удалить главу?</p>

@@ -29,7 +29,6 @@ if (isset($_GET['erase'])) // Удаление глав и книги по id
    <div class="admin-container--special">
    	<h2>Книги</h2>
 			<div class="showbooks">
-
 				<div class="showbooks__row">
 					<div class="col col--border-top col--small">Id</div>
 					<div class="col col--border-top col--small">Название</div>
