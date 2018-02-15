@@ -1,18 +1,11 @@
 <a class="admin-flag" href="admin/admin">
 		<br>
-		<p>В</p>
-		<br>
-		<p>а</p>
-		<p>д</p>
-		<p>м</p>
-		<p>и</p>
-		<p>н</p>
-		<br>
-		<p>п</p>
-		<p>а</p>
-		<p>н</p>
-		<p>е</p>
-		<p>л</p>
-		<p>ь</p>
+		<p>А</p>
+		<p>Д</p>
+		<p>М</p>
+		<p>И</p>
+		<p>Н</p>
+		<p>К</p>
+		<p>А</p>
 		<div class="flag"></div>
 </a>
