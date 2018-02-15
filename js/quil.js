@@ -5428,7 +5428,7 @@
                     }
                 }]), e
             }(s.BlockEmbed);
-        c.blotName = "video", c.className = "ql-video", c.tagName = "IFRAME",c.width = "800", e.default = c
+        c.blotName = "video", c.className = "ql-video", c.tagName = "IFRAME", e.default = c
     }, function(t, e, n) {
         "use strict";
 
@@ -6259,9 +6259,9 @@
                 }, {
                     key: "position",
                     value: function(t) {
-                        var e = t.left + t.width / 2 - this.root.offsetWidth / 2,
-                            n = t.bottom + this.quill.root.scrollTop;
-                        this.root.style.left = e + "px", this.root.style.top = n + "px";
+                        var e = t.left,
+                            n = t.top-20;
+                        this.root.style.left = e + "px", this.root.style.top =  n + "px";
                         var r = this.boundsContainer.getBoundingClientRect(),
                             o = this.root.getBoundingClientRect(),
                             i = 0;
