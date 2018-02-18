@@ -38,7 +38,7 @@ $erase = $_GET['erase'];
                $id_redirect = 0;
                $is_id = true;
              ?>
-             <?php foreach ($value as $v) {
+             <?php  if(isset($value) && is_array($value)) foreach ($value as $v) {
                if($is_id) $id_redirect = $v; ?>
                <div class="col">
                 <?php echo $v ?>

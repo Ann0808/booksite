@@ -95,6 +95,7 @@ session_start(); ?>
                     if (( $newPass==$newPassAgain )&&($oldPass==$adminPassword)) {
                       $insertQuery = "UPDATE `admin` SET `password`='$newPass'";
                       Book::queryMysql($insertQuery);
+
                       echo ("Пароль успешно изменен!");
                     }
                     elseif ($oldPass!=$adminPassword){
@@ -108,6 +109,7 @@ session_start(); ?>
                   if ( $newLogin!=null ) {
                     $insertQuery = "UPDATE `admin` SET `login`='$newLogin'";
                     Book::queryMysql($insertQuery);
+                      $_SESSION['adminname'] =$newLogin;
                     echo ("Логин успешно изменен!");
                   }
                   if ( $newName!=null ) {

@@ -189,6 +189,14 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
 .admin-container__row .col:nth-child(9) {
   width: 4%;
 }
+.video-learning {
+  margin: auto;
+}
+.video-learning iframe {
+  margin: auto;
+  width: 90%;
+  height: 200px;
+}
 @media (min-width: 768px) {
   .admin-container {
     width: 90%;
@@ -213,11 +221,21 @@ input[type="radio"]:nth-of-type(3):checked ~ .admin-menu .admin-menu__item:nth-o
         -ms-flex-direction: row;
             flex-direction: row;
   }
+  .video-learning iframe {
+    margin: auto;
+    width: 90%;
+    height: 320px;
+  }
 }
 @media (min-width: 1024px) {
   .admin-menu {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
+  }
+  .video-learning iframe {
+    margin: auto;
+    width: 90%;
+    height: 500px;
   }
 }
 .admin-container__chapter-link {

@@ -16,6 +16,12 @@
       <p>Придумайте новый пароль и введите его дважды: в поле "Новый пароль" и "Повтор пароля"</p>
       <li>Нажмите "ОБНОВИТЬ"</li>
     </ol>
+    <div class="video-learning">
+      <center>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/jN7IXrWEu3g" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</center>
+    </div>
+
     <h3>Настройка яндекс-кошелька:</h3>
     <ol>
       <li>Зарегистрируйтесь в сервисе Яндекс-Деньги <a href="https://money.yandex.ru/">перейти в сервис</a>
@@ -36,6 +42,11 @@
       <li>Вставьте скопированные символы в поле "Секретное слово для проверки подлинности"</li>
       <li>Нажмите "ОБНОВИТЬ"</li>
     </ol>
+    <div class="video-learning">
+      <center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9hgtRWLivxk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</center>
+    </div>
     <h3>Настройка кошелька freekassa</h3>
     <ol>
       <li>Перейдите на сайт freekassa: <a href="http://www.free-kassa.ru/cabinet/v2/register">перейти</a></li>
@@ -66,6 +77,11 @@
       <p><img src="../img/standart/activate_screen3.png" alt="" width="100%"></p>
       <p>В случае неудачи пишите в техподдержку сайта freekassa и узнавайте у них причины блокировки сайта.</p>
     </ol>
+      <div class="video-learning">
+    <center>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/AEZ8kDsxfW0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </center>
+    </div>
 
 </div>
 <div class="instruction">

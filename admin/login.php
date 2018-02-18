@@ -24,13 +24,13 @@ header( "Location: admin" );
                     <input type="hidden" name="login" value="true" />
                     <div class="admin-container__row">
                         <p>
-                            <label for="username">Username</label>
+                            <label for="username">Логин</label>
                         </p>
                         <input class="admin-container__input-text" type="text" name="username" id="username" placeholder="Your admin username" required autofocus maxlength="20" />
                     </div>
                     <div class="admin-container__row">
                         <p>
-                            <label for="password">Password</label>
+                            <label for="password">Пароль</label>
                         </p>
                         <input class="admin-container__input-text" type="password" name="password" id="password" placeholder="Your admin password" required maxlength="20" />
                     </div>

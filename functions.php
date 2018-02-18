@@ -10,8 +10,8 @@
 
   function createTable($name, $query)
   {
-    queryMysql("CREATE TABLE IF NOT EXISTS $name($query)");
-    echo "Table '$name' created or already exists.<br>";
+    queryMysql("CREATE TABLE IF NOT EXISTS $name($query) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+    echo "Таблица '$name' создана.<br>";
   }
 
   function queryMysql($query)
